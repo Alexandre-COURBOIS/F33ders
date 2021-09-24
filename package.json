@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "deploy-production": "ng build --prod && sudo scp -r ./dist/* /var/www/"
   },
   "private": true,
   "dependencies": {
