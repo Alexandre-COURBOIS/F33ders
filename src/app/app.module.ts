@@ -14,6 +14,11 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {ToastrModule} from "ngx-toastr";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {JwtModule} from "@auth0/angular-jwt";
+
+export function tokenGetter() {
+  return sessionStorage.getItem('_token');
+}
 
 @NgModule({
   declarations: [
@@ -33,6 +38,12 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     HttpClientModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        disallowedRoutes: ["http://localhost:4200/login","*"],
+      }
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

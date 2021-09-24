@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {User} from "../../Models/user";
 import {LoginService} from "../../Services/login.service";
 import {ToastrService} from "ngx-toastr";
+import { JwtHelperService } from "@auth0/angular-jwt";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
   authForm !: FormGroup;
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder, private loginService: LoginService, private toastr: ToastrService) { }
+  constructor(private formBuilder: FormBuilder, private loginService: LoginService, private toastr: ToastrService, private jwtHelper: JwtHelperService, private router: Router) { }
 
   ngOnInit(): void {
     this.initAuthForm();
@@ -47,7 +48,20 @@ export class LoginComponent implements OnInit {
         this.loginService.login(email,password).subscribe(value => {
           console.log(value);
           this.submitted = false;
+
+          sessionStorage.setItem("_token", value['token']);
+          sessionStorage.setItem("_refresh_token", value['refresh_token']);
+          sessionStorage.setItem("_logged", "true");
+
+          this.router.navigate(['']).then( logged => {
+
+          });
+
+
+          console.log(this.jwtHelper.decodeToken(value['token']));
+
         }, error => {
+          console.log(error);
           this.toastr.error('Email ou mot de passe incorrect');
           this.submitted = false;
         });
