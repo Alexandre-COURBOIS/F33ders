@@ -10,6 +10,10 @@ import { NotFound404Component } from './Pages/not-found404/not-found404.componen
 import { HeaderComponent } from './Components/header/header.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { HomeComponent } from './Pages/home/home.component';
+import {ReactiveFormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
+import {ToastrModule} from "ngx-toastr";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -24,7 +28,11 @@ import { HomeComponent } from './Pages/home/home.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
