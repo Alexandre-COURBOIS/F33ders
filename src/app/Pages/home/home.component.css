@@ -1,0 +1,86 @@
+*,
+*:focus {
+  outline: none;
+}
+.wrap{
+  padding-left: 2%;
+  padding-right: 2%;
+  z-index: 1;
+}
+.header{
+  margin-top: 14vh;
+  color: white;
+}
+.title-h1{
+  text-align: center;
+}
+.overlay{
+  background-color: rgba(0,0,0,0.2);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+.jarallax {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.mask-overlay{
+  background-color: #1f232666;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+.form {
+  position: relative;
+  margin: 0 auto;
+  font-family: sans-serif;
+  background: #fff;
+  margin-top: 8vh;
+  border-radius: 10px;
+}
+.form-item input {
+  display: block;
+  width: 100%;
+  height: 40px;
+  background: transparent;
+  border: solid 1px #ccc;
+  transition: all 0.3s ease;
+  padding: 0 15px;
+  border-radius: 10px;
+
+}
+.form-item input:focus {
+  border-color: blue;
+}
+.form-item label {
+  position: absolute;
+  cursor: text;
+  z-index: 2;
+  top: 13px;
+  left: 10px;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 0 10px;
+  color: #999;
+  transition: all 0.3s ease;
+}
+.form-item input:focus + label,
+.form-item input:valid + label {
+  font-size: 20px;
+  top: -5vh;
+  color: white;
+}
+.form-item input:focus + label {
+  color: white;
+}
+
+

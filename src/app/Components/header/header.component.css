@@ -1,0 +1,15 @@
+body{
+  color: white;
+}
+.navbar{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5vh;
+  padding: 0;
+}
+.navbar-shape{
+  height: 5vh;
+  width: 100%;
+}
