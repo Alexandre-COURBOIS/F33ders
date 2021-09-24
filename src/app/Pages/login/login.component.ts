@@ -4,6 +4,8 @@ import {LoginService} from "../../Services/login.service";
 import {ToastrService} from "ngx-toastr";
 import { JwtHelperService } from "@auth0/angular-jwt";
 import {Router} from "@angular/router";
+import {EncryptService} from "../../Services/encrypt.service";
+import {UserService} from "../../Services/user.service";
 
 @Component({
   selector: 'app-login',
@@ -15,7 +17,8 @@ export class LoginComponent implements OnInit {
   authForm !: FormGroup;
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder, private loginService: LoginService, private toastr: ToastrService, private jwtHelper: JwtHelperService, private router: Router) { }
+  constructor(private formBuilder: FormBuilder, private loginService: LoginService, private toastr: ToastrService, private jwtHelper: JwtHelperService, private router: Router,
+              private encryptService: EncryptService, private userService: UserService) { }
 
   ngOnInit(): void {
     this.initAuthForm();
@@ -44,24 +47,26 @@ export class LoginComponent implements OnInit {
       const password = this.authForm.get('password')?.value;
 
       if (email && password) {
-
         this.loginService.login(email,password).subscribe(value => {
-          console.log(value);
+
           this.submitted = false;
 
           sessionStorage.setItem("_token", value['token']);
           sessionStorage.setItem("_refresh_token", value['refresh_token']);
-          sessionStorage.setItem("_logged", "true");
+          sessionStorage.setItem("_logged",this.encryptService.encode("true"));
 
-          this.router.navigate(['']).then( logged => {
+          this.userService.getUser().subscribe(value => {
+            console.log(value);
+          }, error => {
+            console.log(error);
+          })
 
-          });
 
+          /*        this.router.navigate(['']).then( logged => {
 
-          console.log(this.jwtHelper.decodeToken(value['token']));
+                    });*/
 
         }, error => {
-          console.log(error);
           this.toastr.error('Email ou mot de passe incorrect');
           this.submitted = false;
         });
