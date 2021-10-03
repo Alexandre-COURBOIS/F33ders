@@ -19,7 +19,7 @@ export class RegisterService {
   constructor(private http: HttpClient) {
   }
 
-  registration(user: User): void{
+  createUser(user: User): void{
     this.http.post<User>(`${this.url}register/user`, user, this.httpOption).subscribe()
   }
 }

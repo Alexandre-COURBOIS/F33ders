@@ -1,8 +1,6 @@
-.background-image
 
 .container-sm {
-  position: absolute;
-  bottom: 15%;
+  background-color: #1F2326;
 }
 
 .form {
@@ -15,6 +13,10 @@
   color: #FFFFFF;
 }
 
+.text-danger {
+  font-size: 12px;
+}
+
 .register-input {
   background-color: #C4C4C5;
   border: 2px solid #FFFFFF;
@@ -24,7 +26,7 @@
   padding: 15px;
 }
 
-button .register {
+.register {
   color: #0a0a0a;
   font-weight: bold;
   font-size: 20px;
@@ -34,6 +36,7 @@ button .register {
   padding: 15px;
   border-radius: 8px;
 }
+
 
 .redirect-login {
   background-color: #1F2427;
