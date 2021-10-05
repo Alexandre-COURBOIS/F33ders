@@ -1,0 +1,42 @@
+.container-sm {
+  background-color: #1F2326;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.form {
+  border-radius: 15px;
+  background-color: #3D3D3E;
+  padding: 10px;
+}
+
+.form-label {
+  color: #FFFFFF;
+}
+
+.login-input {
+  background-color: #C4C4C5;
+  border: 2px solid #FFFFFF;
+}
+
+.login {
+  color: #0a0a0a;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.submit-button {
+  padding: 15px;
+}
+
+.forgot-password {
+  position: absolute;
+  left: 55%;
+  padding-top: 15px;
+  text-decoration: none;
+  list-style-type: none;
+  color: white;
+  font-size: 14px;
+}

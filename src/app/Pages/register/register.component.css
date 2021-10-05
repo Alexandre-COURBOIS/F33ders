@@ -1,6 +1,10 @@
 
 .container-sm {
   background-color: #1F2326;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .form {
@@ -43,4 +47,5 @@
   color: #FFFFFF;
   border: 2px solid #FFFFFF;
 }
+
 

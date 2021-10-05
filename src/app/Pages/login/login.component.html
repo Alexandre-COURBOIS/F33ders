@@ -1,32 +1,43 @@
-<form [formGroup]="authForm" (ngSubmit)="submitAuthForm()">
-  <div class="form-group">
-    <input placeholder="Email" type="text" name="email" id="email" class="form-control"
-           formControlName="email">
-  </div>
-  <div class="container-error">
-    <div class="error" *ngIf="submitted && f.email.errors && f.email.errors.required">Merci de renseigner
-      votre
-      email.
+<div class="container-sm mt-5">
+  <form [formGroup]="authForm" (ngSubmit)="submitAuthForm()" class="form">
+    <div class="form-group mb-3">
+
+      <!--      Email-->
+      <label for="email" class="form-label">Email</label>
+      <input type="text" name="email" id="email" class="form-control login-input"
+             formControlName="email">
+
+      <!--    Email Errors-->
+      <div class="text-danger" *ngIf="submitted && f.email.errors && f.email.errors.required">Merci de renseigner
+        votre email.
+      </div>
+      <div class="text-danger" *ngIf="authForm.get('email')?.value && f.email.errors && f.email.errors.pattern">Merci
+        de renseigner un email valide.
+      </div>
     </div>
-    <div class="error" *ngIf="authForm.get('email')?.value && f.email.errors && f.email.errors.pattern">Merci
-      de renseigner un email valide.
+
+
+    <div class="form-group mb-3">
+      <label for="password" class="form-label">Mot de passe</label>
+      <input  type="password" name="password" id="password" class="form-control login-input"
+             formControlName="password">
+
+      <div class="text-danger" *ngIf="submitted && f.password.errors && f.password.errors.required">Merci de
+        renseigner
+        votre mot de passe.
+      </div>
+      <div class="text-danger"
+           *ngIf="authForm.get('password')?.value && f.password.errors && f.password.errors.pattern">
+        Doit contenir au moins, 8 caractères, une lettre majuscule, un chiffre et un caractère spécial.
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <input placeholder="Mot de passe" type="password" name="password" id="password" class="form-control"
-           formControlName="password">
-  </div>
-  <div class="container-error">
-    <div class="error" *ngIf="submitted && f.password.errors && f.password.errors.required">Merci de
-      renseigner
-      votre mot de passe.
+
+
+    <div class="submit-button">
+      <input type="submit" [disabled]="submitted" class="form-control login" value="connexion">
     </div>
-    <div class="error"
-         *ngIf="authForm.get('password')?.value && f.password.errors && f.password.errors.pattern">
-      Doit contenir au moins, 8 caractères, une lettre majuscule, un chiffre et un caractère spécial.
-    </div>
-  </div>
-  <div class="text-center">
-    <input type="submit" [disabled]="submitted" class="btn btn-success" value="connexion">
-  </div>
-</form>
+  </form>
+
+  <a routerLink="/forgot-password/:token" class="forgot-password">Mot de passe oublié</a>
+</div>
+
