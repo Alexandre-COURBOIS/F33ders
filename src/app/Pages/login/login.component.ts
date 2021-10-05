@@ -25,7 +25,6 @@ export class LoginComponent implements OnInit {
   }
 
   /*Formulaire de connexion*/
-
   initAuthForm() {
 
     /*Vérification des champs du formulaire de connexion*/
@@ -34,7 +33,6 @@ export class LoginComponent implements OnInit {
       email: ['', [Validators.required, Validators.email, Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
       password: ['', [Validators.required, Validators.minLength(8), Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!.:,;^%*?&µù%=&])[A-Za-z\d$@$!.:,;^%*?&µù%=&].{8,}')]]
     });
-
   }
 
   submitAuthForm() {
@@ -55,17 +53,16 @@ export class LoginComponent implements OnInit {
           sessionStorage.setItem("_refresh_token", value['refresh_token']);
           sessionStorage.setItem("_logged",this.encryptService.encode("true"));
 
-          this.userService.getUser().subscribe(value => {
-            console.log(value);
+          this.userService.getUser().subscribe(user => {
+            if (!user.isActive) {
+              this.toastr.error("Merci d'activer votre compte via l'email qui vous a été envoyé lors de votre inscription");
+            } else {
+              this.toastr.success("Bienvenue " + user.userpseudo);
+              this.router.navigate(['']);
+            }
           }, error => {
             console.log(error);
           })
-
-
-/*                  this.router.navigate(['']).then( logged => {
-
-                    });*/
-
         }, error => {
           this.toastr.error('Email ou mot de passe incorrect');
           this.submitted = false;
