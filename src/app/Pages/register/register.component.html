@@ -1,4 +1,4 @@
-<div class="container-sm">
+<div class="container-sm mt-5">
   <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="form ">
 
     <div class="mb-3">
@@ -15,7 +15,7 @@
         Veuillez saisir 3 caractères minimum
       </div>
       <div *ngIf="submitted && f?.username?.errors && f?.username?.errors?.maxLength" class="text-danger">
-        Veuillez saisir 30 caractères minimum
+        Veuillez saisir 30 caractères maximum
       </div>
       <div *ngIf="submitted && f?.username?.errors && f?.username?.errors?.pattern" class="text-danger">
         Veuillez saisir un nom d'utilisateur valide
@@ -29,10 +29,10 @@
              class="form-control register-input">
 
       <!-- Email Errors -->
-      <div *ngIf="submitted && f?.email?.errors && f?.email?.errors?.required" class="text-danger">
+      <div *ngIf="submitted && f.email?.errors && f.email?.errors?.required" class="text-danger">
         Email requis
       </div>
-      <div *ngIf="submitted && f?.email?.errors && f?.email?.errors?.pattern" class="text-danger">
+      <div *ngIf="registerForm.get('email')?.value && f.email?.errors && f.email?.errors?.pattern" class="text-danger">
         Veuillez saisir un email valide
       </div>
     </div>
@@ -46,7 +46,7 @@
       <div *ngIf="submitted && f?.password?.errors && f?.password?.errors?.required" class="text-danger">
         Mot de passe requis
       </div>
-      <div *ngIf="submitted && f?.password?.errors && f?.password?.errors?.pattern" class="text-danger">
+      <div *ngIf="registerForm.get('password')?.value && f.password.errors && f.password.errors.pattern" class="text-danger">
         Doit contenir au moins, 8 caractères, une lettre majuscule, un chiffre et un caractère spécial.
       </div>
     </div>
