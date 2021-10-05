@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, Validators, FormControl, FormGroup} from "@angular/forms";
 import {RegisterService} from "../../Services/register.service";
-import {User} from "../../Models/user";
 import {Router} from '@angular/router';
 import {ToastrService} from "ngx-toastr";
 
@@ -37,7 +36,7 @@ export class RegisterComponent implements OnInit {
   buildForm() {
 
     this.registerForm = this.formBuilder.group({
-      username: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30), Validators.pattern('^[A-Za-z]+$')]],
+      username: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
       email: ['', [Validators.required, Validators.email, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
       password: ['', [Validators.required, Validators.minLength(8), Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!.:,;^%*?&µù%=&])[A-Za-z\d$@$!.:,;^%*?&µù%=&].{8,}')]],
     })
@@ -55,6 +54,7 @@ export class RegisterComponent implements OnInit {
 
       this.registerService.createUser(username,email,password).subscribe(registerRequest => {
 
+        // @ts-ignore
         this.toastr.success(registerRequest);
 
         this.router.navigate(['login']);
