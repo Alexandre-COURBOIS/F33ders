@@ -10,16 +10,20 @@ export class UserService {
 
   constructor(private httpClient: HttpClient,private jwtHelper: JwtHelperService,) { }
 
-  getHeader() {
-    const httpHeaders = {
+/*    httpOption = {
       headers: new HttpHeaders()
         .append('Authorization', `Bearer ${this.jwtHelper.tokenGetter()}`)
     }
-    return httpHeaders;
-  }
+
+  httpOption = {
+    headers: new HttpHeaders({
+      'Content-type' : 'application/json'
+    })
+  }*/
+
 
   getUser() {
-    return this.httpClient.get(environment.API_URL + 'api/get_user', this.getHeader());
+    return this.httpClient.get(environment.API_URL + 'api/get_user');
   }
 
 

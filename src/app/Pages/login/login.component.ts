@@ -62,7 +62,7 @@ export class LoginComponent implements OnInit {
           })
 
 
-          /*        this.router.navigate(['']).then( logged => {
+/*                  this.router.navigate(['']).then( logged => {
 
                     });*/
 
