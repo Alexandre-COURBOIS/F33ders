@@ -1,0 +1,46 @@
+
+.container-sm {
+  background-color: #1F2326;
+}
+
+.form {
+  border-radius: 15px;
+  background-color: #3D3D3E;
+  padding: 10px;
+}
+
+.form-label {
+  color: #FFFFFF;
+}
+
+.text-danger {
+  font-size: 12px;
+}
+
+.register-input {
+  background-color: #C4C4C5;
+  border: 2px solid #FFFFFF;
+}
+
+.form-label-register {
+  padding: 15px;
+}
+
+.register {
+  color: #0a0a0a;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.form-label-redirect-login {
+  padding: 15px;
+  border-radius: 8px;
+}
+
+
+.redirect-login {
+  background-color: #1F2427;
+  color: #FFFFFF;
+  border: 2px solid #FFFFFF;
+}
+

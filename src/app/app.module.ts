@@ -1,6 +1,7 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {HttpClient, HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './Pages/register/register.component';
@@ -10,8 +11,6 @@ import { NotFound404Component } from './Pages/not-found404/not-found404.componen
 import { HeaderComponent } from './Components/header/header.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { HomeComponent } from './Pages/home/home.component';
-import {ReactiveFormsModule} from "@angular/forms";
-import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {ToastrModule} from "ngx-toastr";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {JwtModule} from "@auth0/angular-jwt";
@@ -20,6 +19,7 @@ import {JwtInterceptor} from "./Helpers/jwt.interceptor";
 export function tokenGetter() {
   return sessionStorage.getItem('_token');
 }
+
 
 @NgModule({
   declarations: [
@@ -35,6 +35,7 @@ export function tokenGetter() {
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     ToastrModule.forRoot(),
@@ -54,4 +55,5 @@ export function tokenGetter() {
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

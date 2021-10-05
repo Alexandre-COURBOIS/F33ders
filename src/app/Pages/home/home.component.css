@@ -11,7 +11,17 @@
   margin-top: 14vh;
   color: white;
 }
+.textHeader{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 .title-h1{
+  text-align: center;
+}
+.introText{
+  width: 80%;
   text-align: center;
 }
 .overlay{
@@ -82,5 +92,71 @@
 .form-item input:focus + label {
   color: white;
 }
+.list-champion{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  overflow-x: auto;
+  align-items: stretch;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-y: hidden;
+  padding-bottom: 100 px;
+}
+.display-colum-listChampion{
+  height: auto;
+}
+.link-aboutC{
+  position: absolute;
+  bottom: 2vh;
+}
+.card-champion{
+  margin-top: 50px;
+  position: relative;
+  display: flex;
+  width: 300px;
+  height: auto;
+  min-height: 10vh;
+  background: rgb(2,0,36);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020024",endColorstr="#090349",GradientType=1);
+  color: white;
+  padding: 20px;
+  padding-right: 0px;
+  border-radius: 10px;
+  justify-content: space-between;
+  margin-right: 20px;
+}
+.img-champion-card{
+  width: 50%;
+  height: 20vh;
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.img1{
+  background-image: url("../../../assets/img/champion/mage-3bfa6dfe620adafe5e539c2e470f4acc.png");
+
+}
+
+.img2{
+  background-image: url("../../../assets/img/champion/marksman-b339ed8fd7e04ff2c3fca022c5d299fb.png");
+}
+
+.img3{
+  background-image: url("../../../assets/img/champion/assassin-d64d3ffdda15e1eed637aefe6a2c7fee.png");
+}
+
+.img4{
+  background-image: url("../../../assets/img/champion/fighter-7a08920b696ecdb673edeeae1d3c616e.png");
+
+}
+
+.img5{
+  background-image: url("../../../assets/img/champion/tank-1245abc326bd98c567ab22659719a1a3.png");
+}
+
+@media (min-height: 768px){}
+
 
 

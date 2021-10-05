@@ -4,3 +4,8 @@ body{
   background-color: #1F2326;
 
 }
+
+p {
+  margin-top: revert;
+  margin-bottom: revert;
+}

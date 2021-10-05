@@ -1,1 +1,61 @@
-<p>register works!</p>
+<div class="container-sm mt-5">
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="form ">
+
+    <div class="mb-3">
+      <!-- Username -->
+      <label for="username" class="form-label">Nom utilisateur</label>
+      <input type="text" id="username" name="username" formControlName="username"
+             class="form-control register-input">
+
+      <!-- Username Errors -->
+      <div *ngIf="submitted && f?.username?.errors && f?.username?.errors?.required" class="text-danger">
+        Nom utilisateur requis
+      </div>
+      <div *ngIf="submitted && f?.username?.errors && f?.username?.errors?.minLength" class="text-danger">
+        Veuillez saisir 3 caractères minimum
+      </div>
+      <div *ngIf="submitted && f?.username?.errors && f?.username?.errors?.maxLength" class="text-danger">
+        Veuillez saisir 30 caractères maximum
+      </div>
+    </div>
+
+    <!-- Email -->
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="text" id="email" name="email" formControlName="email"
+             class="form-control register-input">
+
+      <!-- Email Errors -->
+      <div *ngIf="submitted && f.email?.errors && f.email?.errors?.required" class="text-danger">
+        Email requis
+      </div>
+      <div *ngIf="registerForm.get('email')?.value && f.email?.errors && f.email?.errors?.pattern" class="text-danger">
+        Veuillez saisir un email valide
+      </div>
+    </div>
+
+    <!-- Password -->
+    <div class="mb-3">
+      <label for="password" class="form-label">Mot de passe</label>
+      <input type="password" id="password" name="password" formControlName="password"
+             class="form-control register-input">
+      <!-- Password Errors -->
+      <div *ngIf="submitted && f?.password?.errors && f?.password?.errors?.required" class="text-danger">
+        Mot de passe requis
+      </div>
+      <div *ngIf="registerForm.get('password')?.value && f.password.errors && f.password.errors.pattern" class="text-danger">
+        Doit contenir au moins, 8 caractères, une lettre majuscule, un chiffre et un caractère spécial.
+      </div>
+    </div>
+
+    <div class="mb-3 form-label-register">
+      <button type="submit" class="form-control register">Créer un compte</button>
+    </div>
+
+
+  </form>
+  <div class="mb-3 form-label-redirect-login">
+    <button type="submit" class="form-control redirect-login" routerLink="/login">Se connecter</button>
+  </div>
+</div>
+
