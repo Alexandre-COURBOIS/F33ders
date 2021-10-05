@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {User} from "../../Models/user";
 import {LoginService} from "../../Services/login.service";
 import {ToastrService} from "ngx-toastr";
+import { JwtHelperService } from "@auth0/angular-jwt";
+import {Router} from "@angular/router";
+import {EncryptService} from "../../Services/encrypt.service";
+import {UserService} from "../../Services/user.service";
 
 @Component({
   selector: 'app-login',
@@ -14,14 +17,14 @@ export class LoginComponent implements OnInit {
   authForm !: FormGroup;
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder, private loginService: LoginService, private toastr: ToastrService) { }
+  constructor(private formBuilder: FormBuilder, private loginService: LoginService, private toastr: ToastrService, private jwtHelper: JwtHelperService, private router: Router,
+              private encryptService: EncryptService, private userService: UserService) { }
 
   ngOnInit(): void {
     this.initAuthForm();
   }
 
   /*Formulaire de connexion*/
-
   initAuthForm() {
 
     /*Vérification des champs du formulaire de connexion*/
@@ -30,7 +33,6 @@ export class LoginComponent implements OnInit {
       email: ['', [Validators.required, Validators.email, Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
       password: ['', [Validators.required, Validators.minLength(8), Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!.:,;^%*?&µù%=&])[A-Za-z\d$@$!.:,;^%*?&µù%=&].{8,}')]]
     });
-
   }
 
   submitAuthForm() {
@@ -43,10 +45,24 @@ export class LoginComponent implements OnInit {
       const password = this.authForm.get('password')?.value;
 
       if (email && password) {
-
         this.loginService.login(email,password).subscribe(value => {
-          console.log(value);
+
           this.submitted = false;
+
+          sessionStorage.setItem("_token", value['token']);
+          sessionStorage.setItem("_refresh_token", value['refresh_token']);
+          sessionStorage.setItem("_logged",this.encryptService.encode("true"));
+
+          this.userService.getUser().subscribe(user => {
+            if (!user.isActive) {
+              this.toastr.error("Merci d'activer votre compte via l'email qui vous a été envoyé lors de votre inscription");
+            } else {
+              this.toastr.success("Bienvenue " + user.userpseudo);
+              this.router.navigate(['']);
+            }
+          }, error => {
+            console.log(error);
+          })
         }, error => {
           this.toastr.error('Email ou mot de passe incorrect');
           this.submitted = false;
