@@ -1,0 +1,162 @@
+*,
+*:focus {
+  outline: none;
+}
+.wrap{
+  padding-left: 2%;
+  padding-right: 2%;
+  z-index: 1;
+}
+.header{
+  margin-top: 14vh;
+  color: white;
+}
+.textHeader{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.title-h1{
+  text-align: center;
+}
+.introText{
+  width: 80%;
+  text-align: center;
+}
+.overlay{
+  background-color: rgba(0,0,0,0.2);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+.jarallax {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.mask-overlay{
+  background-color: #1f232666;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+.form {
+  position: relative;
+  margin: 0 auto;
+  font-family: sans-serif;
+  background: #fff;
+  margin-top: 8vh;
+  border-radius: 10px;
+}
+.form-item input {
+  display: block;
+  width: 100%;
+  height: 40px;
+  background: transparent;
+  border: solid 1px #ccc;
+  transition: all 0.3s ease;
+  padding: 0 15px;
+  border-radius: 10px;
+
+}
+.form-item input:focus {
+  border-color: blue;
+}
+.form-item label {
+  position: absolute;
+  cursor: text;
+  z-index: 2;
+  top: 13px;
+  left: 10px;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 0 10px;
+  color: #999;
+  transition: all 0.3s ease;
+}
+.form-item input:focus + label,
+.form-item input:valid + label {
+  font-size: 20px;
+  top: -5vh;
+  color: white;
+}
+.form-item input:focus + label {
+  color: white;
+}
+.list-champion{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  overflow-x: auto;
+  align-items: stretch;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-y: hidden;
+  padding-bottom: 100 px;
+}
+.display-colum-listChampion{
+  height: auto;
+}
+.link-aboutC{
+  position: absolute;
+  bottom: 2vh;
+}
+.card-champion{
+  margin-top: 50px;
+  position: relative;
+  display: flex;
+  width: 300px;
+  height: auto;
+  min-height: 10vh;
+  background: rgb(2,0,36);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020024",endColorstr="#090349",GradientType=1);
+  color: white;
+  padding: 20px;
+  padding-right: 0px;
+  border-radius: 10px;
+  justify-content: space-between;
+  margin-right: 20px;
+}
+.img-champion-card{
+  width: 50%;
+  height: 20vh;
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.img1{
+  background-image: url("../../../assets/img/champion/mage-3bfa6dfe620adafe5e539c2e470f4acc.png");
+
+}
+
+.img2{
+  background-image: url("../../../assets/img/champion/marksman-b339ed8fd7e04ff2c3fca022c5d299fb.png");
+}
+
+.img3{
+  background-image: url("../../../assets/img/champion/assassin-d64d3ffdda15e1eed637aefe6a2c7fee.png");
+}
+
+.img4{
+  background-image: url("../../../assets/img/champion/fighter-7a08920b696ecdb673edeeae1d3c616e.png");
+
+}
+
+.img5{
+  background-image: url("../../../assets/img/champion/tank-1245abc326bd98c567ab22659719a1a3.png");
+}
+
+@media (min-height: 768px){}
+
+
+

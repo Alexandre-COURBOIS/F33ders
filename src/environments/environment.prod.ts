@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  API_URL: 'https://api.f33ders.courboisalexandre.fr/',
 };
