@@ -1,11 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators, FormControl} from "@angular/forms";
 import {LoginService} from "../../Services/login.service";
 import {ToastrService} from "ngx-toastr";
-import { JwtHelperService } from "@auth0/angular-jwt";
+import {JwtHelperService} from "@auth0/angular-jwt";
 import {Router} from "@angular/router";
 import {EncryptService} from "../../Services/encrypt.service";
 import {UserService} from "../../Services/user.service";
+import {ResetPasswordService} from "../../Services/reset-password.service";
+import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-login',
@@ -14,14 +16,28 @@ import {UserService} from "../../Services/user.service";
 })
 export class LoginComponent implements OnInit {
 
+  // AuthentificationForm
   authForm !: FormGroup;
-  submitted = false;
+  submitted: boolean = false;
 
-  constructor(private formBuilder: FormBuilder, private loginService: LoginService, private toastr: ToastrService, private jwtHelper: JwtHelperService, private router: Router,
-              private encryptService: EncryptService, private userService: UserService) { }
+  // ResetPasswordForm
+  closeResult = "";
+  submittedReset: boolean = false;
+  resetPasswordForm = new FormGroup({email: new FormControl()});
+
+
+  constructor(
+    private formBuilder: FormBuilder, private loginService: LoginService,
+    private toastr: ToastrService, private jwtHelper: JwtHelperService,
+    private router: Router, private encryptService: EncryptService,
+    private userService: UserService, private resetPasswordService: ResetPasswordService,
+    private modal: NgbModal
+  ) {
+  }
 
   ngOnInit(): void {
     this.initAuthForm();
+    this.initResetPasswordForm();
   }
 
   /*Formulaire de connexion*/
@@ -35,6 +51,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
+
   submitAuthForm() {
 
     this.submitted = true;
@@ -45,13 +62,13 @@ export class LoginComponent implements OnInit {
       const password = this.authForm.get('password')?.value;
 
       if (email && password) {
-        this.loginService.login(email,password).subscribe(value => {
+        this.loginService.login(email, password).subscribe(value => {
 
           this.submitted = false;
 
           sessionStorage.setItem("_token", value['token']);
           sessionStorage.setItem("_refresh_token", value['refresh_token']);
-          sessionStorage.setItem("_logged",this.encryptService.encode("true"));
+          sessionStorage.setItem("_logged", this.encryptService.encode("true"));
 
           this.userService.getUser().subscribe(user => {
             if (!user.isActive) {
@@ -85,5 +102,54 @@ export class LoginComponent implements OnInit {
   }
 
   /*Fin du traitement du formulaire de connexion*/
+
+  // ResetPassword
+
+  initResetPasswordForm() {
+    this.resetPasswordForm = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email, Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]]
+    });
+  }
+
+  submitResetPassWordForm() {
+    this.submittedReset = true;
+    if (this.resetPasswordForm.valid) {
+      const email = this.resetPasswordForm.get('email')?.value;
+
+      if (email) {
+        this.resetPasswordService.sendMailForgotPassword(email).subscribe(value => {
+          // @ts-ignore
+          this.toastr.success(value, 'Vérifiez vos emails !');
+        }, error => {
+          this.toastr.error(error.error, "Il semblerait qu'il y ait un problème !")
+        });
+      }
+    }
+  }
+
+  // Modal
+
+  // @ts-ignore
+  open(content) {
+    this.modal.open(content, {ariaLabelledBy: 'modal-basic-title', centered: true}).result.then((result) => {
+      this.closeResult = `Close with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    })
+  }
+
+  getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
+  }
+
+  get fp() {
+    return this.resetPasswordForm.controls;
+  }
 
 }

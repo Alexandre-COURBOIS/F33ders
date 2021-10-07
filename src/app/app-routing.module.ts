@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {LoginComponent} from "./Pages/login/login.component";
 import {RegisterComponent} from "./Pages/register/register.component";
 import {ForgotPasswordComponent} from "./Pages/forgot-password/forgot-password.component";
@@ -9,8 +9,8 @@ const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'forgot-password/:token', component: ForgotPasswordComponent},
-/*  {path: '', redirectTo: 'login', pathMatch: 'full'},*/
+  {path: 'forgot-password', component: ForgotPasswordComponent},
+  /*  {path: '', redirectTo: 'login', pathMatch: 'full'},*/
   {path: '**', redirectTo: '404NotFound'}
 ];
 
@@ -18,4 +18,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
