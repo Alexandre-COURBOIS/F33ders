@@ -40,9 +40,11 @@ export class ForgotPasswordComponent implements OnInit {
           this.initForm();
         } else {
           this.toastr.error('Token expiré, veuillez renouvelez votre demande');
+          this.router.navigate(['/404NotFound']);
         }
       }, error => {
         this.toastr.error('Token expiré, veuillez renouvelez votre demande');
+        this.router.navigate(['/404NotFound']);
       });
     } else {
       this.router.navigate(['/404NotFound']);
@@ -62,8 +64,6 @@ export class ForgotPasswordComponent implements OnInit {
 
     if (this.forgotPasswordForm.valid) {
 
-      // this.ngxService.startLoader('loader-01');
-
       const typedPassword = this.forgotPasswordForm.get('password')?.value;
       const typedVerifPassword = this.forgotPasswordForm.get('verifPassword')?.value;
 
@@ -71,21 +71,28 @@ export class ForgotPasswordComponent implements OnInit {
 
         this.resetPasswordService.updatePassword(this.email, typedPassword, typedVerifPassword).subscribe(
           value => {
+            console.log(value);
 
             // @ts-ignore
-            this.toastr.success(value, 'Félicitations !');
+            this.toastr.success(value, 'Félicitations votre mot de passe a été mis à jour avec succès !');
             this.router.navigate(['/login']);
-
+            this.submitted = false;
+            this.clicked = false;
           }, error => {
+            console.log(error);
             this.toastr.error(error.error, 'Oups une erreur !');
-
+            this.submitted = false;
+            this.clicked = false;
           });
       } else {
         this.toastr.error('Les mots de passe saisis ne correspondent pas', 'Une petite erreur !');
-
+        this.submitted = false;
+        this.clicked = false;
       }
     } else {
       this.toastr.error('Le formulaire est vide, ou il manque des informations, veuillez le compléter !', 'Une petite erreur !');
+      this.submitted = false;
+      this.clicked = false;
     }
   }
 

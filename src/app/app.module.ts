@@ -15,6 +15,7 @@ import {ToastrModule} from "ngx-toastr";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {JwtModule} from "@auth0/angular-jwt";
 import {JwtInterceptor} from "./Helpers/jwt.interceptor";
+import {DatePipe} from "@angular/common";
 
 export function tokenGetter() {
   return sessionStorage.getItem('_token');
@@ -30,7 +31,7 @@ export function tokenGetter() {
     NotFound404Component,
     HeaderComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,6 +53,7 @@ export function tokenGetter() {
       useClass: JwtInterceptor,
       multi: true
     },
+    DatePipe,
   ],
   bootstrap: [AppComponent]
 })
