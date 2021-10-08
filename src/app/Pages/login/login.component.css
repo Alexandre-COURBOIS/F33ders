@@ -40,3 +40,15 @@
   color: white;
   font-size: 14px;
 }
+
+.modal-header {
+  background-color: #3D3D3E;
+  color: #FFFFFF;
+}
+
+.sendmail-button {
+  background-color: #FFFFFF;
+  color: #3D3D3E;
+  font-weight: bold;
+  border: 2px solid #0a0a0a;
+}
