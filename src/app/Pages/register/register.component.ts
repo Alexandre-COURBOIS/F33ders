@@ -25,7 +25,7 @@ export class RegisterComponent implements OnInit {
     private formBuilder: FormBuilder,
     private registerService: RegisterService,
     private router: Router,
-    private toastr: ToastrService){
+    private toastr: ToastrService) {
   }
 
   ngOnInit(): void {
@@ -52,7 +52,7 @@ export class RegisterComponent implements OnInit {
       const email = this.registerForm.get('email')?.value;
       const password = this.registerForm.get('password')?.value;
 
-      this.registerService.createUser(username,email,password).subscribe(registerRequest => {
+      this.registerService.createUser(username, email, password).subscribe(registerRequest => {
 
         // @ts-ignore
         this.toastr.success(registerRequest);
