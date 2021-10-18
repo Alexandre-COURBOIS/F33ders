@@ -116,13 +116,18 @@ body{
 }
 .dropdownr {
   position: relative;
-  display: inline-block;
+  width: 25%;
+  display: flex;
+  align-content: end;
+  align-items: flex-end;
+  flex-direction: column;
 }
 .dropdown-content {
   display: none;
   position: fixed;
   background-color: #f1f1f1;
   z-index: 1;
+  top: 50px;
   right: 15px;
   width: 160px;
 

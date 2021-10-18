@@ -1,5 +1,30 @@
+.overlay{
+  background-color: rgba(0,0,0,0.2);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+.jarallax {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.mask-overlay{
+  background-color: #1f232666;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
 .container-sm {
-  background-color: #1F2326;
   position: absolute;
   top: 45%;
   left: 50%;
@@ -7,9 +32,11 @@
 }
 
 .form {
-  border-radius: 15px;
+  border-radius: 5px;
   background-color: #3D3D3E;
   padding: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 .form-label {
@@ -32,13 +59,13 @@
 }
 
 .forgot-password {
-  position: absolute;
-  left: 55%;
+  text-align: center;
   padding-top: 15px;
   text-decoration: none;
   list-style-type: none;
   color: white;
-  font-size: 14px;
+  font-size: 1.2em;
+  cursor: pointer;
 }
 
 .modal-header {

@@ -1,11 +1,16 @@
+<div class="overlay">
+  <div class="jarallax" videoLoop="true" data-jarallax-video="https://www.youtube.com/watch?v=O-onLmJzvTI">
+  </div>
+</div>
+<div class="mask-overlay"></div>
+
 <div class="container-sm mt-5">
   <form [formGroup]="authForm" (ngSubmit)="submitAuthForm()" class="form">
     <div class="form-group mb-3">
 
       <!--      Email-->
       <label for="email" class="form-label">Email</label>
-      <input type="text" name="email" id="email" class="form-control login-input"
-             formControlName="email">
+      <input type="text" name="email" id="email" class="form-control login-input" formControlName="email">
 
       <!--    Email Errors-->
       <div class="text-danger" *ngIf="submitted && f.email.errors && f.email.errors.required">Merci de renseigner
@@ -36,10 +41,11 @@
     <div class="submit-button">
       <input type="submit" [disabled]="submitted" class="form-control login" value="connexion">
     </div>
+    <!--  <a routerLink="/forgot-password/:token" class="forgot-password">Mot de passe oublié</a>-->
+    <a (click)="open(content)" class="forgot-password">Mot de passe oublié</a>
   </form>
 
-  <!--  <a routerLink="/forgot-password/:token" class="forgot-password">Mot de passe oublié</a>-->
-  <a (click)="open(content)" class="forgot-password">Mot de passe oublié</a>
+
 </div>
 
 <!--Modal-->
@@ -55,24 +61,17 @@
     <form [formGroup]="resetPasswordForm" (ngSubmit)="submitResetPassWordForm()">
       <div class="form-group">
         <div class="input-group">
-          <input placeholder="Votre email"
-                 style="width: 100%; border: none; border-bottom: 1px solid rgba(0,0,0,0.3); background: #FAFAFA"
-                 type="text" formControlName="email">
+          <input placeholder="Votre email" style="width: 100%; border: none; border-bottom: 1px solid rgba(0,0,0,0.3); background: #FAFAFA" type="text" formControlName="email">
         </div>
       </div>
       <div class="container-error">
-        <div class="error" *ngIf="submitted && fp.email.errors && fp.email.errors.required">Merci de renseigner
-          votre
-          email.
+        <div class="error" *ngIf="submitted && fp.email.errors && fp.email.errors.required">Merci de renseigner votre email.
         </div>
-        <div class="error" *ngIf="resetPasswordForm.get('email')?.value && fp.email.errors && fp.email.errors.pattern">
-          Merci
-          de renseigner un email valide.
+        <div class="error" *ngIf="resetPasswordForm.get('email')?.value && fp.email.errors && fp.email.errors.pattern">Merci de renseigner un email valide.
         </div>
       </div>
       <div class="text-right">
-        <input type="submit" class="btn sendmail-button" [disabled]="resetPasswordForm.invalid" (click)="modal.close()"
-               value="Envoyer !">
+        <input type="submit" class="btn sendmail-button" [disabled]="resetPasswordForm.invalid" (click)="modal.close()" value="Envoyer !">
       </div>
     </form>
   </div>
