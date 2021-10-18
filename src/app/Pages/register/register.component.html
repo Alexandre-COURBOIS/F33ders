@@ -48,6 +48,13 @@
       </div>
     </div>
 
+    <div class="captchaContainer">
+      <re-captcha class="recaptcha" size="normal"
+                  (resolved)="resolved($event)"
+                  siteKey="6Leb7dkcAAAAAFHN2R8muakhxnQbMnB46WCC6S--"
+      ></re-captcha>
+    </div>
+
     <div class="mb-3 form-label-register">
       <button type="submit" class="form-control register">Créer un compte</button>
     </div>
