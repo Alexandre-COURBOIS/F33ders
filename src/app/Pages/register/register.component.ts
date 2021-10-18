@@ -62,9 +62,14 @@ export class RegisterComponent implements OnInit {
 
         this.router.navigate(['login']);
 
-      }, error => {
-        console.log(error);
+        grecaptcha.reset();
+        this.recaptchaVerif = false;
 
+      }, error => {
+        grecaptcha.reset();
+        this.recaptchaVerif = false;
+        this.submitted = false;
+        this.toastr.error("Une erreur est survenue merci de réessayer");
       });
 
 
@@ -80,7 +85,7 @@ export class RegisterComponent implements OnInit {
       this.recaptchaVerif = value;
     })
   }
-  
+
   get f() {
     return this.registerForm.controls;
   }

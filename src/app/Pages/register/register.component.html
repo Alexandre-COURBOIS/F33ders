@@ -56,7 +56,8 @@
     </div>
 
     <div class="mb-3 form-label-register">
-      <button type="submit" class="form-control register">Créer un compte</button>
+      <button *ngIf="recaptchaVerif == true" type="submit" class="form-control register">Créer un compte</button>
+      <span *ngIf="recaptchaVerif == false"><strong> Veuillez vérifier le Captcha pour envoyer votre message.</strong></span>
     </div>
 
 
