@@ -3,6 +3,7 @@ import {FormBuilder, Validators, FormControl, FormGroup} from "@angular/forms";
 import {RegisterService} from "../../Services/register.service";
 import {Router} from '@angular/router';
 import {ToastrService} from "ngx-toastr";
+import {RecaptchaService} from "../../Services/recaptcha.service";
 
 @Component({
   selector: 'app-register',
@@ -13,6 +14,7 @@ export class RegisterComponent implements OnInit {
 
 
   public submitted: boolean = false;
+  recaptchaVerif: Object = false;
 
   registerForm = new FormGroup({
     username: new FormControl(),
@@ -25,7 +27,8 @@ export class RegisterComponent implements OnInit {
     private formBuilder: FormBuilder,
     private registerService: RegisterService,
     private router: Router,
-    private toastr: ToastrService) {
+    private toastr: ToastrService,
+    private recaptchaService: RecaptchaService) {
   }
 
   ngOnInit(): void {
@@ -72,6 +75,12 @@ export class RegisterComponent implements OnInit {
 
   }
 
+  resolved(captchaResponse: string) {
+    this.recaptchaService.testToken(captchaResponse).subscribe(value => {
+      this.recaptchaVerif = value;
+    })
+  }
+  
   get f() {
     return this.registerForm.controls;
   }

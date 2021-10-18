@@ -16,6 +16,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {JwtModule} from "@auth0/angular-jwt";
 import {JwtInterceptor} from "./Helpers/jwt.interceptor";
 import {DatePipe} from "@angular/common";
+import {RecaptchaModule} from "ng-recaptcha";
 
 export function tokenGetter() {
   return sessionStorage.getItem('_token');
@@ -33,20 +34,21 @@ export function tokenGetter() {
     FooterComponent,
     HomeComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    ToastrModule.forRoot(),
-    BrowserAnimationsModule,
-    JwtModule.forRoot({
-      config: {
-        tokenGetter: tokenGetter,
-      },
-    }),
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        ToastrModule.forRoot(),
+        BrowserAnimationsModule,
+        JwtModule.forRoot({
+            config: {
+                tokenGetter: tokenGetter,
+            },
+        }),
+        RecaptchaModule,
+    ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
