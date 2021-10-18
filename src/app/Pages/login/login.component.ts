@@ -78,7 +78,8 @@ export class LoginComponent implements OnInit {
               this.router.navigate(['']);
             }
           }, error => {
-            console.log(error);
+            this.toastr.error('Email ou mot de passe incorrect');
+            this.submitted = false;
           })
         }, error => {
           this.toastr.error('Email ou mot de passe incorrect');
