@@ -11,7 +11,7 @@ export class ContactService {
   }
 
   sendContactMessage(name: string, surname: string, email: string, message: string, createdAt: Date) {
-    return this.httpClient.post(`${environment.API_URL}send/message`, {
+    return this.httpClient.post(`${environment.API_URL}contact/send/message`, {
       name: name,
       surname: surname,
       email: email,
