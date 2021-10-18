@@ -63,8 +63,10 @@ export class ContactComponent implements OnInit {
       this.submitted = false;
       this.toastr.error("Merci de renseigner le formulaire de contact")
     }
+  }
 
-
+  get f() {
+    return this.contactForm.controls;
   }
 
 }
