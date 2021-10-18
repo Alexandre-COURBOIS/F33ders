@@ -1,35 +1,61 @@
-h2{
+h2 {
   color: white;
   margin: 0;
 }
-.wraper{
+
+.wraper {
   margin-top: 85px;
 }
-.imgProfile{
+
+.imgProfile {
   width: 100px;
   height: 100px;
   border-radius: 50%;
 }
-.imageProfile{
+
+.imageProfile {
   width: 100%;
   border-radius: 50%;
 }
-.infosProfile{
+
+.imgObjets {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-evenly;
+  align-content: space-around;
+}
+
+.imgObjets img {
+  margin-left: 10px;
+}
+
+.statsMatch p {
+  text-align: center;
+  color: #1F2326;
+}
+
+.infosProfile {
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: white;
   padding-right: 20px;
 }
-.nameUser{
+
+.nameUser {
   font-size: 1.8em;
 }
-.emailUser{
+
+.emailUser {
   font-size: 1.2em;
 }
-.form-control{
+
+.form-control {
   background-color: #838383;
 }
+
 .edit {
   color: #0a0a0a;
   font-weight: bold;
@@ -38,23 +64,27 @@ h2{
   text-align: center;
   border: none;
 }
-.btnEditProfile{
+
+.btnEditProfile {
   margin-top: 20px;
   width: 100%;
   display: flex;
   justify-content: center;
 }
-.userNameUser{
+
+.userNameUser {
   font-size: 1.2em;
   color: white;
   margin: 0;
 }
-.infoUser{
+
+.infoUser {
   font-size: 0.8em;
   color: white;
   margin: 0;
 }
-.titleStats{
+
+.titleStats {
   margin-top: 50px;
   text-align: center;
 }
@@ -113,7 +143,7 @@ h2{
 }
 
 .tabs > input:hover + span {
-  background: rgba(255,255,255,.1);
+  background: rgba(255, 255, 255, .1);
 }
 
 .tabs > input:checked + span {
@@ -160,23 +190,23 @@ h2{
   text-align: center;
 }
 
-#tab-1:checked ~ .tab-content #tab-item-1  {
+#tab-1:checked ~ .tab-content #tab-item-1 {
   display: block;
 }
 
-#tab-2:checked ~ .tab-content #tab-item-2  {
+#tab-2:checked ~ .tab-content #tab-item-2 {
   display: block;
 }
 
-#tab-3:checked ~ .tab-content #tab-item-3  {
+#tab-3:checked ~ .tab-content #tab-item-3 {
   display: block;
 }
 
-#tab-4:checked ~ .tab-content #tab-item-4  {
+#tab-4:checked ~ .tab-content #tab-item-4 {
   display: block;
 }
 
-#tab-5:checked ~ .tab-content #tab-item-5  {
+#tab-5:checked ~ .tab-content #tab-item-5 {
   display: block;
 }
 
@@ -186,26 +216,241 @@ h2{
   background: #fff;
 }
 
-.stats{
+.stats {
   display: flex;
   justify-content: space-around;
 }
 
-.statsNumber{
+.statsNumber {
   font-weight: bold;
   font-size: 1.2em;
 }
 
-.textCenterStats{
+.textCenterStats {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-.statsTitle{
+
+.statsTitle {
   font-size: 1.2em;
 }
-.statsTab{
+
+.statsTab {
   margin-top: 25px;
 }
+
+.statsRang {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.textRang {
+  color: white;
+  font-size: 1.5em;
+  font-weight: bold;
+  margin: 0;
+}
+
+.statsGamer {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+table {
+  width: 750px;
+  border-collapse: collapse;
+  margin: 50px auto;
+}
+
+/* Zebra striping */
+tr:nth-of-type(odd) {
+  background: #eee;
+}
+
+td, th {
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: left;
+  font-size: 18px;
+  background: #eee;
+
+}
+
+th {
+  background: #3498db;
+  color: white;
+  font-weight: bold;
+}
+
+
+/*
+Max width before this PARTICULAR table gets nasty
+This query will take effect for any screen smaller than 760px
+and also iPads specifically.
+*/
+@media only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px) {
+
+  table {
+    width: 100%;
+  }
+
+  /* Force table to not be like tables anymore */
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  /* Hide table headers (but not display: none;, for accessibility) */
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  tr {
+    border: 1px solid #ccc;
+  }
+
+  td {
+    /* Behave  like a "row" */
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 50%;
+  }
+
+  td:before {
+    /* Now like a table header */
+    position: absolute;
+    /* Top/left values mimic padding */
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+    /* Label the data */
+    content: attr(data-column);
+
+    color: #000;
+    font-weight: bold;
+  }
+
+}
+
+
+@media (min-height: 768px) {
+  .infosProfile {
+    display: flex;
+    justify-content: inherit;
+    align-items: center;
+    color: white;
+    padding-right: 20px;
+  }
+
+  .imgProfile {
+    margin-right: 25px;
+  }
+
+  .sectionOne {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .statsRang {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+  }
+
+  .btnEditProfile {
+    width: 50%;
+  }
+
+  .textRang {
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 0;
+    text-align: center;
+  }
+
+  .statsTab {
+    margin-top: 25px;
+    width: 50%;
+  }
+
+  .statsContent {
+    display: flex;
+  }
+
+  .tabs {
+    margin-bottom: inherit;
+  }
+
+  .statsGamer {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .statsRang {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .statsContent {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .statsTab {
+    margin-top: 25px;
+    width: 100%;
+  }
+
+  td {
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 0%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sectionOne {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .edit {
+    color: #0a0a0a;
+    font-weight: bold;
+    font-size: 20px;
+    width: 100%;
+    text-align: center;
+    border: none;
+
+  }
+}
+
 
