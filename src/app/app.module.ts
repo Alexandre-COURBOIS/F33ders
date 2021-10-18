@@ -16,6 +16,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {JwtModule} from "@auth0/angular-jwt";
 import {JwtInterceptor} from "./Helpers/jwt.interceptor";
 import {DatePipe} from "@angular/common";
+import { ContactComponent } from './Pages/contact/contact.component';
 
 export function tokenGetter() {
   return sessionStorage.getItem('_token');
@@ -32,6 +33,7 @@ export function tokenGetter() {
     HeaderComponent,
     FooterComponent,
     HomeComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,
