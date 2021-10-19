@@ -162,7 +162,6 @@
 .img5{
   background-image: url("../../../assets/img/champion/tank-1245abc326bd98c567ab22659719a1a3.png");
 }
-
 @media (max-height: 768px){
   .form{
     width: 100%;
@@ -172,6 +171,3 @@
     top: 13px;
   }
 }
-
-
-
