@@ -2,9 +2,12 @@ h2 {
   color: white;
   margin: 0;
 }
-
+.mBTable{
+  margin-bottom: 90px;
+}
 .wraper {
   margin-top: 85px;
+  padding-right: 7%;
 }
 
 .imgProfile {
@@ -449,7 +452,6 @@ and also iPads specifically.
     width: 100%;
     text-align: center;
     border: none;
-
   }
 }
 
