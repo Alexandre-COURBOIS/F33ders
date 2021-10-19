@@ -7,6 +7,7 @@ import {HomeComponent} from "./Pages/home/home.component";
 import {NotFound404Component} from "./Pages/not-found404/not-found404.component";
 import {ProfileComponent} from "./Pages/profile/profile.component";
 import {ContactComponent} from "./Pages/contact/contact.component";
+import {ProfileGamerComponent} from "./Pages/profile-gamer/profile-gamer.component";
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'profile', component: ProfileComponent},
   {path: 'forgot-password/:token', component: ForgotPasswordComponent},
   {path: 'contact', component: ContactComponent},
+  {path: 'single-gamer', component: ProfileGamerComponent},
   {path: '404NotFound', component: NotFound404Component},
   /*  {path: '', redirectTo: 'login', pathMatch: 'full'},*/
   {path: '**', redirectTo: '404NotFound'}
