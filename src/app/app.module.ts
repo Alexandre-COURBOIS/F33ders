@@ -21,6 +21,7 @@ import { ContactComponent } from './Pages/contact/contact.component';
 import {RecaptchaModule} from "ng-recaptcha";
 import { ChampionDetailsComponent } from './Pages/champion-details/champion-details.component';
 import { ChampionComponent } from './Pages/champion/champion.component';
+import { MentionsComponent } from './Pages/mentions/mentions.component';
 
 export function tokenGetter() {
   return sessionStorage.getItem('_token');
@@ -41,6 +42,7 @@ export function tokenGetter() {
     ContactComponent,
     ChampionDetailsComponent,
     ChampionComponent,
+    MentionsComponent,
   ],
     imports: [
         BrowserModule,

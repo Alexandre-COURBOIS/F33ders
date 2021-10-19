@@ -9,6 +9,7 @@ import {ProfileComponent} from "./Pages/profile/profile.component";
 import {ContactComponent} from "./Pages/contact/contact.component";
 import {ChampionDetailsComponent} from "./Pages/champion-details/champion-details.component";
 import {ChampionComponent} from "./Pages/champion/champion.component";
+import {MentionsComponent} from "./Pages/mentions/mentions.component";
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path: 'contact', component: ContactComponent},
   {path: 'champion-details', component: ChampionDetailsComponent},
   {path: 'champions', component: ChampionComponent},
+  {path: 'mentions', component: MentionsComponent},
   {path: '404NotFound', component: NotFound404Component},
   /*  {path: '', redirectTo: 'login', pathMatch: 'full'},*/
   {path: '**', redirectTo: '404NotFound'}

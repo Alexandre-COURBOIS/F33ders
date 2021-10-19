@@ -1,0 +1,18 @@
+.textML{
+  margin-top: 10vh;
+  color: white;
+  padding-right: 7%;
+  padding-left: 7%;
+  padding-bottom: 100px;
+}
+.textML h2{
+  font-size: 1.8em;
+  font-weight: 700;
+}
+.textML p{
+  font-size: 1.2em;
+}
+.textML a{
+  color: white;
+  font-weight: 700;
+}
