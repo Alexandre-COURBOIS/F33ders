@@ -8,6 +8,7 @@ h2 {
 .wraper {
   margin-top: 85px;
   padding-right: 7%;
+  padding-left: 7%;
 }
 
 .imgProfile {
@@ -72,7 +73,7 @@ h2 {
   margin-top: 20px;
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
 }
 
 .userNameUser {
@@ -366,7 +367,7 @@ and also iPads specifically.
     display: flex;
     flex-direction: row;
     width: 100%;
-    justify-content: center;
+    justify-content: space-between;
   }
 
   .statsRang {
@@ -377,7 +378,7 @@ and also iPads specifically.
   }
 
   .btnEditProfile {
-    width: 50%;
+    width: 100%;
   }
 
   .textRang {
