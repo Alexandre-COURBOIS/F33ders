@@ -1,0 +1,232 @@
+.wraper{
+  display: flex;
+  margin-top: 10vh;
+  color: white;
+  flex-direction: column;
+  align-items: center;
+
+}
+.header{
+  text-align: center;
+}
+
+.gridChampions{
+  margin-top: 10vh;
+  padding-bottom: 100px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  gap: 40px 40px;
+}
+.img-wrapper {
+  width: 250px;
+  height: 250px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: 0.3s;
+
+}
+
+.inner-img {
+  position: relative;
+  transition: 0.3s;
+  filter: grayscale(100);
+
+}
+
+p{
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  display: none;
+  font-size: 1.5em;
+  color: white;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  background-color: #1f2326a3;
+  transition: 0.3s;
+
+}
+.inner-img:hover + p{
+  display: block;
+  transition: 0.3s;
+}
+
+p:hover{
+  display: block;
+  transition: 0.3s;
+}
+
+.inner-img:hover {
+  transform: scale(1.1);
+  filter: grayscale(0);
+  transition: 2s;
+
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 413px) {
+  .gridChampions{
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px 10px;
+    gap: 10px 10px;
+  }
+  .img-wrapper{
+    width: 125px;
+    height: 125px;
+  }
+  .inner-img {
+    filter: grayscale(0);
+  }
+  p{
+    display: block;
+    font-size: 1em;
+
+  }
+}
+
+@media only screen and (min-device-width: 414px) {
+  .gridChampions {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px 10px;
+    gap: 10px 10px;
+  }
+  .img-wrapper{
+    width: 125px;
+    height: 125px;
+  }
+  .inner-img {
+    filter: grayscale(0);
+  }
+  p{
+    display: block;
+    font-size: 1em;
+
+  }
+}
+
+
+/* iPads (landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+  .gridChampions {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 20px 20px;
+    gap: 20px 20px;
+  }
+  .img-wrapper{
+    width: 155px;
+    height: 155px;
+  }
+  .inner-img {
+    filter: grayscale(0);
+  }
+  p{
+    display: block;
+    font-size: 1em;
+
+  }
+}
+
+/* iPads (portrait) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+  .gridChampions {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 20px 20px;
+    gap: 20px 20px;
+  }
+  .inner-img {
+    filter: grayscale(0);
+  }
+  p{
+    display: block;
+    font-size: 1em;
+  }
+  .img-wrapper{
+    width: 155px;
+    height: 155px;
+  }
+}
+/**********
+iPad 3
+**********/
+@media only screen and (min-device-width : 1024px) and (max-device-width : 1366px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
+  .gridChampions {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 20px 20px;
+    gap: 20px 20px;
+  }
+  .inner-img {
+    filter: grayscale(0);
+  }
+  p{
+    display: block;
+    font-size: 1em;
+
+  }
+
+  .img-wrapper{
+    width: 250px;
+    height: 250px;
+  }
+}
+
+@media only screen and (min-device-width : 1024px) and (max-device-width : 1366px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2) {
+  .gridChampions {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 20px 20px;
+    gap: 20px 20px;
+  }
+  .inner-img {
+    filter: grayscale(0);
+  }
+  p{
+    display: block;
+  }
+  .img-wrapper{
+    width: 200px;
+    height: 200px;
+  }
+}
+/* Desktops and laptops ----------- */
+@media only screen and (min-width : 1224px) {
+  .gridChampions {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 50px 50px;
+    gap: 50px 50px;
+  }
+  .inner-img {
+    filter: grayscale(100);
+  }
+  p{
+    display: none;
+  }
+  .img-wrapper{
+    width: 250px;
+    height: 250px;
+  }
+}
+
+/* Large screens ----------- */
+@media only screen and (min-width : 1824px) {
+  .gridChampions {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 50px 50px;
+    gap: 50px 50px;
+  }
+  .inner-img {
+    filter: grayscale(100);
+  }
+  p{
+    display: none;
+  }
+  .img-wrapper{
+    width: 250px;
+    height: 250px;
+  }
+}
+
+
+
