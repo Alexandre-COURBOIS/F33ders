@@ -1,7 +1,7 @@
 <div class="container-sm mt-5">
   <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="form">
 
-    <div class="mb-3 row">
+    <div class="mb-3 ">
 
       <!-- Name -->
 
@@ -20,7 +20,7 @@
       </div>
     </div>
 
-    <div class="mb-3 row">
+    <div class="mb-3 ">
 
       <!-- Surname -->
         <label for="surname" class="form-label">Prénom</label>
@@ -38,7 +38,7 @@
       </div>
     </div>
 
-    <div class="mb-3 row">
+    <div class="mb-3 ">
       <!-- Email -->
         <label for="email" class="form-label">Email</label>
         <input type="text" id="email" name="email" formControlName="email" class="form-control">
@@ -52,7 +52,7 @@
       </div>
     </div>
 
-    <div class="mb-3 row">
+    <div class="mb-3">
 
       <!-- Message -->
         <label for="message" class="form-label">Message</label>
@@ -70,8 +70,8 @@
       </div>
     </div>
 
-    <div class="mb-3 form-label ">
-      <button type="submit" class="form-control redirect-login">Envoyer</button>
+    <div class="mb-3 form-label submit">
+      <button [disabled]="submitted" type="submit" class="form-control submit-button">Envoyer</button>
     </div>
 
   </form>

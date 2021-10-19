@@ -1,3 +1,36 @@
+.container-sm {
+  background-color: #1F2326;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.form {
+  border-radius: 15px;
+  background-color: #3D3D3E;
+  padding: 10px;
+}
+
 .form-label {
   color: #FFFFFF;
+}
+
+input, textarea {
+  background-color: #C4C4C5;
+  border: 2px solid #FFFFFF;
+}
+
+.submit-button {
+  color: #0a0a0a;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+
+.submit {
+  background-color: #FFFFFF;
+  color: #3D3D3E;
+  font-weight: bold;
+  border: 2px solid #0a0a0a;
 }
