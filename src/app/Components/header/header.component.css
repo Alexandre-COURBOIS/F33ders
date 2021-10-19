@@ -9,6 +9,7 @@ body{
   height: 7vh;
   padding: 0;
   background-color: #535AFF;
+  z-index: 99999;
 
 }
 #menuToggle {

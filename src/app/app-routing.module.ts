@@ -5,12 +5,14 @@ import {RegisterComponent} from "./Pages/register/register.component";
 import {ForgotPasswordComponent} from "./Pages/forgot-password/forgot-password.component";
 import {HomeComponent} from "./Pages/home/home.component";
 import {NotFound404Component} from "./Pages/not-found404/not-found404.component";
+import {ProfileComponent} from "./Pages/profile/profile.component";
 import {ContactComponent} from "./Pages/contact/contact.component";
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
+  {path: 'profile', component: ProfileComponent},
   {path: 'forgot-password/:token', component: ForgotPasswordComponent},
   {path: 'contact', component: ContactComponent},
   {path: '404NotFound', component: NotFound404Component},
