@@ -48,4 +48,11 @@
   border: 2px solid #FFFFFF;
 }
 
+.centered {
+  text-align: center;
+}
+
+.colorToText{
+  color: #F9F9F9;
+}
 

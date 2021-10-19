@@ -3,6 +3,7 @@ import {FormBuilder, Validators, FormControl, FormGroup} from "@angular/forms";
 import {RegisterService} from "../../Services/register.service";
 import {Router} from '@angular/router';
 import {ToastrService} from "ngx-toastr";
+import {RecaptchaService} from "../../Services/recaptcha.service";
 
 @Component({
   selector: 'app-register',
@@ -13,6 +14,7 @@ export class RegisterComponent implements OnInit {
 
 
   public submitted: boolean = false;
+  recaptchaVerif: Object = false;
 
   registerForm = new FormGroup({
     username: new FormControl(),
@@ -25,7 +27,8 @@ export class RegisterComponent implements OnInit {
     private formBuilder: FormBuilder,
     private registerService: RegisterService,
     private router: Router,
-    private toastr: ToastrService) {
+    private toastr: ToastrService,
+    private recaptchaService: RecaptchaService) {
   }
 
   ngOnInit(): void {
@@ -59,9 +62,14 @@ export class RegisterComponent implements OnInit {
 
         this.router.navigate(['login']);
 
-      }, error => {
-        console.log(error);
+        grecaptcha.reset();
+        this.recaptchaVerif = false;
 
+      }, error => {
+        grecaptcha.reset();
+        this.recaptchaVerif = false;
+        this.submitted = false;
+        this.toastr.error("Une erreur est survenue merci de réessayer");
       });
 
 
@@ -70,6 +78,12 @@ export class RegisterComponent implements OnInit {
       this.toastr.error("Merci de renseigner le formulaire d'inscription");
     }
 
+  }
+
+  resolved(captchaResponse: string) {
+    this.recaptchaService.testToken(captchaResponse).subscribe(value => {
+      this.recaptchaVerif = value;
+    })
   }
 
   get f() {

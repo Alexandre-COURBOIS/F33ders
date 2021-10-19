@@ -48,8 +48,16 @@
       </div>
     </div>
 
-    <div class="mb-3 form-label-register">
-      <button type="submit" class="form-control register">Créer un compte</button>
+    <div class="captchaContainer">
+      <re-captcha class="recaptcha" size="normal"
+                  (resolved)="resolved($event)"
+                  siteKey="6Leb7dkcAAAAAFHN2R8muakhxnQbMnB46WCC6S--"
+      ></re-captcha>
+    </div>
+
+    <div class="mb-3 form-label-register centered">
+      <button *ngIf="recaptchaVerif == true" type="submit" class="form-control register">Créer un compte</button>
+      <span *ngIf="recaptchaVerif == false"><strong class="colorToText"> Veuillez vérifier le Captcha pour vous enregister.</strong></span>
     </div>
 
 
