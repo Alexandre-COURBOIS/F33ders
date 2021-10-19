@@ -10,6 +10,7 @@
   padding-top: 10px;
   padding-bottom: 10px;
   align-items: center;
+  z-index: 99999;
 }
 .logo{
   background-image: url("../../../assets/img/f33ders.svg");
