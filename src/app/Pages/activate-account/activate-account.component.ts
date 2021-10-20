@@ -21,21 +21,24 @@ export class ActivateAccountComponent implements OnInit {
 
     const token: string = this.route.snapshot.params['token'];
 
+    console.log(token);
     if (token && token.length == 43) {
+
+      console.log(token);
 
       this.accountService.activateAccount(token).subscribe(value => {
 
         // @ts-ignore
         this.toastr.success(value);
-        this.router.navigate(['login']);
+/*        this.router.navigate(['login']);*/
 
       }, error => {
         this.toastr.error("Page inaccessible");
-        this.router.navigate(['login']);
+/*        this.router.navigate(['login']);*/
       })
     } else {
       this.toastr.error("Page inaccessible");
-      this.router.navigate(['login']);
+/*      this.router.navigate(['login']);*/
     }
   }
 
