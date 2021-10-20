@@ -23,6 +23,7 @@ import { ProfileGamerComponent } from './Pages/profile-gamer/profile-gamer.compo
 import { ChampionDetailsComponent } from './Pages/champion-details/champion-details.component';
 import { ChampionComponent } from './Pages/champion/champion.component';
 import { MentionsComponent } from './Pages/mentions/mentions.component';
+import { ActivateAccountComponent } from './Pages/activate-account/activate-account.component';
 
 export function tokenGetter() {
   return sessionStorage.getItem('_token');
@@ -45,6 +46,7 @@ export function tokenGetter() {
     ChampionDetailsComponent,
     ChampionComponent,
     MentionsComponent,
+    ActivateAccountComponent,
   ],
     imports: [
         BrowserModule,

@@ -11,6 +11,7 @@ import {ProfileGamerComponent} from "./Pages/profile-gamer/profile-gamer.compone
 import {ChampionDetailsComponent} from "./Pages/champion-details/champion-details.component";
 import {ChampionComponent} from "./Pages/champion/champion.component";
 import {MentionsComponent} from "./Pages/mentions/mentions.component";
+import {ActivateAccountComponent} from "./Pages/activate-account/activate-account.component";
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path: 'champion-details', component: ChampionDetailsComponent},
   {path: 'champions', component: ChampionComponent},
   {path: 'mentions', component: MentionsComponent},
+  {path: 'activation/:token', component: ActivateAccountComponent},
   {path: '404NotFound', component: NotFound404Component},
   /*  {path: '', redirectTo: 'login', pathMatch: 'full'},*/
   {path: '**', redirectTo: '404NotFound'}
