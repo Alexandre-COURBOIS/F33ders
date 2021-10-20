@@ -36,7 +36,6 @@
   color: white;
   margin: 0;
   text-align: center;
-
 }
 .nameTwo{
   font-size: 3.2em;
@@ -89,8 +88,6 @@
 .imgHeaderChampion{
   width: 99vw;
 }
-
-
 @media (max-width: 768px){
   .imgHeaderChampion{
     width: inherit;
@@ -123,5 +120,3 @@
     gap: 15px 15px;
   }
 }
-
-

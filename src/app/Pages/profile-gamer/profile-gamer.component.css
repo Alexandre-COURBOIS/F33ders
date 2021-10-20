@@ -282,7 +282,6 @@ th {
     color: #000;
     font-weight: bold;
   }
-
 }
 @media (min-height: 768px) {
   .infosProfile {
@@ -362,7 +361,7 @@ th {
     border: none;
     border-bottom: 1px solid #eee;
     position: relative;
-    padding-left: 0%;
+    padding-left: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -382,7 +381,6 @@ th {
     border: none;
   }
 }
-
 @media only screen and (min-width: 1024px){
   .statsDFSB{
     display: flex;

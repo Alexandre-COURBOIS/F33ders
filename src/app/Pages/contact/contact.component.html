@@ -1,15 +1,10 @@
 <app-header></app-header>
-
 <div class="container-sm mt-5">
   <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="form">
-
     <div class="mb-3 ">
-
       <!-- Name -->
-
-        <label for="name" class="form-label">Nom</label>
-        <input type="text" id="name" name="name" formControlName="name" class="form-control">
-
+      <label for="name" class="form-label">Nom</label>
+      <input type="text" id="name" name="name" formControlName="name" class="form-control">
       <!-- Name Errors -->
       <div *ngIf="submitted && f?.name?.errors && f?.name?.errors?.required" class="text-danger">
         Nom requis
@@ -21,13 +16,10 @@
         Veuillez saisir 30 caractères maximum
       </div>
     </div>
-
     <div class="mb-3 ">
-
       <!-- Surname -->
-        <label for="surname" class="form-label">Prénom</label>
-        <input type="text" id="surname" name="name" formControlName="surname" class="form-control">
-
+      <label for="surname" class="form-label">Prénom</label>
+      <input type="text" id="surname" name="name" formControlName="surname" class="form-control">
       <!-- Surname Errors -->
       <div *ngIf="submitted && f?.surname?.errors && f?.surname?.errors?.required" class="text-danger">
         Prénom requis
@@ -39,12 +31,10 @@
         Veuillez saisir 30 caractères maximum
       </div>
     </div>
-
     <div class="mb-3 ">
       <!-- Email -->
-        <label for="email" class="form-label">Email</label>
-        <input type="text" id="email" name="email" formControlName="email" class="form-control">
-
+      <label for="email" class="form-label">Email</label>
+      <input type="text" id="email" name="email" formControlName="email" class="form-control">
       <!-- Email Errors -->
       <div *ngIf="submitted && f.email?.errors && f.email?.errors?.required" class="text-danger">
         Email requis
@@ -53,13 +43,10 @@
         Veuillez saisir un email valide
       </div>
     </div>
-
     <div class="mb-3">
-
       <!-- Message -->
-        <label for="message" class="form-label">Message</label>
-        <textarea class="form-control" formControlName="message" id="message" name="message" rows="3"></textarea>
-
+      <label for="message" class="form-label">Message</label>
+      <textarea class="form-control" formControlName="message" id="message" name="message" rows="3"></textarea>
       <!-- Message Errors -->
       <div *ngIf="submitted && f?.message?.errors && f?.message?.errors?.required" class="text-danger">
         Email requis
@@ -71,11 +58,9 @@
         Veuillez saisir 30 caractères maximum
       </div>
     </div>
-
     <div class="mb-3 form-label submit">
       <button [disabled]="submitted" type="submit" class="form-control submit-button">Envoyer</button>
     </div>
-
   </form>
 </div>
 

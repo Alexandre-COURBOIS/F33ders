@@ -107,7 +107,6 @@ body{
   height: 2vh;
   position: relative;
 }
-/* Dropdown Button */
 .image {
   border-radius: 50%;
   width: 35px;
@@ -138,7 +137,6 @@ body{
   display: block;
   padding: 2%;
 }
-
 .profile-dropdown {
   display: flex;
   align-items: center;
@@ -262,11 +260,8 @@ body{
   display: table;
   clear: both;
 }
-
 .dropdown-content a:hover {background-color: #ddd;}
-
 .dropdownr:hover .dropdown-content {display: flex; flex-direction: column; align-items: center; justify-items: center;}
-
 @media only screen and (min-width: 768px) {
   .logo-header{
     width: 130px;
