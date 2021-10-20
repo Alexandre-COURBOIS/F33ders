@@ -19,6 +19,7 @@ import {DatePipe} from "@angular/common";
 import { ProfileComponent } from './Pages/profile/profile.component';
 import { ContactComponent } from './Pages/contact/contact.component';
 import {RecaptchaModule} from "ng-recaptcha";
+import { ProfileGamerComponent } from './Pages/profile-gamer/profile-gamer.component';
 import { ChampionDetailsComponent } from './Pages/champion-details/champion-details.component';
 import { ChampionComponent } from './Pages/champion/champion.component';
 import { MentionsComponent } from './Pages/mentions/mentions.component';
@@ -40,6 +41,7 @@ export function tokenGetter() {
     HomeComponent,
     ProfileComponent,
     ContactComponent,
+    ProfileGamerComponent,
     ChampionDetailsComponent,
     ChampionComponent,
     MentionsComponent,

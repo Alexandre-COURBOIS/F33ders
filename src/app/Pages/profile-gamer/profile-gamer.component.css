@@ -1,3 +1,28 @@
+.overlay{
+  background-color: rgba(0,0,0,0.2);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+.jarallax {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.mask-overlay{
+  background-color: #1f232666;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
 h2 {
   color: white;
   margin: 0;
@@ -8,7 +33,6 @@ h2 {
 .wraper {
   margin-top: 85px;
   padding-right: 7%;
-  padding-left: 7%;
 }
 .imgProfile {
   width: 100px;
@@ -17,7 +41,6 @@ h2 {
 }
 .imageProfile {
   width: 100%;
-  border-radius: 50%;
 }
 .imgObjets {
   display: flex;
@@ -62,7 +85,7 @@ h2 {
   margin-top: 20px;
   width: 100%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
 }
 .userNameUser {
   font-size: 1.2em;
@@ -285,7 +308,9 @@ th {
     display: flex;
     flex-direction: row;
     width: 100%;
-    justify-content: space-between;
+    justify-content: flex-start;
+    padding-top: 5%;
+    padding-left: 7%;
   }
   .statsRang {
     margin-top: 25px;
@@ -294,7 +319,7 @@ th {
     width: 50%;
   }
   .btnEditProfile {
-    width: 100%;
+    width: 50%;
   }
   .textRang {
     color: white;

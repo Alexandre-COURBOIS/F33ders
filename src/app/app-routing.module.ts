@@ -7,6 +7,7 @@ import {HomeComponent} from "./Pages/home/home.component";
 import {NotFound404Component} from "./Pages/not-found404/not-found404.component";
 import {ProfileComponent} from "./Pages/profile/profile.component";
 import {ContactComponent} from "./Pages/contact/contact.component";
+import {ProfileGamerComponent} from "./Pages/profile-gamer/profile-gamer.component";
 import {ChampionDetailsComponent} from "./Pages/champion-details/champion-details.component";
 import {ChampionComponent} from "./Pages/champion/champion.component";
 import {MentionsComponent} from "./Pages/mentions/mentions.component";
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: 'profile', component: ProfileComponent},
   {path: 'forgot-password/:token', component: ForgotPasswordComponent},
   {path: 'contact', component: ContactComponent},
+  {path: 'single-gamer', component: ProfileGamerComponent},
   {path: 'champion-details', component: ChampionDetailsComponent},
   {path: 'champions', component: ChampionComponent},
   {path: 'mentions', component: MentionsComponent},
