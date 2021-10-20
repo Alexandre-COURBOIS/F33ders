@@ -7,20 +7,21 @@
       <span></span>
       <span></span>
       <ul id="menu">
-        <a href="#"><li>Home</li></a>
-        <a href="#"><li>Champions</li></a>
-        <a href="#"><li>Info</li></a>
-        <a href="#"><li>Contact</li></a>
+        <a routerLink="/"><li>Home</li></a>
+        <a routerLink="/champions"><li>Champions</li></a>
+        <a routerLink="/contact"><li>Contact</li></a>
       </ul>
     </div>
+
   </nav>
 
+  <a routerLink="/">
   <div class="logo-header"></div>
-
+  </a>
   <div class="dropdownr">
     <img src="https://randomuser.me/api/portraits/women/74.jpg" class="image"/>
     <div class="dropdown-content">
-      <a href="#">Mon compte</a>
+      <a routerLink="/profile">Mon compte</a>
       <a href="#">Déconnection</a>
     </div>
   </div>

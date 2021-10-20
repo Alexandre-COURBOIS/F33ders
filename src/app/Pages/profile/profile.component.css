@@ -8,6 +8,7 @@ h2 {
 .wraper {
   margin-top: 85px;
   padding-right: 7%;
+  padding-left: 7%;
 }
 .imgProfile {
   width: 100px;
@@ -61,7 +62,7 @@ h2 {
   margin-top: 20px;
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
 }
 .userNameUser {
   font-size: 1.2em;
@@ -284,7 +285,7 @@ th {
     display: flex;
     flex-direction: row;
     width: 100%;
-    justify-content: center;
+    justify-content: space-between;
   }
   .statsRang {
     margin-top: 25px;
@@ -293,7 +294,7 @@ th {
     width: 50%;
   }
   .btnEditProfile {
-    width: 50%;
+    width: 100%;
   }
   .textRang {
     color: white;
