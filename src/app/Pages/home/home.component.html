@@ -14,12 +14,12 @@
         <li>A propos</li>
       </ul>
     </div>
-    <div class="search">
+    <form [formGroup]="getPlayerForm" (ngSubmit)="submitGetPlayerForm()" class="search">
       <div class="search-box">
         <button class="btn-search"><i class="fa fa-search"></i></button>
-        <input type="text" class="input-search" placeholder="Nom du joueur...">
+        <input formControlName="username" type="text" class="input-search" placeholder="Nom du joueur...">
       </div>
-    </div>
+    </form>
   </div>
 
   <hr class="border-bottom">

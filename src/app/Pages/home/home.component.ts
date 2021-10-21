@@ -1,5 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { gsap } from 'gsap';
+import {Component, OnInit} from '@angular/core';
+import {gsap} from 'gsap';
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {ToastrService} from "ngx-toastr";
+import {SummonerService} from "../../Services/summoner.service";
+import {isArray, isObject} from "rxjs/internal-compatibility";
+import {count} from "rxjs/operators";
 
 @Component({
   selector: 'app-home',
@@ -8,9 +13,19 @@ import { gsap } from 'gsap';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  getPlayerForm !: FormGroup;
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private toastr: ToastrService,
+    private summonerService: SummonerService,
+  ) {
+  }
 
   ngOnInit(): void {
+
+    this.initSearchPlayerForm();
+
     gsap.from('.logo', 1, {
       delay: 1.2,
       opacity: 0,
@@ -118,4 +133,57 @@ export class HomeComponent implements OnInit {
 
   }
 
+  initSearchPlayerForm() {
+    this.getPlayerForm = this.formBuilder.group({
+      username: ['', Validators.required]
+    });
+  }
+
+  submitGetPlayerForm() {
+
+    if (this.getPlayerForm.valid) {
+
+      const surname = this.getPlayerForm.get('username')?.value;
+
+      if (surname) {
+
+        this.summonerService.setDataIntoDb(surname).subscribe(value => {
+
+          if (value.statusCode === 400) {
+            this.toastr.error("Nous ne disposons d'aucun match correspond à ce profil");
+          }
+
+          if (JSON.stringify(value).length > 50000) {
+
+            localStorage.setItem('summoner', JSON.stringify(value));
+            sessionStorage.setItem('summoner', JSON.stringify(value));
+
+            this.toastr.success('Les données du joueur ' + surname + ' sont maintenant disponibles');
+          }
+
+          if (value === "Data has been set succesfully") {
+            this.summonerService.setDataIntoDb(surname).subscribe(value1 => {
+
+              localStorage.setItem('summoner', JSON.stringify(value1));
+              sessionStorage.setItem('summoner', JSON.stringify(value1));
+
+              this.toastr.success('Les données du joueur ' + surname + ' sont maintenant disponibles');
+
+            }, error => {
+              this.toastr.error("Nous ne disposons d'aucun match correspond à ce profil");
+            });
+          }
+        }, error1 => {
+          this.toastr.error("Nous ne disposons d'aucun match correspond à ce profil");
+        });
+      } else {
+        this.toastr.error("Aucun nom d'invocateur n'est renseigné !");
+      }
+    }
+
+  }
+
 }
+
+
+
