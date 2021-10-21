@@ -1,20 +1,18 @@
-<div class="navbar">
-  <nav role="navigation">
-    <div id="menuToggle">
-      <input type="checkbox"/>
-      <span></span>
-      <span></span>
-      <span></span>
-      <ul id="menu">
-        <a routerLink="/"><li>Home</li></a>
-        <a routerLink="/champions"><li>Champions</li></a>
-        <a routerLink="/contact"><li>Contact</li></a>
-      </ul>
+<div class="nav">
+  <div class="logo"><img src="../../../assets/img/f33ders.svg" alt=""></div>
+  <div class="menu-links">
+    <ul>
+      <li><a routerLink="/">Home</a></li>
+      <li>Champion</li>
+      <li>A propos</li>
+    </ul>
+  </div>
+  <div class="search">
+    <div class="search-box">
+      <button class="btn-search"><i class="fa fa-search"></i></button>
+      <input type="text" class="input-search" placeholder="Nom du joueur...">
     </div>
-  </nav>
-  <a routerLink="/">
-  <div class="logo-header"></div>
-  </a>
+  </div>
   <div class="">
     <label for="profile2" class="profile-dropdown">
       <input type="checkbox" id="profile2">
@@ -26,3 +24,5 @@
     </label>
   </div>
 </div>
+
+<hr class="border-bottom">
