@@ -18,7 +18,7 @@ html, body {
   width: 100%;
   height: 100%;
   z-index: 2;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.5);
   position: relative;
 }
 
@@ -191,12 +191,53 @@ img {
   font-weight: bolder;
 }
 
+.carousel-item{
+  position: relative !important;
+  height: 45vh;
+}
+.carousel{
+  height: 45vh;
+}
+
 .slider {
   position: absolute;
-  top: 80%;
+  top: 50%;
   width: 32%;
   opacity: 0;
   right: 25px;
+}
+
+.sliders{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.slide-1{
+  background-image: url("https://purepng.com/public/uploads/large/purepng.com-mecha-khazixsplashartchampionleague-of-legendsskinkhazix-331519927413zpva1.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+}
+.slide-2{
+  background-image: url("https://purepng.com/public/uploads/large/purepng.com-muay-thai-lee-sin-skinsplashartchampionleague-of-legendsskinleblanc-331519927749uesvv.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: top;
+}
+.slide-3{
+  background-image: url("https://choualbox.com/Img/138809412829.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: top;
+}
+.slide-4{
+  background-image: url("../../../assets/img/popy.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: top;
 }
 
 .arrows {
@@ -352,8 +393,12 @@ img {
   }
   .cover-img img {object-fit: cover;}
   .slider{
-    top: 75%;
-    width: 72%;
+    top: 55%;
+    width: 80%;
+  }
+  .sliders{
+    background-size: contain;
+    background-position: bottom;
   }
   .arrows ul li {padding: 6px;}
   .pages span {font-size: 30px;}
