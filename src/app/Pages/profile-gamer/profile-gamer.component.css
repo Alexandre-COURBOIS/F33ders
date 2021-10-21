@@ -1,28 +1,3 @@
-.overlay{
-  background-color: rgba(0,0,0,0.2);
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: -1;
-}
-.jarallax {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-.mask-overlay{
-  background-color: #1f232666;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: -1;
-}
 h2 {
   color: white;
   margin: 0;
@@ -31,8 +6,9 @@ h2 {
   margin-bottom: 90px;
 }
 .wraper {
-  margin-top: 85px;
+  margin-top: 10vh;
   padding-right: 7%;
+  padding-left: 7%;
 }
 .imgProfile {
   width: 100px;
@@ -41,6 +17,7 @@ h2 {
 }
 .imageProfile {
   width: 100%;
+  border-radius: 50%;
 }
 .imgObjets {
   display: flex;
@@ -85,7 +62,7 @@ h2 {
   margin-top: 20px;
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
 }
 .userNameUser {
   font-size: 1.2em;
@@ -221,7 +198,7 @@ h2 {
   margin-top: 25px;
 }
 .statsRang {
-  width: 50%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -240,7 +217,7 @@ h2 {
   justify-content: center;
 }
 table {
-  width: 750px;
+  width: 100%;
   border-collapse: collapse;
   margin: 50px auto;
 }
@@ -254,13 +231,26 @@ td, th {
   font-size: 18px;
   background: #eee;
 }
+
+td img{
+  width: 35px;
+}
 th {
   background: #3498db;
   color: white;
   font-weight: bold;
 }
-@media only screen and (max-width: 760px),
-(min-device-width: 768px) and (max-device-width: 1024px) {
+.statsDFSB{
+  display: flex;
+  justify-content: space-between;
+}
+.statsOneSection{
+  width: 35%;
+}
+.statsTwoSection{
+  width: 60%;
+}
+@media only screen and (max-width: 760px) and (min-device-width: 768px) and (max-device-width: 1024px) {
   table {
     width: 100%;
   }
@@ -301,6 +291,14 @@ th {
     color: white;
     padding-right: 20px;
   }
+  .statsDFSB{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+  .statsOneSection, .statsTwoSection{
+    width: 100%;
+  }
   .imgProfile {
     margin-right: 25px;
   }
@@ -308,18 +306,16 @@ th {
     display: flex;
     flex-direction: row;
     width: 100%;
-    justify-content: flex-start;
-    padding-top: 5%;
-    padding-left: 7%;
+    justify-content: space-between;
   }
   .statsRang {
     margin-top: 25px;
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 100%;
   }
   .btnEditProfile {
-    width: 50%;
+    width: 100%;
   }
   .textRang {
     color: white;
@@ -330,7 +326,7 @@ th {
   }
   .statsTab {
     margin-top: 25px;
-    width: 50%;
+    width: 100%;
   }
   .statsContent {
     display: flex;
@@ -365,7 +361,7 @@ th {
     border: none;
     border-bottom: 1px solid #eee;
     position: relative;
-    padding-left: 0%;
+    padding-left: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -383,5 +379,18 @@ th {
     width: 100%;
     text-align: center;
     border: none;
+  }
+}
+@media only screen and (min-width: 1024px){
+  .statsDFSB{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .statsOneSection{
+    width: 35%;
+  }
+  .statsTwoSection{
+    width: 60%;
   }
 }

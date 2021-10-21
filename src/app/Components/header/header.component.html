@@ -1,5 +1,4 @@
 <div class="navbar">
-
   <nav role="navigation">
     <div id="menuToggle">
       <input type="checkbox"/>
@@ -12,17 +11,18 @@
         <a routerLink="/contact"><li>Contact</li></a>
       </ul>
     </div>
-
   </nav>
-
   <a routerLink="/">
   <div class="logo-header"></div>
   </a>
-  <div class="dropdownr">
-    <img src="https://randomuser.me/api/portraits/women/74.jpg" class="image"/>
-    <div class="dropdown-content">
-      <a routerLink="/profile">Mon compte</a>
-      <a href="#">Déconnection</a>
-    </div>
+  <div class="">
+    <label for="profile2" class="profile-dropdown">
+      <input type="checkbox" id="profile2">
+      <img src="https://randomuser.me/api/portraits/women/74.jpg">
+      <ul>
+        <li><a routerLink="/profile"><i class="mdi mdi-account"></i>Account</a></li>
+        <li><a href="#"><i class="mdi mdi-logout"></i>Logout</a></li>
+      </ul>
+    </label>
   </div>
 </div>
