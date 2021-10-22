@@ -450,8 +450,14 @@ img {
     display: none;
     padding: 5px 10px 5px 15px;
   }
+  .textLink{
+    font-size: 0.8em;
+  }
   .border-bottom{top: 55px;}
-  .menu-links {left: 50px;}
+  .menu-links {
+    left: 0px;
+    margin-left: 0;
+  }
   .search {right: 60px;}
   .cart{right: 10px;}
   .text {
