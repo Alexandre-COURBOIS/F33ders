@@ -1,3 +1,5 @@
+<mat-progress-bar *ngIf="timeExec" mode="indeterminate"></mat-progress-bar>
+
 <div class="nav">
   <div class="logo"><img src="../../../assets/img/f33ders.svg" alt=""></div>
   <div class="menu-links">
@@ -7,12 +9,12 @@
       <li>A propos</li>
     </ul>
   </div>
-  <div class="search">
+  <form [formGroup]="getPlayerForm" (ngSubmit)="submitGetPlayerForm()" class="search">
     <div class="search-box">
-      <button class="btn-search"><i class="fa fa-search"></i></button>
-      <input type="text" class="input-search" placeholder="Nom du joueur...">
+      <button [disabled]="submitted == true" class="btn-search"><i class="fa fa-search"></i></button>
+      <input formControlName="username" type="text" class="input-search" placeholder="Nom du joueur...">
     </div>
-  </div>
+  </form>
   <div class="">
     <label for="profile2" class="profile-dropdown">
       <input type="checkbox" id="profile2">
