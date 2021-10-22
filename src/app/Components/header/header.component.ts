@@ -113,15 +113,18 @@ export class HeaderComponent implements OnInit {
 
             }, error => {
               this.timeExec = false;
+              this.submitted = false;
               this.toastr.error("Nous ne disposons d'aucun match correspond à ce profil");
             });
           }
         }, error1 => {
           this.timeExec = false;
+          this.submitted = false;
           this.toastr.error("Nous ne disposons d'aucun match correspond à ce profil");
         });
       } else {
         this.timeExec = false;
+        this.submitted = false;
         this.toastr.error("Aucun nom d'invocateur n'est renseigné !");
       }
     }
