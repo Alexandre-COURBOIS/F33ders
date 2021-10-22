@@ -447,6 +447,7 @@ img {
 @media(max-width: 767px){
   .nav{height: 55px;}
   .logo {
+    display: none;
     padding: 5px 10px 5px 15px;
   }
   .border-bottom{top: 55px;}
