@@ -3,6 +3,8 @@
 <div class="overlay second"></div>
 <div class="overlay third"></div>
 
+<mat-progress-bar *ngIf="timeExec" mode="indeterminate"></mat-progress-bar>
+
 <div class="wrapper">
 
   <div class="nav">
@@ -16,7 +18,7 @@
     </div>
     <form [formGroup]="getPlayerForm" (ngSubmit)="submitGetPlayerForm()" class="search">
       <div class="search-box">
-        <button class="btn-search"><i class="fa fa-search"></i></button>
+        <button [disabled]="submitted == true" class="btn-search"><i class="fa fa-search"></i></button>
         <input formControlName="username" type="text" class="input-search" placeholder="Nom du joueur...">
       </div>
     </form>
