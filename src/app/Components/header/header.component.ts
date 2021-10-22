@@ -25,6 +25,7 @@ export class HeaderComponent implements OnInit {
 
     this.initSearchPlayerForm();
 
+
     gsap.from('.logo', 1, {
       delay: 1.2,
       opacity: 0,
