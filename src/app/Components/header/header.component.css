@@ -189,14 +189,14 @@ html, body {
 .btn-search:focus ~ .input-search{
   width: 300px;
   border-radius: 0px;
-  background-color: transparent;
+  background-color: #382d14;
   border-bottom:1px solid rgba(255,255,255,.5);
   transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
 }
 .input-search:focus{
   width: 300px;
   border-radius: 0px;
-  background-color: transparent;
+  background-color: #382d14;
   border-bottom:1px solid rgba(255,255,255,.5);
   transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
 }
@@ -451,7 +451,7 @@ img {
   }
   .border-bottom{top: 55px;}
   .menu-links {left: 50px;}
-  .search {right: 50px;}
+  .search {right: 60px;}
   .cart{right: 10px;}
   .text {
     top: 15%;

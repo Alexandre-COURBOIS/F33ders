@@ -59,20 +59,20 @@ html, body {
   position: absolute;
   right: 0px;
   color:#ffffff ;
-  background-color:transparent;
+  background-color: #382d14;
   pointer-events: painted;
 }
 .btn-search:focus ~ .input-search{
   width: 300px;
   border-radius: 0px;
-  background-color: transparent;
+  background-color: #382d14;
   border-bottom:1px solid rgba(255,255,255,.5);
   transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
 }
 .input-search:focus{
   width: 300px;
   border-radius: 0px;
-  background-color: transparent;
+  background-color: #382d14;
   border-bottom:1px solid rgba(255,255,255,.5);
   transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
 }
@@ -375,6 +375,7 @@ img {
     left: 25%;
     transform: translate(-25%, -15%);
   }
+
   .subtitle {font-size: 10px;}
   .title {font-size: 30px;}
   .desc {
@@ -394,11 +395,12 @@ img {
   .cover-img img {object-fit: cover;}
   .slider{
     top: 55%;
-    width: 80%;
+    width: 100%;
+    right: inherit;
   }
   .sliders{
-    background-size: contain;
-    background-position: bottom;
+    background-size: cover;
+    background-position: top;
   }
   .arrows ul li {padding: 6px;}
   .pages span {font-size: 30px;}
