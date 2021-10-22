@@ -84,6 +84,7 @@ export class HeaderComponent implements OnInit {
           if (value.statusCode === 400) {
             this.toastr.error("Nous ne disposons d'aucun match correspond à ce profil");
             this.timeExec = false;
+            this.submitted = false;
           }
 
           if (JSON.stringify(value).length > 50000) {
@@ -93,6 +94,7 @@ export class HeaderComponent implements OnInit {
 
             if (value) {
               this.timeExec = false;
+              this.submitted = false;
             }
 
             this.toastr.success('Les données du joueur ' + surname + ' sont maintenant disponibles');
@@ -102,8 +104,8 @@ export class HeaderComponent implements OnInit {
             this.summonerService.setDataIntoDb(surname).subscribe(value1 => {
 
               this.timeExec = false;
-
               this.submitted = false;
+
               localStorage.setItem('summoner', JSON.stringify(value1));
               sessionStorage.setItem('summoner', JSON.stringify(value1));
 
