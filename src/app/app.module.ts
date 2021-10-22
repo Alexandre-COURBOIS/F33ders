@@ -24,6 +24,7 @@ import { ChampionDetailsComponent } from './Pages/champion-details/champion-deta
 import { ChampionComponent } from './Pages/champion/champion.component';
 import { MentionsComponent } from './Pages/mentions/mentions.component';
 import { ActivateAccountComponent } from './Pages/activate-account/activate-account.component';
+import {MatProgressBarModule} from "@angular/material/progress-bar";
 
 export function tokenGetter() {
   return sessionStorage.getItem('_token');
@@ -48,21 +49,22 @@ export function tokenGetter() {
     MentionsComponent,
     ActivateAccountComponent,
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        FormsModule,
-        ReactiveFormsModule,
-        HttpClientModule,
-        ToastrModule.forRoot(),
-        BrowserAnimationsModule,
-        JwtModule.forRoot({
-            config: {
-                tokenGetter: tokenGetter,
-            },
-        }),
-        RecaptchaModule,
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+      },
+    }),
+    RecaptchaModule,
+    MatProgressBarModule,
+  ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
