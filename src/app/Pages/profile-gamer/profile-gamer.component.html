@@ -110,34 +110,39 @@
           <tbody>
           <tr *ngFor="let match of summoner.match">
             <td style="background-color: #a3cfec">
-              <div *ngFor="let player of match.game[0].team.lose">
+              <div *ngFor="let player of match.game[0].teams">
                 <img *ngIf="player.champ.informations.key == match.currentUserChampion"
-                     src="{{match.game[0].team.lose[0].champ.informations.imageUrl}}">
-              </div>
-              <div *ngFor="let player of match.game[0].team.win">
-                <img *ngIf="player.champ.informations.key == match.currentUserChampion"
-                     src="{{match.game[0].team.lose[0].champ.informations.imageUrl}}">
+                     src="{{player.champ.informations.imageUrl}}">
               </div>
             </td>
             <td class="statsMatch" style="background-color: #a3cfec">
-              <div *ngFor="let player of match.game[0].team.lose">
-                <p *ngIf="player.champ.informations.key == match.currentUserChampion">Défaite</p>
-              </div>
-              <div *ngFor="let player of match.game[0].team.win">
-                <p *ngIf="player.champ.informations.key == match.currentUserChampion">Victoire</p>
+              <div *ngFor="let player of match.game[0].teams">
+                <div *ngIf="player.champ.informations.key == match.currentUserChampion">
+                  <p style="color: darkred" *ngIf="player.champ.informations.win == false">Défaite</p>
+                  <p style="color: green" *ngIf="player.champ.informations.win == true">Victoire</p>
+                </div>
               </div>
             </td>
             <td style="background-color: #a3cfec">
               <div class="imgObjets">
-                <div *ngFor="let player of match.game[0].team.lose">
+                <div *ngFor="let player of match.game[0].teams">
                   <div *ngIf="player.champ.informations.key == match.currentUserChampion">
-                    <img *ngFor="let it of player.Items" src="{{it[1]}}"/>
-                  </div>
-                </div>
-                <div *ngFor="let player of match.game[0].team.win">
-                  <div *ngIf="player.champ.informations.key == match.currentUserChampion">
-                    <div>
-                    <img *ngFor="let it of player.Items" src="{{it[1]}}"/>
+                    <div class="container">
+                      <div class="row">
+                        <div *ngFor="let it of player.Items">
+                          <div *ngIf="it !== null">
+                            <div *ngIf="!it['Poro-Snax']" class="col">
+                              <div *ngIf="!it['Balise camouflee']">
+                                <div *ngIf="!it['Brouilleur oraculaire']">
+                                  <div *ngIf="!it['Alteration divinatoire']">
+                                    <img src="{{it[1]}}" alt="">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
