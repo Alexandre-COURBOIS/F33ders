@@ -8,27 +8,29 @@
   <div class="sectionOne">
     <div class="infosProfile">
       <div class="imgProfile">
-        <img class="imageProfile" src="https://opgg-static.akamaized.net/images/profile_icons/profileIcon7.jpg?image=q_auto:best&v=1518361200" alt="">
+        <img class="imageProfile"
+             src="https://opgg-static.akamaized.net/images/profile_icons/profileIcon7.jpg?image=q_auto:best&v=1518361200"
+             alt="">
       </div>
       <div>
-        <h2 class="nameUser">loriAn</h2>
+        <h2 class="nameUser">{{summoner.player.username}}</h2>
         <p class="emailUser">Niv 50</p>
       </div>
     </div>
   </div>
-  <h2 class="titleStats">Stats de loriAn</h2>
+  <h2 class="titleStats">Stats de {{summoner.player.username}}</h2>
   <div class="statsDFSB">
     <div class="statsOneSection">
       <div>
         <h2 class="titleStats">Mes Stats</h2>
         <div class="statsContent">
           <div class="statsRang" style="">
-            <div  >
+            <div>
               <img src="https://lolg-cdn.porofessor.gg/img/league-icons-v2/160/6-4.png" alt="">
               <p class="textRang">Diamant IV</p>
             </div>
             <div class="statsGamer">
-              <p class="userNameUser">Riot: loriA</p>
+              <p class="userNameUser">Riot: {{summoner.player.username}}</p>
               <p class="infoUser">Niveau 412 - #6,166 Séraphine</p>
             </div>
           </div>
@@ -106,82 +108,47 @@
       <div class="mBTable">
         <table>
           <tbody>
-          <tr>
+          <tr *ngFor="let match of summoner.match">
             <td style="background-color: #a3cfec">
-              <img src="https://lolg-cdn.porofessor.gg/img/champion-icons/11.20/64/40.png">
+              <div *ngFor="let player of match.game[0].teams">
+                <img *ngIf="player.champ.informations.key == match.currentUserChampion"
+                     src="{{player.champ.informations.imageUrl}}">
+              </div>
             </td>
             <td class="statsMatch" style="background-color: #a3cfec">
-              <p>Victoire<br>ARAM<br>14min 1s</p>
+              <div *ngFor="let player of match.game[0].teams">
+                <div *ngIf="player.champ.informations.key == match.currentUserChampion">
+                  <p style="color: darkred" *ngIf="player.champ.informations.win == false">Défaite</p>
+                  <p style="color: green" *ngIf="player.champ.informations.win == true">Victoire</p>
+                </div>
+              </div>
             </td>
-            <td  style="background-color: #a3cfec">
+            <td style="background-color: #a3cfec">
               <div class="imgObjets">
-                <img src="https://cdn.championcounter.com/images/items/4628-horizonfocus.png?v=1619884123417">
-                <img src="https://cdn.championcounter.com/images/items/6655-ludenstempest.png?v=1619884125497">
-                <img src="https://cdn.championcounter.com/images/items/3020-sorcerersshoes.png?v=1619884113611">
-                <img src="https://cdn.championcounter.com/images/items/2052-porosnax.png?v=1603870683000">
+                <div *ngFor="let player of match.game[0].teams">
+                  <div *ngIf="player.champ.informations.key == match.currentUserChampion">
+                    <div class="container">
+                      <div class="row">
+                        <div *ngFor="let it of player.Items">
+                          <div *ngIf="it !== null">
+                            <div *ngIf="!it['Poro-Snax']" class="col">
+                              <div *ngIf="!it['Balise camouflee']">
+                                <div *ngIf="!it['Brouilleur oraculaire']">
+                                  <div *ngIf="!it['Alteration divinatoire']">
+                                    <img src="{{it[1]}}" alt="">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </td>
             <td style="background-color: #a3cfec; font-weight: 700;">Autres Joueurs</td>
-          </tr>
-          <tr>
-            <td style="background-color: #a3cfec"><img src="https://lolg-cdn.porofessor.gg/img/champion-icons/11.20/64/40.png"> </td>
-            <td class="statsMatch" style="background-color: #a3cfec">
-              <p>Victoire<br>ARAM<br>14min 1s</p>
-            </td>
-            <td  style="background-color: #a3cfec">
-              <div class="imgObjets">
-                <img src="https://cdn.championcounter.com/images/items/4628-horizonfocus.png?v=1619884123417">
-                <img src="https://cdn.championcounter.com/images/items/6655-ludenstempest.png?v=1619884125497">
-                <img src="https://cdn.championcounter.com/images/items/3020-sorcerersshoes.png?v=1619884113611">
-                <img src="https://cdn.championcounter.com/images/items/2052-porosnax.png?v=1603870683000">
-              </div>
-            </td>
-            <td style="background-color: #a3cfec; font-weight: 700;">Autres Joueurs</td>
-          </tr>
-          <tr style="background-color: #e2b6b3">
-            <td style="background-color: #e2b6b3"><img src="https://lolg-cdn.porofessor.gg/img/champion-icons/11.20/64/40.png"> </td>
-            <td  class="statsMatch" style="background-color: #e2b6b3">
-              <p>Défaite<br>ARAM<br>14min 1s</p>
-            </td>
-            <td  style="background-color: #e2b6b3">
-              <div class="imgObjets">
-                <img src="https://cdn.championcounter.com/images/items/4628-horizonfocus.png?v=1619884123417">
-                <img src="https://cdn.championcounter.com/images/items/6655-ludenstempest.png?v=1619884125497">
-                <img src="https://cdn.championcounter.com/images/items/3020-sorcerersshoes.png?v=1619884113611">
-                <img src="https://cdn.championcounter.com/images/items/2052-porosnax.png?v=1603870683000">
-              </div>
-            </td>
-            <td style="background-color: #e2b6b3; font-weight: 700;">Autres Joueurs</td>
-          </tr>
-          <tr style="background-color: #e2b6b3">
-            <td style="background-color: #e2b6b3" ><img src="https://lolg-cdn.porofessor.gg/img/champion-icons/11.20/64/40.png"> </td>
-            <td class="statsMatch" style="background-color: #e2b6b3">
-              <p>Défaite<br>ARAM<br>14min 1s</p>
-            </td>
-            <td  style="background-color: #e2b6b3">
-              <div class="imgObjets">
-                <img src="https://cdn.championcounter.com/images/items/4628-horizonfocus.png?v=1619884123417">
-                <img src="https://cdn.championcounter.com/images/items/6655-ludenstempest.png?v=1619884125497">
-                <img src="https://cdn.championcounter.com/images/items/3020-sorcerersshoes.png?v=1619884113611">
-                <img src="https://cdn.championcounter.com/images/items/2052-porosnax.png?v=1603870683000">
-              </div>
-            </td>
-            <td style="background-color: #e2b6b3;font-weight: 700;">Autres Joueurs</td>
-          </tr>
-          <tr>
-            <td style="background-color: #e2b6b3"><img src="https://lolg-cdn.porofessor.gg/img/champion-icons/11.20/64/40.png"> </td>
-            <td class="statsMatch" style="background-color: #e2b6b3">
-              <p>Défaite<br>ARAM<br>14min 1s</p>
-            </td>
-            <td  style="background-color: #e2b6b3">
-              <div class="imgObjets">
-                <img src="https://cdn.championcounter.com/images/items/4628-horizonfocus.png?v=1619884123417">
-                <img src="https://cdn.championcounter.com/images/items/6655-ludenstempest.png?v=1619884125497">
-                <img src="https://cdn.championcounter.com/images/items/3020-sorcerersshoes.png?v=1619884113611">
-                <img src="https://cdn.championcounter.com/images/items/2052-porosnax.png?v=1603870683000">
-              </div>
-            </td>
-            <td style="background-color: #e2b6b3; font-weight: 700;">Autres Joueurs</td>
           </tr>
           </tbody>
         </table>
