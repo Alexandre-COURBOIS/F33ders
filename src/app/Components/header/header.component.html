@@ -19,9 +19,15 @@
     <label for="profile2" class="profile-dropdown">
       <input type="checkbox" id="profile2">
       <img src="https://randomuser.me/api/portraits/women/74.jpg">
-      <ul>
+      <ul *ngIf="isLogged">
         <li><a routerLink="/profile"><i class="mdi mdi-account"></i>Account</a></li>
-        <li><a href="#"><i class="mdi mdi-logout"></i>Logout</a></li>
+        <li *ngIf="summoner">
+          <a routerLink="/player"><i class="mdi mdi-logout"></i>Player</a>
+        </li>
+        <li><a href="/" (click)="logout()"><i class="mdi mdi-logout"></i>Logout</a></li>
+      </ul>
+      <ul *ngIf="!isLogged">
+        <li><a routerLink="/login"><i class="mdi mdi-account"></i>Login</a></li>
       </ul>
     </label>
   </div>
