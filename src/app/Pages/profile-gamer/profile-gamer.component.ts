@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-profile-gamer',
@@ -7,9 +7,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileGamerComponent implements OnInit {
 
-  constructor() { }
+  summoner: any;
+
+  constructor() {
+  }
 
   ngOnInit(): void {
+
+    this.summoner = sessionStorage.getItem("summoner");
+
+    if (!this.summoner) {
+      this.summoner = localStorage.getItem("summoner");
+    }
+
+    this.summoner = JSON.parse(this.summoner);
+
+    console.log(this.summoner);
+    console.log(this.summoner.match);
+
+
   }
 
 }
