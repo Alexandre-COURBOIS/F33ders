@@ -140,12 +140,16 @@ export class HeaderComponent implements OnInit {
                   this.timeExec = false;
                   this.submitted = false;
 
-                  localStorage.setItem('summoner', JSON.stringify(value1));
-                  sessionStorage.setItem('summoner', JSON.stringify(value1));
+                  if (JSON.stringify(value1).length > 15000) {
+                    localStorage.setItem('summoner', JSON.stringify(value1));
+                    sessionStorage.setItem('summoner', JSON.stringify(value1));
 
-                  this.toastr.success('Les données du joueur ' + surname + ' sont maintenant disponibles');
+                    this.toastr.success('Les données du joueur ' + surname + ' sont maintenant disponibles');
 
-                  this.router.navigate(['/player']);
+                    this.router.navigate(['/player']);
+                  } else {
+                    this.toastr.error('Ce joueur ne dispose d\'aucun match valable à l\'heure actuelle');
+                  }
                 }
 
               }, error => {
