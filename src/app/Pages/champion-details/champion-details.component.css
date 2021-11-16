@@ -1,5 +1,12 @@
+html, body {
+  width: 100%;
+  height: 100vh;
+  font-family: 'Montserrat';
+  background-image: inherit;
+  color: #fff;
+  background: #1f2326 !important;
+}
 .wraper{
-  margin-top: 5vh;
   margin-bottom: 100px;
 }
 .sectionOne{

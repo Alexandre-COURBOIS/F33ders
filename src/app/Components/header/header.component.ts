@@ -64,12 +64,7 @@ export class HeaderComponent implements OnInit {
       x: -20,
       ease: Expo.easeInOut
     });
-    gsap.from('.cart', 1, {
-      delay: 2.0,
-      opacity: 0,
-      x: -20,
-      ease: Expo.easeInOut
-    });
+
     gsap.to('.border-bottom', 1, {
       delay: 1.4,
       width: '100%',
