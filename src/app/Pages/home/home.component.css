@@ -175,6 +175,20 @@ img {
   -ms-transform: translate(-25%, -30%);
   transform: translate(-25%, -30%);
   z-index: 1;
+  width: 80%;
+}
+.typed-element{
+  color: white;
+  font-style: italic;
+  font-size: 1.1em;
+  background-color: #382d14;
+  padding: 5px;
+  width: 60%;
+  line-height: 1.5em;
+}
+.typed-word{
+  width: 60%;
+  padding: 5px;
 }
 .subtitle {
   text-transform: uppercase;

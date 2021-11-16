@@ -25,8 +25,8 @@
   gap: 40px 40px;
 }
 .img-wrapper {
-  width: 250px;
-  height: 250px;
+  width: 100px;
+  height: 100px;
   overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -50,11 +50,16 @@
   -webkit-filter: grayscale(100);
   filter: grayscale(100);
 }
+.championDF{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 p {
-  position: absolute;
-  bottom: 0;
+  position: relative;
   margin: 0;
-  display: none;
+  display: block;
   font-size: 1.5em;
   color: white;
   width: 100%;
@@ -64,19 +69,10 @@ p {
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
+  margin-top: 10px;
+
 }
-.inner-img:hover + p {
-  display: block;
-  -webkit-transition: 0.3s;
-  -o-transition: 0.3s;
-  transition: 0.3s;
-}
-p:hover {
-  display: block;
-  -webkit-transition: 0.3s;
-  -o-transition: 0.3s;
-  transition: 0.3s;
-}
+
 .inner-img:hover {
   -webkit-transform: scale(1.1);
   -ms-transform: scale(1.1);
@@ -219,7 +215,7 @@ p:hover {
     filter: grayscale(100);
   }
   p {
-    display: none;
+    display: block;
   }
   .img-wrapper {
     width: 250px;
@@ -229,19 +225,21 @@ p:hover {
 @media only screen and (min-width: 1824px) {
   .gridChampions {
     -ms-grid-columns: 1fr 50px 1fr 50px 1fr 50px 1fr 50px 1fr 50px 1fr;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 50px 50px;
     gap: 50px 50px;
   }
   .inner-img {
+    position: absolute;
+    top: 0;
     -webkit-filter: grayscale(100);
     filter: grayscale(100);
   }
   p {
-    display: none;
+    display: block;
   }
   .img-wrapper {
-    width: 250px;
-    height: 250px;
+    width: 150px;
+    height: 150px;
   }
 }
