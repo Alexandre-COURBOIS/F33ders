@@ -8,7 +8,7 @@
     <div class="gridChampions">
       <div *ngFor="let champ of champions">
         <a routerLink="/champion-details/{{champ.championId}}" class="img-wrapper" href="">
-          <img width="250" class="inner-img"
+          <img class="inner-img"
                src="{{champ.imageUrl}}"
                alt="">
           <p>{{champ.name}}</p>
