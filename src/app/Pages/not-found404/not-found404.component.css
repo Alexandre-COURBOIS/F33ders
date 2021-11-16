@@ -3,32 +3,46 @@ html {
   height: 100%;
   overflow: visible;
 }
-.wraper404{
+.wraper404 {
   width: 100%;
   height: 100vh;
   position: fixed;
-  top: 0;
+  top: 10vh;
   bottom: 0;
   left: 0;
   right: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 body {
   overflow: visible;
   text-align: center;
 }
-
 .error-banner {
   padding: 60px 0 20px;
   position: relative;
   display: inline-block;
   font-family: Helvetica-neue, Helvetica, Arial, sans-serif;
   color: #788392;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   text-align: center;
 }
@@ -36,6 +50,7 @@ body {
   position: relative;
   overflow: visible;
   z-index: 2;
+  -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
   margin: 3em;
 }
@@ -81,7 +96,6 @@ body {
   -webkit-animation: zbounce 0.5s linear infinite;
   animation: zbounce 0.5s linear infinite;
 }
-
 [id$=cube-1], [id$=cube-13], [id$=cube-25] {
   -webkit-animation: drop-cube-1 0.9s cubic-bezier(0.19, 1, 0.32, 1);
   animation: drop-cube-1 0.9s cubic-bezier(0.19, 1, 0.32, 1);
@@ -90,7 +104,6 @@ body {
   -webkit-animation: fade-cube-1 0.9s cubic-bezier(0.19, 1, 0.32, 1);
   animation: fade-cube-1 0.9s cubic-bezier(0.19, 1, 0.32, 1);
 }
-
 [id$=cube-2], [id$=cube-14], [id$=cube-26] {
   -webkit-animation: drop-cube-2 0.9s cubic-bezier(0.19, 1, 0.32, 1);
   animation: drop-cube-2 0.9s cubic-bezier(0.19, 1, 0.32, 1);
@@ -99,7 +112,6 @@ body {
   -webkit-animation: fade-cube-2 0.9s cubic-bezier(0.19, 1, 0.32, 1);
   animation: fade-cube-2 0.9s cubic-bezier(0.19, 1, 0.32, 1);
 }
-
 [id$=cube-3], [id$=cube-15], [id$=cube-27] {
   -webkit-animation: drop-cube-3 0.9s cubic-bezier(0.19, 1, 0.32, 1);
   animation: drop-cube-3 0.9s cubic-bezier(0.19, 1, 0.32, 1);
@@ -108,7 +120,6 @@ body {
   -webkit-animation: fade-cube-3 0.9s cubic-bezier(0.19, 1, 0.32, 1);
   animation: fade-cube-3 0.9s cubic-bezier(0.19, 1, 0.32, 1);
 }
-
 [id$=cube-4], [id$=cube-16], [id$=cube-28] {
   -webkit-animation: drop-cube-4 0.9s cubic-bezier(0.19, 1, 0.32, 1);
   animation: drop-cube-4 0.9s cubic-bezier(0.19, 1, 0.32, 1);
@@ -117,7 +128,6 @@ body {
   -webkit-animation: fade-cube-4 0.9s cubic-bezier(0.19, 1, 0.32, 1);
   animation: fade-cube-4 0.9s cubic-bezier(0.19, 1, 0.32, 1);
 }
-
 [id$=cube-5], [id$=cube-17], [id$=cube-29] {
   -webkit-animation: drop-cube-5 0.9s cubic-bezier(0.19, 1, 0.32, 1);
   animation: drop-cube-5 0.9s cubic-bezier(0.19, 1, 0.32, 1);
@@ -126,7 +136,6 @@ body {
   -webkit-animation: fade-cube-5 0.9s cubic-bezier(0.19, 1, 0.32, 1);
   animation: fade-cube-5 0.9s cubic-bezier(0.19, 1, 0.32, 1);
 }
-
 [id$=cube-6], [id$=cube-18], [id$=cube-30] {
   -webkit-animation: drop-cube-6 0.9s cubic-bezier(0.19, 1, 0.32, 1);
   animation: drop-cube-6 0.9s cubic-bezier(0.19, 1, 0.32, 1);
@@ -135,7 +144,6 @@ body {
   -webkit-animation: fade-cube-6 0.9s cubic-bezier(0.19, 1, 0.32, 1);
   animation: fade-cube-6 0.9s cubic-bezier(0.19, 1, 0.32, 1);
 }
-
 [id$=cube-7], [id$=cube-19], [id$=cube-31] {
   -webkit-animation: drop-cube-7 0.9s cubic-bezier(0.19, 1, 0.32, 1);
   animation: drop-cube-7 0.9s cubic-bezier(0.19, 1, 0.32, 1);
@@ -144,7 +152,6 @@ body {
   -webkit-animation: fade-cube-7 0.9s cubic-bezier(0.19, 1, 0.32, 1);
   animation: fade-cube-7 0.9s cubic-bezier(0.19, 1, 0.32, 1);
 }
-
 [id$=cube-8], [id$=cube-20], [id$=cube-32] {
   -webkit-animation: drop-cube-8 0.9s cubic-bezier(0.19, 1, 0.32, 1);
   animation: drop-cube-8 0.9s cubic-bezier(0.19, 1, 0.32, 1);
@@ -153,7 +160,6 @@ body {
   -webkit-animation: fade-cube-8 0.9s cubic-bezier(0.19, 1, 0.32, 1);
   animation: fade-cube-8 0.9s cubic-bezier(0.19, 1, 0.32, 1);
 }
-
 [id$=cube-9], [id$=cube-21], [id$=cube-33] {
   -webkit-animation: drop-cube-9 0.9s cubic-bezier(0.19, 1, 0.32, 1);
   animation: drop-cube-9 0.9s cubic-bezier(0.19, 1, 0.32, 1);
@@ -162,7 +168,6 @@ body {
   -webkit-animation: fade-cube-9 0.9s cubic-bezier(0.19, 1, 0.32, 1);
   animation: fade-cube-9 0.9s cubic-bezier(0.19, 1, 0.32, 1);
 }
-
 [id$=cube-10], [id$=cube-22], [id$=cube-34] {
   -webkit-animation: drop-cube-10 0.9s cubic-bezier(0.19, 1, 0.32, 1);
   animation: drop-cube-10 0.9s cubic-bezier(0.19, 1, 0.32, 1);
@@ -171,7 +176,6 @@ body {
   -webkit-animation: fade-cube-10 0.9s cubic-bezier(0.19, 1, 0.32, 1);
   animation: fade-cube-10 0.9s cubic-bezier(0.19, 1, 0.32, 1);
 }
-
 [id$=cube-11], [id$=cube-23], [id$=cube-35] {
   -webkit-animation: drop-cube-11 0.9s cubic-bezier(0.19, 1, 0.32, 1);
   animation: drop-cube-11 0.9s cubic-bezier(0.19, 1, 0.32, 1);
@@ -180,7 +184,6 @@ body {
   -webkit-animation: fade-cube-11 0.9s cubic-bezier(0.19, 1, 0.32, 1);
   animation: fade-cube-11 0.9s cubic-bezier(0.19, 1, 0.32, 1);
 }
-
 [id$=cube-12], [id$=cube-24], [id$=cube-36] {
   -webkit-animation: drop-cube-12 0.9s cubic-bezier(0.19, 1, 0.32, 1);
   animation: drop-cube-12 0.9s cubic-bezier(0.19, 1, 0.32, 1);
@@ -189,7 +192,6 @@ body {
   -webkit-animation: fade-cube-12 0.9s cubic-bezier(0.19, 1, 0.32, 1);
   animation: fade-cube-12 0.9s cubic-bezier(0.19, 1, 0.32, 1);
 }
-
 svg:hover [id$=cube-1] path, svg:hover [id$=cube-13] path, svg:hover [id$=cube-25] path {
   -webkit-animation: fade-out-cube-1 0.7s cubic-bezier(0.19, 1, 0.32, 1) infinite;
   animation: fade-out-cube-1 0.7s cubic-bezier(0.19, 1, 0.32, 1) infinite;
@@ -238,21 +240,23 @@ svg:hover [id$=cube-12] path, svg:hover [id$=cube-24] path, svg:hover [id$=cube-
   -webkit-animation: fade-out-cube-12 0.7s cubic-bezier(0.19, 1, 0.32, 1) infinite;
   animation: fade-out-cube-12 0.7s cubic-bezier(0.19, 1, 0.32, 1) infinite;
 }
-
 @-webkit-keyframes drop-cube-1 {
   0%, 7% {
+    -webkit-transform: translateY(300px);
     transform: translateY(300px);
   }
   100% {
+    -webkit-transform: translateY(0);
     transform: translateY(0);
   }
 }
-
 @keyframes drop-cube-1 {
   0%, 7% {
+    -webkit-transform: translateY(300px);
     transform: translateY(300px);
   }
   100% {
+    -webkit-transform: translateY(0);
     transform: translateY(0);
   }
 }
@@ -296,17 +300,21 @@ svg:hover [id$=cube-12] path, svg:hover [id$=cube-24] path, svg:hover [id$=cube-
 }
 @-webkit-keyframes drop-cube-2 {
   0%, 14% {
+    -webkit-transform: translateY(300px);
     transform: translateY(300px);
   }
   100% {
+    -webkit-transform: translateY(0);
     transform: translateY(0);
   }
 }
 @keyframes drop-cube-2 {
   0%, 14% {
+    -webkit-transform: translateY(300px);
     transform: translateY(300px);
   }
   100% {
+    -webkit-transform: translateY(0);
     transform: translateY(0);
   }
 }
@@ -350,17 +358,21 @@ svg:hover [id$=cube-12] path, svg:hover [id$=cube-24] path, svg:hover [id$=cube-
 }
 @-webkit-keyframes drop-cube-3 {
   0%, 21% {
+    -webkit-transform: translateY(300px);
     transform: translateY(300px);
   }
   100% {
+    -webkit-transform: translateY(0);
     transform: translateY(0);
   }
 }
 @keyframes drop-cube-3 {
   0%, 21% {
+    -webkit-transform: translateY(300px);
     transform: translateY(300px);
   }
   100% {
+    -webkit-transform: translateY(0);
     transform: translateY(0);
   }
 }
@@ -404,17 +416,21 @@ svg:hover [id$=cube-12] path, svg:hover [id$=cube-24] path, svg:hover [id$=cube-
 }
 @-webkit-keyframes drop-cube-4 {
   0%, 28% {
+    -webkit-transform: translateY(300px);
     transform: translateY(300px);
   }
   100% {
+    -webkit-transform: translateY(0);
     transform: translateY(0);
   }
 }
 @keyframes drop-cube-4 {
   0%, 28% {
+    -webkit-transform: translateY(300px);
     transform: translateY(300px);
   }
   100% {
+    -webkit-transform: translateY(0);
     transform: translateY(0);
   }
 }
@@ -458,17 +474,21 @@ svg:hover [id$=cube-12] path, svg:hover [id$=cube-24] path, svg:hover [id$=cube-
 }
 @-webkit-keyframes drop-cube-5 {
   0%, 35% {
+    -webkit-transform: translateY(300px);
     transform: translateY(300px);
   }
   100% {
+    -webkit-transform: translateY(0);
     transform: translateY(0);
   }
 }
 @keyframes drop-cube-5 {
   0%, 35% {
+    -webkit-transform: translateY(300px);
     transform: translateY(300px);
   }
   100% {
+    -webkit-transform: translateY(0);
     transform: translateY(0);
   }
 }
@@ -512,17 +532,21 @@ svg:hover [id$=cube-12] path, svg:hover [id$=cube-24] path, svg:hover [id$=cube-
 }
 @-webkit-keyframes drop-cube-6 {
   0%, 42% {
+    -webkit-transform: translateY(300px);
     transform: translateY(300px);
   }
   100% {
+    -webkit-transform: translateY(0);
     transform: translateY(0);
   }
 }
 @keyframes drop-cube-6 {
   0%, 42% {
+    -webkit-transform: translateY(300px);
     transform: translateY(300px);
   }
   100% {
+    -webkit-transform: translateY(0);
     transform: translateY(0);
   }
 }
@@ -566,17 +590,21 @@ svg:hover [id$=cube-12] path, svg:hover [id$=cube-24] path, svg:hover [id$=cube-
 }
 @-webkit-keyframes drop-cube-7 {
   0%, 49% {
+    -webkit-transform: translateY(300px);
     transform: translateY(300px);
   }
   100% {
+    -webkit-transform: translateY(0);
     transform: translateY(0);
   }
 }
 @keyframes drop-cube-7 {
   0%, 49% {
+    -webkit-transform: translateY(300px);
     transform: translateY(300px);
   }
   100% {
+    -webkit-transform: translateY(0);
     transform: translateY(0);
   }
 }
@@ -620,17 +648,21 @@ svg:hover [id$=cube-12] path, svg:hover [id$=cube-24] path, svg:hover [id$=cube-
 }
 @-webkit-keyframes drop-cube-8 {
   0%, 56% {
+    -webkit-transform: translateY(300px);
     transform: translateY(300px);
   }
   100% {
+    -webkit-transform: translateY(0);
     transform: translateY(0);
   }
 }
 @keyframes drop-cube-8 {
   0%, 56% {
+    -webkit-transform: translateY(300px);
     transform: translateY(300px);
   }
   100% {
+    -webkit-transform: translateY(0);
     transform: translateY(0);
   }
 }
@@ -674,17 +706,21 @@ svg:hover [id$=cube-12] path, svg:hover [id$=cube-24] path, svg:hover [id$=cube-
 }
 @-webkit-keyframes drop-cube-9 {
   0%, 63% {
+    -webkit-transform: translateY(300px);
     transform: translateY(300px);
   }
   100% {
+    -webkit-transform: translateY(0);
     transform: translateY(0);
   }
 }
 @keyframes drop-cube-9 {
   0%, 63% {
+    -webkit-transform: translateY(300px);
     transform: translateY(300px);
   }
   100% {
+    -webkit-transform: translateY(0);
     transform: translateY(0);
   }
 }
@@ -728,17 +764,21 @@ svg:hover [id$=cube-12] path, svg:hover [id$=cube-24] path, svg:hover [id$=cube-
 }
 @-webkit-keyframes drop-cube-10 {
   0%, 70% {
+    -webkit-transform: translateY(300px);
     transform: translateY(300px);
   }
   100% {
+    -webkit-transform: translateY(0);
     transform: translateY(0);
   }
 }
 @keyframes drop-cube-10 {
   0%, 70% {
+    -webkit-transform: translateY(300px);
     transform: translateY(300px);
   }
   100% {
+    -webkit-transform: translateY(0);
     transform: translateY(0);
   }
 }
@@ -782,17 +822,21 @@ svg:hover [id$=cube-12] path, svg:hover [id$=cube-24] path, svg:hover [id$=cube-
 }
 @-webkit-keyframes drop-cube-11 {
   0%, 77% {
+    -webkit-transform: translateY(300px);
     transform: translateY(300px);
   }
   100% {
+    -webkit-transform: translateY(0);
     transform: translateY(0);
   }
 }
 @keyframes drop-cube-11 {
   0%, 77% {
+    -webkit-transform: translateY(300px);
     transform: translateY(300px);
   }
   100% {
+    -webkit-transform: translateY(0);
     transform: translateY(0);
   }
 }
@@ -836,17 +880,21 @@ svg:hover [id$=cube-12] path, svg:hover [id$=cube-24] path, svg:hover [id$=cube-
 }
 @-webkit-keyframes drop-cube-12 {
   0%, 84% {
+    -webkit-transform: translateY(300px);
     transform: translateY(300px);
   }
   100% {
+    -webkit-transform: translateY(0);
     transform: translateY(0);
   }
 }
 @keyframes drop-cube-12 {
   0%, 84% {
+    -webkit-transform: translateY(300px);
     transform: translateY(300px);
   }
   100% {
+    -webkit-transform: translateY(0);
     transform: translateY(0);
   }
 }
@@ -952,17 +1000,21 @@ svg:hover [id$=cube-12] path, svg:hover [id$=cube-24] path, svg:hover [id$=cube-
 }
 @-webkit-keyframes zbounce {
   0%, 100% {
+    -webkit-transform: scale(0.95, 0.95);
     transform: scale(0.95, 0.95);
   }
   50% {
+    -webkit-transform: scale(1, 1);
     transform: scale(1, 1);
   }
 }
 @keyframes zbounce {
   0%, 100% {
+    -webkit-transform: scale(0.95, 0.95);
     transform: scale(0.95, 0.95);
   }
   50% {
+    -webkit-transform: scale(1, 1);
     transform: scale(1, 1);
   }
 }
