@@ -7,12 +7,10 @@ html, body {
   color: #fff;
   background: #1f2326;
 }
-
 p {
   margin-top: revert;
   margin-bottom: revert;
 }
-
 .background{
   background: url('../assets/img/bg.jpg') no-repeat center;
   background-size: cover;
