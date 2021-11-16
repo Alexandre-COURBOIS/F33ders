@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {gsap} from "gsap";
+import {Champion} from "../../Models/champion";
+import {ChampionService} from "../../Services/champion.service";
+import {count} from "rxjs/operators";
 
 @Component({
   selector: 'app-champion',
@@ -8,9 +11,10 @@ import {gsap} from "gsap";
 })
 export class ChampionComponent implements OnInit {
 
-  constructor() { }
+  champions: Champion[] | undefined;
 
-  ngOnInit(): void {
+  constructor(private championService: ChampionService) { }
+
     gsap.from('.header', 1, {
       delay: 0.3,
       duration:1,
@@ -25,6 +29,12 @@ export class ChampionComponent implements OnInit {
       opacity: 0,
       y: 50,
       ease: Expo.easeInOut
+    });
+
+    this.championService.getAllChampions().subscribe(champions => {
+      this.champions = champions;
+      console.log(champions);
+
     });
   }
 

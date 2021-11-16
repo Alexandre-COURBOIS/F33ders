@@ -12,15 +12,17 @@ import {ChampionDetailsComponent} from "./Pages/champion-details/champion-detail
 import {ChampionComponent} from "./Pages/champion/champion.component";
 import {MentionsComponent} from "./Pages/mentions/mentions.component";
 import {ActivateAccountComponent} from "./Pages/activate-account/activate-account.component";
+import {IsLoggedGuard} from "./Guards/is-logged.guard";
+import {AuthGuard} from "./Guards/auth.guard";
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'register', component: RegisterComponent},
-  {path: 'profile', component: ProfileComponent},
+  {path: 'login', canActivate: [AuthGuard], component: LoginComponent},
+  {path: 'register', canActivate: [AuthGuard],component: RegisterComponent},
+  {path: 'profile', canActivate: [IsLoggedGuard],component: ProfileComponent},
   {path: 'forgot-password/:token', component: ForgotPasswordComponent},
   {path: 'contact', component: ContactComponent},
-  {path: 'single-gamer', component: ProfileGamerComponent},
+  {path: 'player', canActivate: [IsLoggedGuard],component: ProfileGamerComponent},
   {path: 'champion-details', component: ChampionDetailsComponent},
   {path: 'champions', component: ChampionComponent},
   {path: 'mentions', component: MentionsComponent},
