@@ -1,17 +1,26 @@
-.wraper{
+.wraper {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  margin-top: 10vh;
   color: white;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
-.header{
+.header {
+  margin-top: 10vh;
   text-align: center;
 }
-.gridChampions{
+.gridChampions {
   margin-top: 10vh;
   padding-bottom: 100px;
+  display: -ms-grid;
   display: grid;
+  -ms-grid-columns: 1fr 40px 1fr 40px 1fr 40px 1fr 40px 1fr;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   gap: 40px 40px;
 }
@@ -19,18 +28,29 @@
   width: 250px;
   height: 250px;
   overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
   position: relative;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
   transition: 0.3s;
 }
 .inner-img {
   position: relative;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
   transition: 0.3s;
+  -webkit-filter: grayscale(100);
   filter: grayscale(100);
 }
-p{
+p {
   position: absolute;
   bottom: 0;
   margin: 0;
@@ -41,161 +61,186 @@ p{
   text-align: center;
   padding: 10px;
   background-color: #1f2326a3;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
   transition: 0.3s;
 }
-.inner-img:hover + p{
+.inner-img:hover + p {
   display: block;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
   transition: 0.3s;
 }
-p:hover{
+p:hover {
   display: block;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
   transition: 0.3s;
 }
 .inner-img:hover {
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
   transform: scale(1.1);
+  -webkit-filter: grayscale(0);
   filter: grayscale(0);
+  -webkit-transition: 2s;
+  -o-transition: 2s;
   transition: 2s;
 }
-@media only screen and (min-device-width : 320px) and (max-device-width : 413px) {
-  .gridChampions{
+@media only screen and (min-device-width: 320px) and (max-device-width: 413px) {
+  .gridChampions {
+    -ms-grid-columns: 1fr 10px 1fr;
     grid-template-columns: 1fr 1fr;
     grid-gap: 10px 10px;
     gap: 10px 10px;
   }
-  .img-wrapper{
+  .img-wrapper {
     width: 125px;
     height: 125px;
   }
   .inner-img {
+    -webkit-filter: grayscale(0);
     filter: grayscale(0);
   }
-  p{
+  p {
     display: block;
     font-size: 1em;
   }
 }
 @media only screen and (min-device-width: 414px) {
   .gridChampions {
+    -ms-grid-columns: 1fr 10px 1fr 10px 1fr;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 10px 10px;
     gap: 10px 10px;
   }
-  .img-wrapper{
+  .img-wrapper {
     width: 125px;
     height: 125px;
   }
   .inner-img {
+    -webkit-filter: grayscale(0);
     filter: grayscale(0);
   }
-  p{
+  p {
     display: block;
     font-size: 1em;
   }
 }
-
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .gridChampions {
+    -ms-grid-columns: 1fr 20px 1fr 20px 1fr 20px 1fr 20px 1fr;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 20px 20px;
     gap: 20px 20px;
   }
-  .img-wrapper{
+  .img-wrapper {
     width: 155px;
     height: 155px;
   }
   .inner-img {
+    -webkit-filter: grayscale(0);
     filter: grayscale(0);
   }
-  p{
+  p {
     display: block;
     font-size: 1em;
   }
 }
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
   .gridChampions {
+    -ms-grid-columns: 1fr 20px 1fr 20px 1fr 20px 1fr;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 20px 20px;
     gap: 20px 20px;
   }
   .inner-img {
+    -webkit-filter: grayscale(0);
     filter: grayscale(0);
   }
-  p{
+  p {
     display: block;
     font-size: 1em;
   }
-  .img-wrapper{
+  .img-wrapper {
     width: 155px;
     height: 155px;
   }
 }
-@media only screen and (min-device-width : 1024px) and (max-device-width : 1366px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
   .gridChampions {
+    -ms-grid-columns: 1fr 20px 1fr 20px 1fr 20px 1fr 20px 1fr;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 20px 20px;
     gap: 20px 20px;
   }
   .inner-img {
+    -webkit-filter: grayscale(0);
     filter: grayscale(0);
   }
-  p{
+  p {
     display: block;
     font-size: 1em;
 
   }
-  .img-wrapper{
+  .img-wrapper {
     width: 250px;
     height: 250px;
   }
 }
-
-@media only screen and (min-device-width : 1024px) and (max-device-width : 1366px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2) {
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
   .gridChampions {
+    -ms-grid-columns: 1fr 20px 1fr 20px 1fr 20px 1fr;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 20px 20px;
     gap: 20px 20px;
   }
   .inner-img {
+    -webkit-filter: grayscale(0);
     filter: grayscale(0);
   }
-  p{
+  p {
     display: block;
   }
-  .img-wrapper{
+  .img-wrapper {
     width: 200px;
     height: 200px;
   }
 }
-@media only screen and (min-width : 1224px) {
+@media only screen and (min-width: 1224px) {
   .gridChampions {
+    -ms-grid-columns: 1fr 50px 1fr 50px 1fr 50px 1fr;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 50px 50px;
     gap: 50px 50px;
   }
   .inner-img {
+    -webkit-filter: grayscale(100);
     filter: grayscale(100);
   }
-  p{
+  p {
     display: none;
   }
-  .img-wrapper{
+  .img-wrapper {
     width: 250px;
     height: 250px;
   }
 }
-@media only screen and (min-width : 1824px) {
+@media only screen and (min-width: 1824px) {
   .gridChampions {
+    -ms-grid-columns: 1fr 50px 1fr 50px 1fr 50px 1fr 50px 1fr 50px 1fr;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 50px 50px;
     gap: 50px 50px;
   }
   .inner-img {
+    -webkit-filter: grayscale(100);
     filter: grayscale(100);
   }
-  p{
+  p {
     display: none;
   }
-  .img-wrapper{
+  .img-wrapper {
     width: 250px;
     height: 250px;
   }
