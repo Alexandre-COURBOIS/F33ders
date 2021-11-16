@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Champion} from "../../Models/champion";
+import {ChampionService} from "../../Services/champion.service";
+import {count} from "rxjs/operators";
 
 @Component({
   selector: 'app-champion',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChampionComponent implements OnInit {
 
-  constructor() { }
+  champions: Champion[] | undefined;
+
+  constructor(private championService: ChampionService) { }
 
   ngOnInit(): void {
+    this.championService.getAllChampions().subscribe(champions => {
+      this.champions = champions;
+      console.log(champions);
+
+    });
+
+
   }
 
 }
