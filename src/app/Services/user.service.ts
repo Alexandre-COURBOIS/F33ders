@@ -9,11 +9,15 @@ import {User} from "../Models/user";
 })
 export class UserService {
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(public httpClient: HttpClient) { }
 
 
   getUser() {
     return this.httpClient.get<User>(environment.API_URL + 'api/get_user');
+  }
+
+  getAllUser(){
+    return this.httpClient.get<User>(`${environment.API_URL}api/get_all_user`)
   }
 
 

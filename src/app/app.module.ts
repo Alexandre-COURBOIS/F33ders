@@ -25,6 +25,7 @@ import { ChampionComponent } from './Pages/champion/champion.component';
 import { MentionsComponent } from './Pages/mentions/mentions.component';
 import { ActivateAccountComponent } from './Pages/activate-account/activate-account.component';
 import {MatProgressBarModule} from "@angular/material/progress-bar";
+import { AdminComponent } from './Pages/admin/admin.component';
 
 export function tokenGetter() {
   return sessionStorage.getItem('_token');
@@ -48,6 +49,7 @@ export function tokenGetter() {
     ChampionComponent,
     MentionsComponent,
     ActivateAccountComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
