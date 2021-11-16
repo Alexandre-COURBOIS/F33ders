@@ -4,6 +4,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ToastrService} from "ngx-toastr";
 import {SummonerService} from "../../Services/summoner.service";
 import {EncryptService} from "../../Services/encrypt.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-header',
@@ -17,13 +18,15 @@ export class HeaderComponent implements OnInit {
   timeExec = false;
   token: any;
   isLogged: any;
+  summoner: any;
 
 
   constructor(
     private formBuilder: FormBuilder,
     private toastr: ToastrService,
     private summonerService: SummonerService,
-    private encryptService: EncryptService
+    private encryptService: EncryptService,
+    private router: Router,
   ) {
   }
 
@@ -36,6 +39,13 @@ export class HeaderComponent implements OnInit {
     }
 
     this.token = sessionStorage.getItem('_token');
+
+    this.summoner = sessionStorage.getItem('summoner');
+    this.summoner = localStorage.getItem('summoner');
+
+    if (this.summoner) {
+      this.summoner = true;
+    }
 
     this.initSearchPlayerForm();
 
@@ -110,6 +120,8 @@ export class HeaderComponent implements OnInit {
 
               this.toastr.success('Les données du joueur ' + surname + ' sont maintenant disponibles');
 
+              this.router.navigate(['/player']);
+
               if (value) {
                 this.timeExec = false;
                 this.submitted = false;
@@ -128,10 +140,16 @@ export class HeaderComponent implements OnInit {
                   this.timeExec = false;
                   this.submitted = false;
 
-                  localStorage.setItem('summoner', JSON.stringify(value1));
-                  sessionStorage.setItem('summoner', JSON.stringify(value1));
+                  if (JSON.stringify(value1).length > 15000) {
+                    localStorage.setItem('summoner', JSON.stringify(value1));
+                    sessionStorage.setItem('summoner', JSON.stringify(value1));
 
-                  this.toastr.success('Les données du joueur ' + surname + ' sont maintenant disponibles');
+                    this.toastr.success('Les données du joueur ' + surname + ' sont maintenant disponibles');
+
+                    this.router.navigate(['/player']);
+                  } else {
+                    this.toastr.error('Ce joueur ne dispose d\'aucun match valable à l\'heure actuelle');
+                  }
                 }
 
               }, error => {
@@ -156,4 +174,10 @@ export class HeaderComponent implements OnInit {
     }
   }
 
+  logout() {
+    localStorage.clear();
+    sessionStorage.clear();
+
+    this.router.navigate(['']);
+  }
 }
