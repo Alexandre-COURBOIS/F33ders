@@ -16,5 +16,9 @@ export class UserService {
     return this.httpClient.get<User>(environment.API_URL + 'api/get_user');
   }
 
+  getUserProfil() {
+    return this.httpClient.get<User>(environment.API_URL + 'api/get_user_profil');
+  }
+
 
 }
