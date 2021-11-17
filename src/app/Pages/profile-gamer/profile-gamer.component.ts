@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-profile-gamer',
@@ -8,11 +8,16 @@ import {Component, OnInit} from '@angular/core';
 export class ProfileGamerComponent implements OnInit {
 
   summoner: any;
+  match: any;
+  overed = false;
+  showable = false;
 
-  constructor() {
+  constructor(el: ElementRef) {
   }
 
   ngOnInit(): void {
+
+
 
     this.summoner = sessionStorage.getItem("summoner");
 
@@ -21,11 +26,15 @@ export class ProfileGamerComponent implements OnInit {
     }
 
     this.summoner = JSON.parse(this.summoner);
-
     console.log(this.summoner);
-    console.log(this.summoner.match);
 
+    this.match = this.summoner.match;
+    console.log(this.match)
 
+  }
+
+  onMouseHover(){
+    console.log("toto");
   }
 
 }
