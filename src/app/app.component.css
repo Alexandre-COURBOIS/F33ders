@@ -10,7 +10,9 @@ p {
   margin-bottom: revert;
 }
 .background{
-  background: url('../assets/img/bg.jpg') no-repeat center;
+  background-image:linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../assets/img/bg.jpg') ;
+  background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
   position: fixed;
   top: 0;
