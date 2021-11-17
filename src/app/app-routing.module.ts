@@ -23,7 +23,7 @@ const routes: Routes = [
   {path: 'forgot-password/:token', component: ForgotPasswordComponent},
   {path: 'contact', component: ContactComponent},
   {path: 'player', canActivate: [IsLoggedGuard],component: ProfileGamerComponent},
-  {path: 'champion-details', canActivate: [IsLoggedGuard],component: ChampionDetailsComponent},
+  {path: 'champion-details/:championId', canActivate: [IsLoggedGuard],component: ChampionDetailsComponent},
   {path: 'champions', canActivate: [IsLoggedGuard],component: ChampionComponent},
   {path: 'mentions', component: MentionsComponent},
   {path: 'activation/:token', component: ActivateAccountComponent},
