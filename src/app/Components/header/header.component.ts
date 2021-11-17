@@ -101,6 +101,7 @@ export class HeaderComponent implements OnInit {
         if (surname) {
 
           this.summonerService.setDataIntoDb(surname).subscribe(value => {
+            console.log(value);
 
             if (value.statusCode === 400 || value.statusCode === 404) {
               this.toastr.error("Nous ne disposons d'aucun match correspond à ce profil");

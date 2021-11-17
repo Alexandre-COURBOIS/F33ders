@@ -7,137 +7,153 @@
 </div>
 <div class="mask-overlay"></div>
 <div class="wraper">
-  <div class="sectionOne">
-    <div class="infosProfile">
-      <div class="imgProfile">
-        <img class="imageProfile"
-             src="https://opgg-static.akamaized.net/images/profile_icons/profileIcon7.jpg?image=q_auto:best&v=1518361200"
-             alt="">
-      </div>
-      <div>
-        <h2 class="nameUser">{{summoner.player.username}}</h2>
-        <p class="emailUser">Niv 50</p>
-      </div>
+  <div class="infosProfile">
+    <div class="imgProfile">
+      <img class="imageProfile"
+           src="https://opgg-static.akamaized.net/images/profile_icons/profileIcon7.jpg?image=q_auto:best&v=1518361200"
+           alt="">
     </div>
+    <p style="font-size: 1.5em; font-weight: lighter" >{{summoner.player.username}}</p>
   </div>
-  <h2 class="titleStats">Stats de {{summoner.player.username}}</h2>
-  <div class="statsDFSB">
-    <div class="statsOneSection">
-      <div>
-        <h2 class="titleStats">Mes Stats</h2>
-        <div class="statsContent">
-          <div class="statsRang" style="">
+
+</div>
+
+
+<div class="container-xl">
+  <div class="mBTable">
+    <p-table [value]="match" dataKey="name" responsiveLayout="scroll">
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="name">Champion</th>
+          <th pSortableColumn="price">Résultat</th>
+          <th style="text-align: center" pSortableColumn="category">Items</th>
+          <th pSortableColumn="rating">KDA</th>
+          <th pSortableColumn="rating">Gold</th>
+          <th pSortableColumn="rating">Creeps</th>
+          <th pSortableColumn="see-more">Détails matchs</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-match let-expanded="expanded">
+        <tr>
+          <td>
+            <div class="imgContainer" *ngFor="let player of match.game[0].teams">
+              <img *ngIf="player.champ.informations.key == match.currentUserChampion"
+                   src="{{player.champ.informations.imageUrl}}">
+            </div>
+          </td>
+          <td>
+            <div *ngFor="let player of match.game[0].teams">
+              <div *ngIf="player.champ.informations.key == match.currentUserChampion">
+                <p style="color: darkred" *ngIf="player.champ.informations.win == false">Défaite</p>
+                <p style="color: green" *ngIf="player.champ.informations.win == true">Victoire</p>
+              </div>
+            </div>
+          </td>
+          <td class="imgItem">
+            <div *ngFor="let player of match.game[0].teams">
+              <div *ngIf="player.champ.informations.key == match.currentUserChampion">
+                <div class="container">
+                  <div class="row">
+                    <div *ngFor="let it of player.Items">
+                      <div *ngIf="it !== null">
+                        <div *ngIf="it[0] !== 'Poro-Snax'" class="col">
+                          <div *ngIf="it[0] !== 'Balise camouflee'">
+                            <div *ngIf="it[0] !== 'Brouilleur oraculaire'">
+                              <div *ngIf="it[0] !== 'Alteration divinatoire'">
+                                <img style="text-align: center" src="{{it[3]}}" alt=""> <span>{{it[0]}}</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div *ngFor="let player of match.game[0].teams">
+              <div *ngIf="player.champ.informations.key == match.currentUserChampion">
+                {{player.Player.Kills}}/{{player.Player.Deaths}}/{{player.Player.Assists}}
+              </div>
+            </div>
+          </td>
+          <td>
+            <div *ngFor="let player of match.game[0].teams">
+              <div *ngIf="player.champ.informations.key == match.currentUserChampion">
+                {{player.Player.goldEarned}}
+              </div>
+            </div>
+          </td>
+          <td>
+            <div *ngFor="let player of match.game[0].teams">
+              <div *ngIf="player.champ.informations.key == match.currentUserChampion">
+                <div style="text-align: center">
+                  {{player.Player.totalMinionsKilled}} CS
+                </div>
+              </div>
+            </div>
+          </td>
+          <td>
+            <button type="button" pButton pRipple [pRowToggler]="match" class="p-button-text p-button-rounded p-button-plain" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="rowexpansion" let-match>
+        <tr>
+          <td colspan="7">
+            <div class="p-p-3">
+              <p-table>
+                <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="id">Champions</th>
+          <th pSortableColumn="customer">Items</th>
+          <th pSortableColumn="date">KDA</th>
+          <th pSortableColumn="amount">Gold</th>
+          <th pSortableColumn="amount">Creeps</th>
+          <th style="width: 4rem"></th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage">
+        <tr>
+          <td>
+            <div style="text-align: center">
+              <span style="font-weight: bolder; display: inline">Victoire :</span>
+              <div class="imgContainer" *ngFor="let player of match.game[0].teams">
+                <div *ngIf="player.champ.informations.key !== match.currentUserChampion">
+                  <div style="text-align: left" *ngIf="player.champ.informations.win == true">
+                    <img src="{{player.champ.informations.imageUrl}}"><span style="font-weight: lighter; font-size: .8em"> {{player.champ.informations.championId}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="text-align: center">
+              <span style="font-weight: bolder; display: inline">Perdant :</span>
+              <div class="imgContainer" *ngFor="let player of match.game[0].teams">
+                <div *ngIf="player.champ.informations.key !== match.currentUserChampion">
+                  <div  style="text-align: left" *ngIf="player.champ.informations.win == false">
+                    <img src="{{player.champ.informations.imageUrl}}"><span style="font-weight: lighter; font-size: .8em"> {{player.champ.informations.championId}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td>
             <div>
-              <img src="https://lolg-cdn.porofessor.gg/img/league-icons-v2/160/6-4.png" alt="">
-              <p class="textRang">Diamant IV</p>
-            </div>
-            <div class="statsGamer">
-              <p class="userNameUser">Riot: {{summoner.player.username}}</p>
-              <p class="infoUser">Niveau 412 - #6,166 Séraphine</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div>
-        <div class="statsTab">
-          <div class="tabs effect-1">
-            <!-- tab-title -->
-            <input type="radio" id="tab-1" name="tab-effect-1" checked="checked">
-            <span>Classées</span>
-            <input type="radio" id="tab-2" name="tab-effect-1">
-            <span>Solo</span>
-            <input type="radio" id="tab-3" name="tab-effect-1">
-            <span>Flex</span>
-            <input type="radio" id="tab-4" name="tab-effect-1">
-            <span>Tout</span>
-            <!-- tab-content -->
-            <div class="tab-content">
-              <section id="tab-item-1">
-                <div class="stats">
-                  <div class="textCenterStats">
-                    <p class="statsNumber">562</p>
-                    <p class="statsTitle">Jouées</p>
-                  </div>
-                  <div class="textCenterStats">
-                    <p class="statsNumber">51.6 %</p>
-                    <p class="statsTitle">% victoires</p>
-                  </div>
-                </div>
-              </section>
-              <section id="tab-item-2">
-                <div class="stats">
-                  <div class="textCenterStats">
-                    <p class="statsNumber">518</p>
-                    <p class="statsTitle">Jouées</p>
-                  </div>
-                  <div class="textCenterStats">
-                    <p class="statsNumber">51.9 %</p>
-                    <p class="statsTitle">% victoires</p>
-                  </div>
-                </div>
-              </section>
-              <section id="tab-item-3">
-                <div class="stats">
-                  <div class="textCenterStats">
-                    <p class="statsNumber">44</p>
-                    <p class="statsTitle">Jouées</p>
-                  </div>
-                  <div class="textCenterStats">
-                    <p class="statsNumber">47.7 %</p>
-                    <p class="statsTitle">% victoires</p>
-                  </div>
-                </div>
-              </section>
-              <section id="tab-item-4">
-                <div class="stats">
-                  <div class="textCenterStats">
-                    <p class="statsNumber">944</p>
-                    <p class="statsTitle">Jouées</p>
-                  </div>
-                  <div class="textCenterStats">
-                    <p class="statsNumber">51.6 %</p>
-                    <p class="statsTitle">% victoires</p>
-                  </div>
-                </div>
-              </section>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="statsTwoSection">
-      <h2 class="titleStats">Historique Match</h2>
-      <div class="mBTable">
-        <table>
-          <tbody>
-          <tr *ngFor="let match of summoner.match">
-            <td style="background-color: #a3cfec">
-              <div *ngFor="let player of match.game[0].teams">
-                <img *ngIf="player.champ.informations.key == match.currentUserChampion"
-                     src="{{player.champ.informations.imageUrl}}">
-              </div>
-            </td>
-            <td class="statsMatch" style="background-color: #a3cfec">
-              <div *ngFor="let player of match.game[0].teams">
-                <div *ngIf="player.champ.informations.key == match.currentUserChampion">
-                  <p style="color: darkred" *ngIf="player.champ.informations.win == false">Défaite</p>
-                  <p style="color: green" *ngIf="player.champ.informations.win == true">Victoire</p>
-                </div>
-              </div>
-            </td>
-            <td style="background-color: #a3cfec">
-              <div class="imgObjets">
-                <div *ngFor="let player of match.game[0].teams">
-                  <div *ngIf="player.champ.informations.key == match.currentUserChampion">
+              <span style="display: block">&NonBreakingSpace;</span>
+              <div class="imgContainer" *ngFor="let player of match.game[0].teams">
+                <div *ngIf="player.champ.informations.key !== match.currentUserChampion">
+                  <div style="text-align: left" *ngIf="player.champ.informations.win == true">
                     <div class="container">
                       <div class="row">
                         <div *ngFor="let it of player.Items">
                           <div *ngIf="it !== null">
-                            <div *ngIf="!it['Poro-Snax']" class="col">
-                              <div *ngIf="!it['Balise camouflee']">
-                                <div *ngIf="!it['Brouilleur oraculaire']">
-                                  <div *ngIf="!it['Alteration divinatoire']">
-                                    <img src="{{it[1]}}" alt="">
+                            <div *ngIf="it[0] !== 'Poro-Snax'" class="col">
+                              <div *ngIf="it[0] !== 'Balise camouflee'">
+                                <div *ngIf="it[0] !== 'Brouilleur oraculaire'">
+                                  <div *ngIf="it[0] !== 'Alteration divinatoire'">
+                                    <img style="text-align: center" src="{{it[3]}}" alt="">
                                   </div>
                                 </div>
                               </div>
@@ -149,13 +165,108 @@
                   </div>
                 </div>
               </div>
-            </td>
-            <td style="background-color: #a3cfec; font-weight: 700;">Autres Joueurs</td>
-          </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+            </div>
+            <div>
+              <span style="display: block">&NonBreakingSpace;</span>
+              <div class="imgContainer" *ngFor="let player of match.game[0].teams">
+                <div *ngIf="player.champ.informations.key !== match.currentUserChampion">
+                  <div style="text-align: left" *ngIf="player.champ.informations.win == false">
+                    <div class="container">
+                      <div class="row">
+                        <div *ngFor="let it of player.Items">
+                          <div *ngIf="it !== null">
+                            <div *ngIf="it[0] !== 'Poro-Snax'" class="col">
+                              <div *ngIf="it[0] !== 'Balise camouflee'">
+                                <div *ngIf="it[0] !== 'Brouilleur oraculaire'">
+                                  <div *ngIf="it[0] !== 'Alteration divinatoire'">
+                                    <img style="text-align: center" src="{{it[3]}}" alt="">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div style="text-align: center">
+              <span style="font-weight: bolder; display: inline; color: #EEEEEE">hide</span>
+              <div class="imgContainer" *ngFor="let player of match.game[0].teams">
+                <div *ngIf="player.champ.informations.key !== match.currentUserChampion">
+                  <div style="text-align: left" *ngIf="player.champ.informations.win == true">
+                    <div *ngIf="player.Player.Kills >= 5" style="width: 25px; height: 10px;"></div><span>{{player.Player.Kills}}/{{player.Player.Deaths}}/{{player.Player.Assists}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="text-align: center">
+              <span style="font-weight: bolder; display: inline; color: #EEEEEE">hide</span>
+              <div class="imgContainer" *ngFor="let player of match.game[0].teams">
+                <div *ngIf="player.champ.informations.key !== match.currentUserChampion">
+                  <div  style="text-align: left" *ngIf="player.champ.informations.win == false">
+                    <div style="width: 25px; height: 10px"></div><span>{{player.Player.Kills}}/{{player.Player.Deaths}}/{{player.Player.Assists}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div style="text-align: center">
+              <span style="font-weight: bolder; display: inline; color: #EEEEEE">hide</span>
+              <div class="imgContainer" *ngFor="let player of match.game[0].teams">
+                <div *ngIf="player.champ.informations.key !== match.currentUserChampion">
+                  <div style="text-align: left" *ngIf="player.champ.informations.win == true">
+                    <div style="width: 25px; height: 10px;"></div><span>{{player.Player.goldEarned}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="text-align: center">
+              <span style="font-weight: bolder; display: inline; color: #EEEEEE">hide</span>
+              <div class="imgContainer" *ngFor="let player of match.game[0].teams">
+                <div *ngIf="player.champ.informations.key !== match.currentUserChampion">
+                  <div  style="text-align: left" *ngIf="player.champ.informations.win == false">
+                    <div style="width: 25px; height: 10px"></div><span>{{player.Player.goldEarned}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </td>
+
+          <td>
+            <div style="text-align: center">
+              <span style="font-weight: bolder; display: inline; color: #EEEEEE">hide</span>
+              <div class="imgContainer" *ngFor="let player of match.game[0].teams">
+                <div *ngIf="player.champ.informations.key !== match.currentUserChampion">
+                  <div style="text-align: left" *ngIf="player.champ.informations.win == true">
+                    <div style="width: 25px; height: 10px;"></div><span>{{player.Player.totalMinionsKilled}} CS</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="text-align: center">
+              <span style="font-weight: bolder; display: inline; color: #EEEEEE">hide</span>
+              <div class="imgContainer" *ngFor="let player of match.game[0].teams">
+                <div *ngIf="player.champ.informations.key !== match.currentUserChampion">
+                  <div  style="text-align: left" *ngIf="player.champ.informations.win == false">
+                    <div style="width: 25px; height: 10px"></div><span>{{player.Player.totalMinionsKilled}} CS</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
   </div>
+  </td>
+  </tr>
+  </ng-template>
+  </p-table>
 </div>
 

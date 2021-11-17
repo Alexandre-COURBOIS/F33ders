@@ -2,6 +2,19 @@ h2 {
   color: white;
   margin: 0;
 }
+
+.imgContainer {
+  text-align: center;
+}
+
+:host ::ng-deep .p-datatable-wrapper {
+  border-radius: 25px;
+}
+
+.imgItem:hover {
+  cursor: pointer;
+}
+
 .mBTable{
   margin-bottom: 90px;
 }
