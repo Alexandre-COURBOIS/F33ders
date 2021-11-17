@@ -38,6 +38,7 @@
   -ms-flex-pack: center;
   justify-content: center;
   position: relative;
+  text-decoration: none;
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
@@ -56,21 +57,12 @@
   align-items: center;
   flex-direction: column;
 }
-p {
-  position: relative;
-  margin: 0;
-  display: block;
-  font-size: 1.5em;
-  color: white;
-  width: 100%;
-  text-align: center;
-  padding: 10px;
-  background-color: #1f2326a3;
-  -webkit-transition: 0.3s;
-  -o-transition: 0.3s;
-  transition: 0.3s;
-  margin-top: 10px;
 
+.test {
+  position: relative;
+  color: #FFFFFF;
+  font-size: 1.1em;
+  text-decoration: underline;
 }
 
 .inner-img:hover {

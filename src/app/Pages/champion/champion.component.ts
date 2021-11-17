@@ -13,11 +13,14 @@ export class ChampionComponent implements OnInit {
 
   champions: Champion[] | undefined;
 
-  constructor(private championService: ChampionService) { }
+  constructor(private championService: ChampionService) {
+  }
+
+  ngOnInit(): void {
 
     gsap.from('.header', 1, {
       delay: 0.3,
-      duration:1,
+      duration: 1,
       opacity: 0,
       x: -50,
       ease: Expo.easeInOut
@@ -25,7 +28,7 @@ export class ChampionComponent implements OnInit {
 
     gsap.from('.gridChampions', 1, {
       delay: 0.8,
-      duration:1,
+      duration: 1,
       opacity: 0,
       y: 50,
       ease: Expo.easeInOut
@@ -33,9 +36,7 @@ export class ChampionComponent implements OnInit {
 
     this.championService.getAllChampions().subscribe(champions => {
       this.champions = champions;
-      console.log(champions);
-
     });
-  }
 
+  }
 }
