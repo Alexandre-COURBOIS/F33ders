@@ -7,6 +7,10 @@ h2 {
   text-align: center;
 }
 
+:host ::ng-deep .p-datatable-wrapper {
+  border-radius: 25px;
+}
+
 .imgItem:hover {
   cursor: pointer;
 }
