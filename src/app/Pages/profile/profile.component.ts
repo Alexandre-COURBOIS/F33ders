@@ -107,6 +107,10 @@ export class ProfileComponent implements OnInit {
             this.submitted = false;
             // @ts-ignore
             this.toastr.success(value);
+
+            setTimeout(() => {
+              location.reload();
+            },1000);
           },
           (error => {
             this.submitted = false;
