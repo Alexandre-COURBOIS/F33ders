@@ -12,6 +12,7 @@ import {ChampionDetailsComponent} from "./Pages/champion-details/champion-detail
 import {ChampionComponent} from "./Pages/champion/champion.component";
 import {MentionsComponent} from "./Pages/mentions/mentions.component";
 import {ActivateAccountComponent} from "./Pages/activate-account/activate-account.component";
+import {AdminComponent} from "./Pages/admin/admin.component";
 import {IsLoggedGuard} from "./Guards/is-logged.guard";
 import {AuthGuard} from "./Guards/auth.guard";
 
@@ -28,6 +29,7 @@ const routes: Routes = [
   {path: 'mentions', component: MentionsComponent},
   {path: 'activation/:token', component: ActivateAccountComponent},
   {path: '404NotFound', component: NotFound404Component},
+  {path: '/auth/admin', component: AdminComponent},
   {path: '**', redirectTo: '404NotFound'}
 ];
 

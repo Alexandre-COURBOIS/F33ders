@@ -74,7 +74,7 @@ export class LoginComponent implements OnInit {
             if (!user.isActive) {
               this.toastr.error("Merci d'activer votre compte via l'email qui vous a été envoyé lors de votre inscription");
             } else {
-              this.toastr.success("Bienvenue " + user.userpseudo);
+              this.toastr.success("Bienvenue " + user.userPseudo);
               this.router.navigate(['']);
             }
           }, error => {
