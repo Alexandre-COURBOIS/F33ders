@@ -72,15 +72,21 @@ export class LoginComponent implements OnInit {
 
           this.userService.getUser().subscribe(user => {
 
+            const decodJwt = this.jwtHelper.decodeToken(value['token']);
+
+            console.log(decodJwt.roles.length);
+
             if (!user.isActive) {
               this.toastr.error("Merci d'activer votre compte via l'email qui vous a été envoyé lors de votre inscription");
               sessionStorage.clear();
             }else if(user.isBanned) {
               this.toastr.error("Votre compte a été suspendu suite à une violation de notre politique d'utilisation. Contactez-nous pour plus d'informations");
               sessionStorage.clear();
-            } else {
+            } else if (decodJwt.roles.length === 1) {
               this.toastr.success("Bienvenue " + user.userpseudo);
               this.router.navigate(['']);
+            }else if (decodJwt.roles.length > 1) {
+              this.router.navigate(['auth/admin']);
             }
           }, error => {
             this.toastr.error('Email ou mot de passe incorrect');
