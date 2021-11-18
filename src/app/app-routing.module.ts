@@ -29,7 +29,7 @@ const routes: Routes = [
   {path: 'mentions', component: MentionsComponent},
   {path: 'activation/:token', component: ActivateAccountComponent},
   {path: '404NotFound', component: NotFound404Component},
-  {path: '/auth/admin', component: AdminComponent},
+  {path: 'auth/admin', component: AdminComponent},
   {path: '**', redirectTo: '404NotFound'}
 ];
 
