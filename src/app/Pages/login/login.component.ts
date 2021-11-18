@@ -74,8 +74,6 @@ export class LoginComponent implements OnInit {
 
             const decodJwt = this.jwtHelper.decodeToken(value['token']);
 
-            console.log(decodJwt.roles.length);
-
             if (!user.isActive) {
               this.toastr.error("Merci d'activer votre compte via l'email qui vous a été envoyé lors de votre inscription");
               sessionStorage.clear();
