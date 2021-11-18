@@ -1,0 +1,33 @@
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col" class="table-text">ID</th>
+    <th scope="col" class="table-text">Pseudo</th>
+    <th scope="col" class="table-text">Username</th>
+    <th scope="col" class="table-text">Email</th>
+    <th scope="col" class="table-text">Active</th>
+<!--    <th scope="col" class="table-text">Edit</th>-->
+    <th scope="col" class="table-text">Delete</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let user of users">
+    <th scope="row" class="table-text">{{ user.id }}</th>
+    <td class="table-text">{{ user.userPseudo }}</td>
+    <td class="table-text">{{ user.username }}</td>
+    <td class="table-text">{{ user.email }}</td>
+    <td class="table-text">{{ user.isActive }}</td>
+<!--    <td class="table-text">-->
+<!--      <a class="action">-->
+<!--        <i class="bi bi-pencil-fill table-text" role="img" aria-label="GitHub"></i>-->
+<!--      </a>-->
+<!--    </td>-->
+    <td class="table-text">
+      <a class="action" (click)="delete()">
+        <i class="bi bi-trash table-text" role="img" aria-label="GitHub"></i>
+      </a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+

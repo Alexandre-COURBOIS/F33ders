@@ -1,0 +1,9 @@
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+.table-text {
+  color: white;
+}
+
+.action:hover {
+  cursor: pointer;
+}
