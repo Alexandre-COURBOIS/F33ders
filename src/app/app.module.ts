@@ -26,7 +26,6 @@ import { MentionsComponent } from './Pages/mentions/mentions.component';
 import { ActivateAccountComponent } from './Pages/activate-account/activate-account.component';
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import { AdminComponent } from './Pages/admin/admin.component';
-import {BootstrapIconsModule} from "ng-bootstrap-icons";
 import {TableModule} from "primeng/table";
 import {RatingModule} from "primeng/rating";
 import {ButtonModule} from "primeng/button";

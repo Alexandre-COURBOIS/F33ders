@@ -15,6 +15,7 @@ import {ActivateAccountComponent} from "./Pages/activate-account/activate-accoun
 import {AdminComponent} from "./Pages/admin/admin.component";
 import {IsLoggedGuard} from "./Guards/is-logged.guard";
 import {AuthGuard} from "./Guards/auth.guard";
+import {AdminGuard} from "./Guards/admin.guard";
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -29,7 +30,7 @@ const routes: Routes = [
   {path: 'mentions', component: MentionsComponent},
   {path: 'activation/:token', component: ActivateAccountComponent},
   {path: '404NotFound', component: NotFound404Component},
-  {path: 'auth/admin', component: AdminComponent},
+  {path: 'auth/admin',canActivate: [AdminGuard], component: AdminComponent},
   {path: '**', redirectTo: '404NotFound'}
 ];
 

@@ -1,33 +1,107 @@
-<table class="table table-striped">
-  <thead>
-  <tr>
-    <th scope="col" class="table-text">ID</th>
-    <th scope="col" class="table-text">Pseudo</th>
-    <th scope="col" class="table-text">Username</th>
-    <th scope="col" class="table-text">Email</th>
-    <th scope="col" class="table-text">Active</th>
-<!--    <th scope="col" class="table-text">Edit</th>-->
-    <th scope="col" class="table-text">Delete</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let user of users">
-    <th scope="row" class="table-text">{{ user.id }}</th>
-    <td class="table-text">{{ user.userPseudo }}</td>
-    <td class="table-text">{{ user.username }}</td>
-    <td class="table-text">{{ user.email }}</td>
-    <td class="table-text">{{ user.isActive }}</td>
-<!--    <td class="table-text">-->
-<!--      <a class="action">-->
-<!--        <i class="bi bi-pencil-fill table-text" role="img" aria-label="GitHub"></i>-->
-<!--      </a>-->
-<!--    </td>-->
-    <td class="table-text">
-      <a class="action" (click)="delete()">
-        <i class="bi bi-trash table-text" role="img" aria-label="GitHub"></i>
-      </a>
-    </td>
-  </tr>
-  </tbody>
-</table>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand">ADMINISTRATION</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/auth/admin">Gestion utilisateurs</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/auth/admin/contact">Message de contact</a>
+      </li>
+    </ul>
+    <span class="navbar-text">
+      <span (click)="logOut()" class="logout" aria-hidden="true">Deconnexion</span>
+    </span>
+  </div>
+</nav>
 
+
+<div class="container-fluid mt-5">
+  <table style="border-radius: 25px" class="table table-dark">
+    <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">email</th>
+      <th scope="col">username</th>
+      <th scope="col">Activation</th>
+      <th scope="col">Suspension</th>
+      <th scope="col">Modifier</th>
+      <th scope="col">Supprimer</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of users">
+      <th>{{user.id}}</th>
+      <td>{{user.email}}</td>
+      <td>{{user.userpseudo}}</td>
+      <td>
+        <button (click)="unactiveAccount(user.id)" *ngIf="user.isActive" class="btn btn-danger">Désactiver</button>
+        <button (click)="activateAccount(user.id)" *ngIf="!user.isActive" class="btn btn-success">Activer</button>
+      </td>
+      <td>
+        <button (click)="banAccount(user.id)" *ngIf="!user.isBanned" class="btn btn-danger">Suspendre</button>
+        <button (click)="unbanAccount(user.id)" *ngIf="user.isBanned" class="btn btn-success">Rétablir</button>
+      </td>
+      <td>
+        <button (click)="open(content, user.id)" class="btn btn-primary">Modifier</button>
+      </td>
+      <td>
+        <button (click)="delete(user.id)" class="btn btn-danger">Supprimer</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<!--Modal-->
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title text-black-50" id="modal-basic-title">Modifier informations</h4>
+    <button type="button" class="close text-black-50" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6 text-dark">
+        <form [formGroup]="updateInformations" (ngSubmit)="submitInformationsForm()">
+          <label for="email" class="form-label">Email</label>
+          <input type="text" id="email" name="email" formControlName="email"
+                 class="form-control register-input">
+
+          <label for="email" class="form-label">Username</label>
+          <input type="text" id="username" name="username" formControlName="username"
+                 class="form-control register-input">
+
+          <button type="submit" class="btn btn-success mt-3">Modifier</button>
+        </form>
+      </div>
+      <div class="col-md-6 text-dark">
+        <form [formGroup]="updatePassword" (ngSubmit)="onSubmitUpdatePassword()">
+          <label for="email" class="form-label">Nouveau mot de passe</label>
+          <input type="password" id="newPassword" name="newPassword" formControlName="newPassword"
+                 class="form-control register-input">
+
+          <label for="email" class="form-label">Confirmer mot de passe</label>
+          <input type="password" id="verifNewPassword" name="verifNewPassword" formControlName="verifNewPassword"
+                 class="form-control register-input">
+
+          <button type="submit" class="btn btn-success mt-3 mb-3">Modifier</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div style="border-top: 1px solid black"></div>
+    <div class="row">
+      <div class="col-md-12 text-dark text-center">
+        <h5 class="mt-3 mb-3">Génerer un nouveau mot de passe par email</h5>
+        <button (click)="generateNewPasswordAuto()" class="btn btn-primary mb-5">Modifier le mot de passe</button>
+      </div>
+    </div>
+  </div>
+</ng-template>

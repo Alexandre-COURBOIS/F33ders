@@ -7,3 +7,11 @@
 .action:hover {
   cursor: pointer;
 }
+
+.logout {
+  cursor: pointer;
+}
+
+.logout:hover {
+  color: #1F2326;
+}

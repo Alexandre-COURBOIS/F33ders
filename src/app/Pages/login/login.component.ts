@@ -71,10 +71,15 @@ export class LoginComponent implements OnInit {
           sessionStorage.setItem("_logged", this.encryptService.encode("true"));
 
           this.userService.getUser().subscribe(user => {
+
             if (!user.isActive) {
               this.toastr.error("Merci d'activer votre compte via l'email qui vous a été envoyé lors de votre inscription");
+              sessionStorage.clear();
+            }else if(user.isBanned) {
+              this.toastr.error("Votre compte a été suspendu suite à une violation de notre politique d'utilisation. Contactez-nous pour plus d'informations");
+              sessionStorage.clear();
             } else {
-              this.toastr.success("Bienvenue " + user.userPseudo);
+              this.toastr.success("Bienvenue " + user.userpseudo);
               this.router.navigate(['']);
             }
           }, error => {
