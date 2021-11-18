@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
 }
-
 html, body {
   width: 100%;
   height: 100vh;
@@ -13,21 +12,23 @@ html, body {
   color: #fff;
   overflow: hidden;
 }
-
-.wrapper{
+.wrapper {
   width: 100%;
   height: 100%;
   z-index: 2;
   background: rgba(0, 0, 0, 0.5);
   position: relative;
 }
-
-.search-box{
+.search-box {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
   height: fit-content;
   position: relative;
 }
-.input-search{
+.input-search {
   height: 50px;
   width: 50px;
   border-style: none;
@@ -36,18 +37,44 @@ html, body {
   letter-spacing: 2px;
   outline: none;
   border-radius: 25px;
+  -webkit-transition: all .5s ease-in-out;
+  -o-transition: all .5s ease-in-out;
   transition: all .5s ease-in-out;
   background-color: #382d14;
   padding-right: 40px;
-  color:#fff;
+  color: #fff;
 }
-.input-search::placeholder{
-  color:rgba(255,255,255,.5);
+.input-search::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, .5);
   font-size: 18px;
   letter-spacing: 2px;
   font-weight: 100;
 }
-.btn-search{
+.input-search::-moz-placeholder {
+  color: rgba(255, 255, 255, .5);
+  font-size: 18px;
+  letter-spacing: 2px;
+  font-weight: 100;
+}
+.input-search:-ms-input-placeholder {
+  color: rgba(255, 255, 255, .5);
+  font-size: 18px;
+  letter-spacing: 2px;
+  font-weight: 100;
+}
+.input-search::-ms-input-placeholder {
+  color: rgba(255, 255, 255, .5);
+  font-size: 18px;
+  letter-spacing: 2px;
+  font-weight: 100;
+}
+.input-search::placeholder {
+  color: rgba(255, 255, 255, .5);
+  font-size: 18px;
+  letter-spacing: 2px;
+  font-weight: 100;
+}
+.btn-search {
   width: 50px;
   height: 50px;
   border-style: none;
@@ -58,53 +85,56 @@ html, body {
   border-radius: 50%;
   position: absolute;
   right: 0px;
-  color:#ffffff ;
+  color: #ffffff;
   background-color: #382d14;
   pointer-events: painted;
 }
-.btn-search:focus ~ .input-search{
+.btn-search:focus ~ .input-search {
   width: 300px;
   border-radius: 0px;
   background-color: #382d14;
-  border-bottom:1px solid rgba(255,255,255,.5);
+  border-bottom: 1px solid rgba(255, 255, 255, .5);
+  -webkit-transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+  -o-transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
   transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
 }
-.input-search:focus{
+.input-search:focus {
   width: 300px;
   border-radius: 0px;
   background-color: #382d14;
-  border-bottom:1px solid rgba(255,255,255,.5);
+  border-bottom: 1px solid rgba(255, 255, 255, .5);
+  -webkit-transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+  -o-transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
   transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
 }
-
 ul {
   list-style: none;
 }
-
 img {
   width: 100%;
   height: auto;
   z-index: -1;
 }
-
 .nav {
   position: fixed;
   width: 100%;
   height: 60px;
   z-index: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
-
 .border-bottom {
   position: absolute;
   top: 60px;
   width: 0%;
   z-index: 1;
-  border-color: rgba(255,255,255, .2);
+  border-color: rgba(255, 255, 255, .2);
   border-width: .5px;
 }
-
 .logo,
 .menu-links,
 .search,
@@ -112,60 +142,68 @@ img {
   position: absolute;
   padding: 10px;
 }
-
 .logo {
   width: 130px;
   padding: 5px 10px 5px 30px;
 }
-
 .menu-links {
   left: 100px;
   line-height: 1;
   margin-left: 30px;
 }
-
 .menu-links ul li {
   display: inline-block;
   padding: 10px;
-  color: rgba(255,255,255, .5);
+  color: rgba(255, 255, 255, .5);
 }
-
 .search,
 .cart {
   line-height: 1.5;
   font-size: 20px;
 }
-
 .search {
   right: 150px;
 }
-
 .cart {
   right: 50px;
 }
-
 .text {
   position: absolute;
   top: 30%;
   left: 25%;
+  -webkit-transform: translate(-25%, -30%);
+  -ms-transform: translate(-25%, -30%);
   transform: translate(-25%, -30%);
   z-index: 1;
+  width: 80%;
 }
-
+.typed-element{
+  color: white;
+  font-style: italic;
+  font-size: 1.1em;
+  background-color: #382d14;
+  padding: 5px;
+  width: 60%;
+  line-height: 1.5em;
+}
+.typed-word{
+  width: 60%;
+  padding: 5px;
+}
 .subtitle {
   text-transform: uppercase;
   font-size: 14px;
 }
-
 .subtitle::before {
   display: inline-block;
   content: "";
   border: 1px solid #fff;
   width: 80px;
   margin: 0 10px 0 0;
+  -webkit-transform: translateY(-4px);
+  -ms-transform: translateY(-4px);
   transform: translateY(-4px);
 }
-
 .title {
   font-size: 100px;
   text-transform: uppercase;
@@ -173,13 +211,11 @@ img {
   overflow: hidden;
   white-space: nowrap
 }
-
 .desc {
-  color: rgba(255,255,255, .5);
+  color: rgba(255, 255, 255, .5);
   margin-top: 30px;
   line-height: 2;
 }
-
 .readmore {
   display: inline-block;
   margin-top: 60px;
@@ -190,15 +226,13 @@ img {
   padding-bottom: 3px;
   font-weight: bolder;
 }
-
-.carousel-item{
+.carousel-item {
   position: relative !important;
   height: 45vh;
 }
-.carousel{
+.carousel {
   height: 45vh;
 }
-
 .slider {
   position: absolute;
   top: 50%;
@@ -206,54 +240,48 @@ img {
   opacity: 0;
   right: 25px;
 }
-
-.sliders{
+.sliders {
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
 }
-
-.slide-1{
+.slide-1 {
   background-image: url("https://purepng.com/public/uploads/large/purepng.com-mecha-khazixsplashartchampionleague-of-legendsskinkhazix-331519927413zpva1.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top;
 }
-.slide-2{
+.slide-2 {
   background-image: url("https://purepng.com/public/uploads/large/purepng.com-muay-thai-lee-sin-skinsplashartchampionleague-of-legendsskinleblanc-331519927749uesvv.png");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: top;
 }
-.slide-3{
+.slide-3 {
   background-image: url("https://choualbox.com/Img/138809412829.png");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: top;
 }
-.slide-4{
+.slide-4 {
   background-image: url("../../../assets/img/popy.png");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: top;
 }
-
 .arrows {
   float: left;
 }
-
 .pages {
   float: right;
 }
-
 .pages span {
   font-size: 40px;
   font-weight: bolder;
   line-height: .8;
 }
-
 .arrows ul li {
   display: inline-block;
   background: #2f302f;
@@ -261,40 +289,37 @@ img {
   border-radius: 50%;
   margin-right: 10px;
 }
-
-.cover-img{
+.cover-img {
   width: 35%;
   position: absolute;
   right: 0;
   top: 60%;
+  -webkit-transform: translate(0%, -60%);
+  -ms-transform: translate(0%, -60%);
   transform: translate(0%, -60%);
   z-index: -1;
 }
-
-.cover-img img{
+.cover-img img {
   width: 100%;
   height: 100%;
+  -o-object-fit: cover;
   object-fit: cover;
   opacity: 0.9;
   z-index: -1;
   background: rgba(0, 0, 0, 0.2);
 }
-
-.champ-names{
+.champ-names {
   position: relative;
   width: 100%;
   height: 100%;
 }
-
-.champ-names p{
+.champ-names p {
   position: absolute;
   width: 100%;
   left: 10px;
   top: 10px;
   font-weight: 700;
 }
-
-
 .overlay {
   position: absolute;
   width: 100%;
@@ -303,29 +328,32 @@ img {
   z-index: 9;
   background: #382d14;
 }
-
 .first {
   top: 0;
 }
-
 .second {
   top: 33.3%
 }
-
 .third {
   top: 66.6%;
 }
-.bottom-div{
+.bottom-div {
   position: absolute;
   left: 15%;
   bottom: 0%;
+  -webkit-transform: translate(-15%, 0%);
+  -ms-transform: translate(-15%, 0%);
   transform: translate(-15%, 0%);
 }
-.main-bottom{
+.main-bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
-.bottom-child{
+.bottom-child {
   width: 350px;
   height: 200px;
   background: url("../../../assets/img/block1.jpg") no-repeat;
@@ -333,52 +361,70 @@ img {
   background-size: cover;
   opacity: 0.7;
 }
-.bottom-content{
+.bottom-content {
   padding: 0px 20px;
 }
-.bottom-content p{
+.bottom-content p {
   margin-bottom: 10px;
   font-size: 20px;
   padding-bottom: 10px;
   border-bottom: 2px solid #fff;
 }
-
-@media(max-width: 1025px){
+@media (max-width: 1025px) {
   .text {
     top: 20%;
     left: 25%;
+    -webkit-transform: translate(-25%, -20%);
+    -ms-transform: translate(-25%, -20%);
     transform: translate(-25%, -20%);
   }
-  .title {font-size: 75px;}
+  .title {
+    font-size: 75px;
+  }
   .cover-img {
     width: 60%;
     top: 60%;
+    -webkit-transform: translate(0%, -60%);
+    -ms-transform: translate(0%, -60%);
     transform: translate(0%, -60%);
   }
   .slider {
     width: 54%;
     top: 73%;
   }
-
 }
-
-@media(max-width: 767px){
-  .nav{height: 55px;}
+@media (max-width: 767px) {
+  .nav {
+    height: 55px;
+  }
   .logo {
     padding: 5px 10px 5px 15px;
   }
-  .border-bottom{top: 55px;}
-  .menu-links {left: 50px;}
-  .search {right: 50px;}
-  .cart{right: 10px;}
+  .border-bottom {
+    top: 55px;
+  }
+  .menu-links {
+    left: 50px;
+  }
+  .search {
+    right: 50px;
+  }
+  .cart {
+    right: 10px;
+  }
   .text {
     top: 15%;
     left: 25%;
+    -webkit-transform: translate(-25%, -15%);
+    -ms-transform: translate(-25%, -15%);
     transform: translate(-25%, -15%);
   }
-
-  .subtitle {font-size: 10px;}
-  .title {font-size: 30px;}
+  .subtitle {
+    font-size: 10px;
+  }
+  .title {
+    font-size: 30px;
+  }
   .desc {
     margin-top: 0px;
     font-size: 13px;
@@ -387,33 +433,50 @@ img {
     margin-top: 5px;
     font-size: 14px;
   }
-  .cover-img{
+  .cover-img {
     width: 300px;
     height: 200px;
     top: 62%;
+    -webkit-transform: translate(0%, -62%);
+    -ms-transform: translate(0%, -62%);
     transform: translate(0%, -62%);
   }
-  .cover-img img {object-fit: cover;}
-  .slider{
+  .cover-img img {
+    -o-object-fit: cover;
+    object-fit: cover;
+  }
+  .slider {
     top: 55%;
     width: 100%;
     right: inherit;
   }
-  .sliders{
+  .sliders {
     background-size: cover;
     background-position: top;
   }
-  .arrows ul li {padding: 6px;}
-  .pages span {font-size: 30px;}
-  .champ-names p {left: -40px;}
+  .arrows ul li {
+    padding: 6px;
+  }
+  .pages span {
+    font-size: 30px;
+  }
+  .champ-names p {
+    left: -40px;
+  }
   .bottom-div {
     left: 0%;
+    -webkit-transform: translate(0%, 0%);
+    -ms-transform: translate(0%, 0%);
     transform: translate(0%, 0%);
   }
   .bottom-child {
     width: 170px;
     height: 100px;
   }
-  .bottom-content {padding: 0px 15px;}
-  .bottom-content p {font-size: 12px;}
+  .bottom-content {
+    padding: 0px 15px;
+  }
+  .bottom-content p {
+    font-size: 12px;
+  }
 }

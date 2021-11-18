@@ -27,6 +27,10 @@ import { ActivateAccountComponent } from './Pages/activate-account/activate-acco
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import { AdminComponent } from './Pages/admin/admin.component';
 import {BootstrapIconsModule} from "ng-bootstrap-icons";
+import {TableModule} from "primeng/table";
+import {RatingModule} from "primeng/rating";
+import {ButtonModule} from "primeng/button";
+import {RippleModule} from "primeng/ripple";
 
 export function tokenGetter() {
   return sessionStorage.getItem('_token');
@@ -67,7 +71,10 @@ export function tokenGetter() {
     }),
     RecaptchaModule,
     MatProgressBarModule,
-    // BootstrapIconsModule,
+    TableModule,
+    RatingModule,
+    ButtonModule,
+    RippleModule,
   ],
   providers: [
     {

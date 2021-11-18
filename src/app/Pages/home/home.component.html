@@ -3,6 +3,26 @@
 <div class="overlay second"></div>
 <div class="overlay third"></div>
 
+<style>
+  .typed-words::after {
+    content: "";
+    display: inline;
+    animation: blink 1s infinite;
+  }
+  @keyframes blink {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+</style>
+
+
 <div class="wrapper">
 
   <app-header></app-header>
@@ -14,8 +34,8 @@
       <h1 class="title">
         <span>F33ders <br> of Legends</span>
       </h1>
-      <p class="desc">Lorem ipsum dolor si amet<br> Legend never die.</p>
-      <a href="#" class="readmore">Scroll For More</a>
+      <p id="factDisplay" class="typed-word desc"><span class="typed-element"> </span></p>
+      <a routerLink="/champions" class="readmore">Tous les champions</a>
     </div>
 
 
@@ -43,12 +63,9 @@
             <div class="sliders slide-4"></div>
           </div>
         </div>
-
       </div>
     </div>
-
   </div>
-
 </div>
-
 </body>
+

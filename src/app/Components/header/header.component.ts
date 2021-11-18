@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {gsap} from "gsap";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ToastrService} from "ngx-toastr";
 import {SummonerService} from "../../Services/summoner.service";
+import {EncryptService} from "../../Services/encrypt.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-header',
@@ -14,16 +16,39 @@ export class HeaderComponent implements OnInit {
   getPlayerForm !: FormGroup;
   submitted = false;
   timeExec = false;
+  token: any;
+  isLogged: any;
+  summoner: any;
+
 
   constructor(
     private formBuilder: FormBuilder,
     private toastr: ToastrService,
     private summonerService: SummonerService,
-  ) { }
+    private encryptService: EncryptService,
+    private router: Router,
+  ) {
+  }
 
   ngOnInit(): void {
 
+    this.isLogged = sessionStorage.getItem("_logged");
+
+    if (this.isLogged) {
+      this.isLogged = this.encryptService.decode(this.isLogged);
+    }
+
+    this.token = sessionStorage.getItem('_token');
+
+    this.summoner = sessionStorage.getItem('summoner');
+    this.summoner = localStorage.getItem('summoner');
+
+    if (this.summoner) {
+      this.summoner = true;
+    }
+
     this.initSearchPlayerForm();
+
 
     gsap.from('.logo', 1, {
       delay: 1.2,
@@ -49,12 +74,7 @@ export class HeaderComponent implements OnInit {
       x: -20,
       ease: Expo.easeInOut
     });
-    gsap.from('.cart', 1, {
-      delay: 2.0,
-      opacity: 0,
-      x: -20,
-      ease: Expo.easeInOut
-    });
+
     gsap.to('.border-bottom', 1, {
       delay: 1.4,
       width: '100%',
@@ -72,59 +92,89 @@ export class HeaderComponent implements OnInit {
 
     if (this.getPlayerForm.valid) {
 
-      this.submitted = true;
-      this.timeExec = true;
+      if (this.token && this.isLogged) {
+        this.submitted = true;
+        this.timeExec = true;
 
-      const surname = this.getPlayerForm.get('username')?.value;
+        const surname = this.getPlayerForm.get('username')?.value;
 
-      if (surname) {
+        if (surname) {
 
-        this.summonerService.setDataIntoDb(surname).subscribe(value => {
+          this.summonerService.setDataIntoDb(surname).subscribe(value => {
+            console.log(value);
 
-          if (value.statusCode === 400) {
-            this.toastr.error("Nous ne disposons d'aucun match correspond à ce profil");
-            this.timeExec = false;
-            this.submitted = false;
-          }
-
-          if (JSON.stringify(value).length > 50000) {
-            this.submitted = false;
-            localStorage.setItem('summoner', JSON.stringify(value));
-            sessionStorage.setItem('summoner', JSON.stringify(value));
-
-            if (value) {
+            if (value.statusCode === 400 || value.statusCode === 404) {
+              this.toastr.error("Nous ne disposons d'aucun match correspond à ce profil");
               this.timeExec = false;
               this.submitted = false;
             }
 
-            this.toastr.success('Les données du joueur ' + surname + ' sont maintenant disponibles');
-          }
 
-          if (value === "Data has been set succesfully") {
-            this.summonerService.setDataIntoDb(surname).subscribe(value1 => {
-
-              this.timeExec = false;
+            if (JSON.stringify(value).length > 50000) {
               this.submitted = false;
-
-              localStorage.setItem('summoner', JSON.stringify(value1));
-              sessionStorage.setItem('summoner', JSON.stringify(value1));
+              localStorage.setItem('summoner', JSON.stringify(value));
+              sessionStorage.setItem('summoner', JSON.stringify(value));
 
               this.toastr.success('Les données du joueur ' + surname + ' sont maintenant disponibles');
 
-            }, error => {
-              this.timeExec = false;
-              this.toastr.error("Nous ne disposons d'aucun match correspond à ce profil");
-            });
-          }
-        }, error1 => {
+              this.router.navigate(['/player']);
+
+              if (value) {
+                this.timeExec = false;
+                this.submitted = false;
+              }
+            }
+
+            if (value === "Data has been set succesfully") {
+
+              this.summonerService.setDataIntoDb(surname).subscribe(value1 => {
+
+                if (value.statusCode === 400 || value.statusCode === 404) {
+                  this.toastr.error("Nous ne disposons d'aucun match correspond à ce profil");
+                  this.timeExec = false;
+                  this.submitted = false;
+                } else {
+                  this.timeExec = false;
+                  this.submitted = false;
+
+                  if (JSON.stringify(value1).length > 15000) {
+                    localStorage.setItem('summoner', JSON.stringify(value1));
+                    sessionStorage.setItem('summoner', JSON.stringify(value1));
+
+                    this.toastr.success('Les données du joueur ' + surname + ' sont maintenant disponibles');
+
+                    this.router.navigate(['/player']);
+                  } else {
+                    this.toastr.error('Ce joueur ne dispose d\'aucun match valable à l\'heure actuelle');
+                  }
+                }
+
+              }, error => {
+                this.timeExec = false;
+                this.submitted = false;
+                this.toastr.error("Nous ne disposons d'aucun match correspond à ce profil");
+              });
+            }
+          }, error1 => {
+            this.timeExec = false;
+            this.submitted = false;
+            this.toastr.error("Nous ne disposons d'aucun match correspond à ce profil");
+          });
+        } else {
           this.timeExec = false;
-          this.toastr.error("Nous ne disposons d'aucun match correspond à ce profil");
-        });
+          this.submitted = false;
+          this.toastr.error("Aucun nom d'invocateur n'est renseigné !");
+        }
       } else {
-        this.timeExec = false;
-        this.toastr.error("Aucun nom d'invocateur n'est renseigné !");
+        this.toastr.error("Afin d'utiliser cette fonctionnalité veuillez vous connecter");
       }
     }
   }
 
+  logout() {
+    localStorage.clear();
+    sessionStorage.clear();
+
+    this.router.navigate(['']);
+  }
 }

@@ -2,6 +2,19 @@ h2 {
   color: white;
   margin: 0;
 }
+
+.imgContainer {
+  text-align: center;
+}
+
+:host ::ng-deep .p-datatable-wrapper {
+  border-radius: 25px;
+}
+
+.imgItem:hover {
+  cursor: pointer;
+}
+
 .mBTable{
   margin-bottom: 90px;
 }
@@ -20,11 +33,22 @@ h2 {
   border-radius: 50%;
 }
 .imgObjets {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
   flex-direction: row;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
   align-items: stretch;
+  -webkit-box-pack: space-evenly;
+  -ms-flex-pack: space-evenly;
   justify-content: space-evenly;
+  -ms-flex-line-pack: distribute;
   align-content: space-around;
 }
 .imgObjets img {
@@ -35,8 +59,14 @@ h2 {
   color: #1F2326;
 }
 .infosProfile {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   color: white;
   padding-right: 20px;
@@ -61,7 +91,11 @@ h2 {
 .btnEditProfile {
   margin-top: 20px;
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
   justify-content: flex-end;
 }
 .userNameUser {
@@ -80,7 +114,6 @@ h2 {
 }
 .ease {
   -webkit-transition: all .5s;
-  -moz-transition: all .5s;
   -o-transition: all .5s;
   transition: all .5s;
 }
@@ -118,7 +151,6 @@ h2 {
 .tabs > span i,
 .tabs > span {
   -webkit-transition: all .5s;
-  -moz-transition: all .5s;
   -o-transition: all .5s;
   transition: all .5s;
 }
@@ -178,7 +210,10 @@ h2 {
   background: #fff;
 }
 .stats {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-pack: distribute;
   justify-content: space-around;
 }
 .statsNumber {
@@ -186,9 +221,18 @@ h2 {
   font-size: 1.2em;
 }
 .textCenterStats {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
 }
 .statsTitle {
@@ -199,9 +243,18 @@ h2 {
 }
 .statsRang {
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 .textRang {
@@ -212,8 +265,15 @@ h2 {
 }
 .statsGamer {
   width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
 }
 table {
@@ -231,7 +291,6 @@ td, th {
   font-size: 18px;
   background: #eee;
 }
-
 td img{
   width: 35px;
 }
@@ -241,7 +300,11 @@ th {
   font-weight: bold;
 }
 .statsDFSB{
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
 }
 .statsOneSection{
@@ -249,6 +312,13 @@ th {
 }
 .statsTwoSection{
   width: 60%;
+}
+.row{
+  display: flex;
+  flex-wrap: nowrap;
+  margin-right: -15px;
+  margin-left: -15px;
+  flex-direction: column;
 }
 @media only screen and (max-width: 760px) and (min-device-width: 768px) and (max-device-width: 1024px) {
   table {
@@ -285,15 +355,28 @@ th {
 }
 @media (min-height: 768px) {
   .infosProfile {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: inherit;
+    -ms-flex-pack: inherit;
     justify-content: inherit;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     color: white;
     padding-right: 20px;
   }
   .statsDFSB{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
   }
   .statsOneSection, .statsTwoSection{
@@ -303,14 +386,26 @@ th {
     margin-right: 25px;
   }
   .sectionOne {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
     flex-direction: row;
     width: 100%;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
   }
   .statsRang {
     margin-top: 25px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     width: 100%;
   }
@@ -329,6 +424,8 @@ th {
     width: 100%;
   }
   .statsContent {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
   }
   .tabs {
@@ -336,8 +433,15 @@ th {
   }
   .statsGamer {
     width: 50%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     text-align: center;
   }
@@ -345,12 +449,22 @@ th {
 @media (max-width: 768px) {
   .statsRang {
     margin-top: 25px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     width: 100%;
   }
   .statsContent {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
   }
   .statsTab {
@@ -362,14 +476,28 @@ th {
     border-bottom: 1px solid #eee;
     position: relative;
     padding-left: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
   }
   .sectionOne {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     width: 100%;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
   }
   .edit {
@@ -383,8 +511,15 @@ th {
 }
 @media only screen and (min-width: 1024px){
   .statsDFSB{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
     flex-direction: row;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
   }
   .statsOneSection{

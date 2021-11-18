@@ -26,5 +26,23 @@ export class UserService {
     return this.httpClient.delete(`${environment.API_URL}api/delete_user/${id}`)
   }
 
+  getUserProfil() {
+    return this.httpClient.get<User>(environment.API_URL + 'api/get_user_profil');
+  }
+
+  updateUserInformations(username: String) {
+    return this.httpClient.patch(environment.API_URL + 'api/update_username', {
+      username: username,
+    });
+  }
+
+  updateUserPasswordInformation(oldPassword : String, password : String, verifPassword : String) {
+    return this.httpClient.patch(environment.API_URL + 'api/update_password', {
+      oldPassword : oldPassword,
+      password : password,
+      verifPassword : verifPassword
+    });
+  }
+
 
 }
