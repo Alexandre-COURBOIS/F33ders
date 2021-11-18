@@ -313,6 +313,13 @@ th {
 .statsTwoSection{
   width: 60%;
 }
+.row{
+  display: flex;
+  flex-wrap: nowrap;
+  margin-right: -15px;
+  margin-left: -15px;
+  flex-direction: column;
+}
 @media only screen and (max-width: 760px) and (min-device-width: 768px) and (max-device-width: 1024px) {
   table {
     width: 100%;
