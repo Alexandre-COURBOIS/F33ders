@@ -18,7 +18,6 @@ export class ProfileGamerComponent implements OnInit {
   ngOnInit(): void {
 
 
-
     this.summoner = sessionStorage.getItem("summoner");
 
     if (!this.summoner) {
@@ -26,15 +25,9 @@ export class ProfileGamerComponent implements OnInit {
     }
 
     this.summoner = JSON.parse(this.summoner);
-    console.log(this.summoner);
 
     this.match = this.summoner.match;
-    console.log(this.match)
 
-  }
-
-  onMouseHover(){
-    console.log("toto");
   }
 
 }

@@ -7,11 +7,11 @@
     <ul>
       <li><a class="textLink" routerLink="/">Home</a></li>
       <li><a class="textLink" routerLink="/champions">Champion</a></li>
-      <li><a class="textLink">A propos</a></li>
+      <li><a class="textLink" routerLink="/mentions">A propos</a></li>
     </ul>
   </div>
   <form [formGroup]="getPlayerForm" (ngSubmit)="submitGetPlayerForm()" class="search">
-    <div class="search-box">
+    <div *ngIf="!summStorage" class="search-box">
       <button [disabled]="submitted == true" class="btn-search"><i class="fa fa-search"></i></button>
       <input formControlName="username" type="text" class="input-search" placeholder="Nom du joueur...">
     </div>

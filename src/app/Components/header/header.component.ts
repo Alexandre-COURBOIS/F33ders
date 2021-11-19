@@ -19,6 +19,7 @@ export class HeaderComponent implements OnInit {
   token: any;
   isLogged: any;
   summoner: any;
+  summStorage = false;
 
 
   constructor(
@@ -49,6 +50,11 @@ export class HeaderComponent implements OnInit {
 
     this.initSearchPlayerForm();
 
+    let urlToGo = window.location.href.split('/')[3];
+
+    if (urlToGo === "player" && this.summoner) {
+      this.summStorage = true;
+    }
 
     gsap.from('.logo', 1, {
       delay: 1.2,
