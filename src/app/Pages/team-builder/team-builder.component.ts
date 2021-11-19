@@ -8,34 +8,26 @@ import {environment} from "../../../environments/environment";
   styleUrls: ['./team-builder.component.css']
 })
 export class TeamBuilderComponent implements OnInit {
-  private data: any;
-  private lane: Object | undefined;
-  private agressevity: boolean = false;
-  private vulnerable: boolean = false;
-  private arrayLane: Array<any> = [];
-  // private playerLane: string;
+  private team: any;
 
   constructor(public httpClient: HttpClient) { }
 
   ngOnInit(): void {
-    this.getData();
+    this.getTeam();
   }
 
-  getData() {
+  getTeam() {
     // this.httpClient.get(environment.API_URL + 'api/algo/process').subscribe(value => {
     //   // console.log(value);
     //   this.lane = value;
     // });
     let username = 'Druxys';
-    this.httpClient.post(environment.API_URL + 'api/algo/process',
+    this.httpClient.post(environment.API_URL + 'api/algo/find-team',
       { username: username})
       .subscribe(value => {
         console.log(value);
-        this.data = value;
+        this.team = value;
 
-        if(this.data.mainRole == 'ADC') {
-
-        }
       });
   }
 
