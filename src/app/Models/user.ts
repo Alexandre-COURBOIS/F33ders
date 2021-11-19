@@ -1,7 +1,7 @@
 export class User {
   id: number;
   username: string;
-  userPseudo: string;
+  userpseudo: string;
   email: string;
   password: string;
   token: string;
@@ -9,14 +9,15 @@ export class User {
   resetTokenAt: Date;
   role: [];
   isActive: boolean;
+  isBanned: boolean;
   createdAt: Date;
   updatedAt: Date
 
-  constructor(id: number, username: string, userPseudo: string, email: string, password: string, token: string, resetToken: string, resetTokenAt: Date, role: [], isActive: boolean, createdAt: Date, updatedAt: Date) {
+  constructor(id: number, username: string, userpseudo: string, email: string, password: string, token: string, resetToken: string, resetTokenAt: Date, role: [], isActive: boolean, isBanned: boolean, createdAt: Date, updatedAt: Date) {
 
     this.id = id;
     this.username = username;
-    this.userPseudo = userPseudo;
+    this.userpseudo = userpseudo;
     this.email = email;
     this.password = password;
     this.token = token;
@@ -24,6 +25,7 @@ export class User {
     this.resetTokenAt = resetTokenAt;
     this.role = role;
     this.isActive = isActive;
+    this.isBanned = isBanned;
     this.createdAt = createdAt;
     this.updatedAt = updatedAt;
   }

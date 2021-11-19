@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
 
     this.authForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email, Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
-      password: ['', [Validators.required, Validators.minLength(8), Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!.:,;^%*?&µù%=&])[A-Za-z\d$@$!.:,;^%*?&µù%=&].{8,}')]]
+      password: ['', [Validators.required, Validators.minLength(8)]]
     });
   }
 
@@ -71,11 +71,20 @@ export class LoginComponent implements OnInit {
           sessionStorage.setItem("_logged", this.encryptService.encode("true"));
 
           this.userService.getUser().subscribe(user => {
+
+            const decodJwt = this.jwtHelper.decodeToken(value['token']);
+
             if (!user.isActive) {
               this.toastr.error("Merci d'activer votre compte via l'email qui vous a été envoyé lors de votre inscription");
-            } else {
-              this.toastr.success("Bienvenue " + user.userPseudo);
+              sessionStorage.clear();
+            }else if(user.isBanned) {
+              this.toastr.error("Votre compte a été suspendu suite à une violation de notre politique d'utilisation. Contactez-nous pour plus d'informations");
+              sessionStorage.clear();
+            } else if (decodJwt.roles.length === 1) {
+              this.toastr.success("Bienvenue " + user.userpseudo);
               this.router.navigate(['']);
+            }else if (decodJwt.roles.length > 1) {
+              this.router.navigate(['auth/admin']);
             }
           }, error => {
             this.toastr.error('Email ou mot de passe incorrect');

@@ -315,10 +315,7 @@ th {
 }
 .row{
   display: flex;
-  flex-wrap: nowrap;
-  margin-right: -15px;
-  margin-left: -15px;
-  flex-direction: column;
+  flex-wrap: wrap;
 }
 @media only screen and (max-width: 760px) and (min-device-width: 768px) and (max-device-width: 1024px) {
   table {
