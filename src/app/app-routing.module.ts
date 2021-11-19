@@ -15,6 +15,7 @@ import {ActivateAccountComponent} from "./Pages/activate-account/activate-accoun
 import {AdminComponent} from "./Pages/admin/admin.component";
 import {IsLoggedGuard} from "./Guards/is-logged.guard";
 import {AuthGuard} from "./Guards/auth.guard";
+import {TeamBuilderComponent} from "./Pages/team-builder/team-builder.component";
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -27,6 +28,7 @@ const routes: Routes = [
   {path: 'champion-details/:championId', canActivate: [IsLoggedGuard],component: ChampionDetailsComponent},
   {path: 'champions', canActivate: [IsLoggedGuard],component: ChampionComponent},
   {path: 'mentions', component: MentionsComponent},
+  {path: 'team', canActivate: [IsLoggedGuard],component: TeamBuilderComponent},
   {path: 'activation/:token', component: ActivateAccountComponent},
   {path: '404NotFound', component: NotFound404Component},
   {path: 'auth/admin', component: AdminComponent},
