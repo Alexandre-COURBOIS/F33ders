@@ -1,27 +1,45 @@
-# FrontLoLProject
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.6.
 
-## Development server
+# F33DERS OF LEGENDS
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+> First project of the third year of Bachelor Web Development.
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+## Technical Requirements
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+In order to be able to run the application on your workstation, you must install the following dependencies:
+* Angular
+* NodeJs
+* Api Symfony [here](https://github.com/Alexandre-COURBOIS/f33ders-api)
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Installation
+#### Angular
+1. [Download](https://angular.io/docs)
+#### NodeJS
+1. [Download](https://nodejs.org/en/download/)
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Execution
 
-## Further help
+1. Open a command prompt at the root of the project
+2. Install all dependencies with command `$ npm install`
+3. Launch API server
+4. Launch angular server `$ ng server`
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+For detailed explanation on how things work, check out [Angular Docs](https://iangular.io/docs).
+
+## Contributors
+
+[Alexandre Courbois](https://github.com/Alexandre-COURBOIS)
+
+[Pierre Halavent](https://github.com/pierrehlvt)
+
+[Benjamin Plesant](https://github.com/Al-Namrood)
+
+[Paulo Silva](https://github.com/plasilva1997)
+
+## Presentation
+[Figma Presentation](https://www.figma.com/proto/0KsZR4XTU0Bt8uT65D4MHo/Oral-F33DERS?page-id=0%3A1&node-id=6%3A14&viewport=241%2C48%2C0.2&scaling=contain&starting-point-node-id=1%3A2)
