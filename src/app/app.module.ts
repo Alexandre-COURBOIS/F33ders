@@ -30,6 +30,7 @@ import {TableModule} from "primeng/table";
 import {RatingModule} from "primeng/rating";
 import {ButtonModule} from "primeng/button";
 import {RippleModule} from "primeng/ripple";
+import { TeamBuilderComponent } from './Pages/team-builder/team-builder.component';
 
 export function tokenGetter() {
   return sessionStorage.getItem('_token');
@@ -54,6 +55,7 @@ export function tokenGetter() {
     MentionsComponent,
     ActivateAccountComponent,
     AdminComponent,
+    TeamBuilderComponent,
   ],
   imports: [
     BrowserModule,

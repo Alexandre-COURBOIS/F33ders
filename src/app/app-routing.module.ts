@@ -12,6 +12,7 @@ import {ChampionDetailsComponent} from "./Pages/champion-details/champion-detail
 import {ChampionComponent} from "./Pages/champion/champion.component";
 import {MentionsComponent} from "./Pages/mentions/mentions.component";
 import {ActivateAccountComponent} from "./Pages/activate-account/activate-account.component";
+import {TeamBuilderComponent} from "./Pages/team-builder/team-builder.component";
 import {AdminComponent} from "./Pages/admin/admin.component";
 import {IsLoggedGuard} from "./Guards/is-logged.guard";
 import {AuthGuard} from "./Guards/auth.guard";
@@ -27,6 +28,7 @@ const routes: Routes = [
   {path: 'player', canActivate: [IsLoggedGuard],component: ProfileGamerComponent},
   {path: 'champion-details/:championId', canActivate: [IsLoggedGuard],component: ChampionDetailsComponent},
   {path: 'champions', canActivate: [IsLoggedGuard],component: ChampionComponent},
+  {path: 'team', canActivate: [IsLoggedGuard],component: TeamBuilderComponent},
   {path: 'mentions', component: MentionsComponent},
   {path: 'activation/:token', component: ActivateAccountComponent},
   {path: '404NotFound', component: NotFound404Component},
