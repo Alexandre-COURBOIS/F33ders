@@ -2,5 +2,37 @@
   <div class="background"></div>
 
   <app-header></app-header>
+  <div class="arrayCenter">
+    <table>
+      <thead>
+      <tr>
+        <th>Role</th>
+        <th>Pseudo</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td style="color: black">{{player.top.mainRole}}</td>
+        <td style="color: black">{{player.top.username}}</td>
+      </tr>
+      <tr>
+        <td style="color: black">{{player.jungle.username}}</td>
+        <td style="color: black">{{player.jungle.username}}</td>
+      </tr>
+      <tr>
+        <td style="color: black">{{player.mid.username}}</td>
+        <td style="color: black">{{player.mid.username}}</td>
+      </tr>
+      <tr>
+        <td style="color: black">{{player.adc.username}}</td>
+        <td style="color: black">{{player.adc.username}}</td>
+      </tr>
+      <tr>
+        <td style="color: black">{{player.support.username}}</td>
+        <td style="color: black">{{player.support.username}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 
 </div>

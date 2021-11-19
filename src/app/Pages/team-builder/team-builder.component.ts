@@ -8,7 +8,7 @@ import {environment} from "../../../environments/environment";
   styleUrls: ['./team-builder.component.css']
 })
 export class TeamBuilderComponent implements OnInit {
-  private team: any;
+  player!: any;
 
   constructor(public httpClient: HttpClient) { }
 
@@ -25,9 +25,7 @@ export class TeamBuilderComponent implements OnInit {
     this.httpClient.post(environment.API_URL + 'api/algo/find-team',
       { username: username})
       .subscribe(value => {
-        console.log(value);
-        this.team = value;
-
+        this.player = value;
       });
   }
 

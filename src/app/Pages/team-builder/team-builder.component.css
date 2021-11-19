@@ -1,0 +1,16 @@
+tr{
+  background-color: #382d14;
+  color: white;
+  text-align: center;
+}
+td{
+  text-align: center;
+  background: white;
+}
+.arrayCenter{
+  padding-top: 5vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
